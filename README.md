@@ -42,8 +42,8 @@ $ git config --global merge.tool <editor>
 $ git config --global core.editor <editor>
 ```
 
-### Getting Global Settings
-Get all your global settings
+### Getting Global Configs
+Get all your global configs
 ```bash
 $ git config --global --list
                       -l
