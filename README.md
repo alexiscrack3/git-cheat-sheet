@@ -2,9 +2,9 @@
 A collection of some of the most useful Git commands
 
 ## Table of Contents
-1. [Settings](#Settings)
-    * Setting Global Configs
-    * Getting Global Configs
+1. [Settings](#settings)
+    * [Setting Global Configs](#setting-global-configs)
+    * [Getting Global Configs](#getting-global-configs)
     * Local Configs
 
 ## Settings
@@ -40,4 +40,19 @@ $ git config --global merge.tool <editor>
 // TODO
 ```bash
 $ git config --global core.editor <editor>
+```
+
+### Getting Global Settings
+Get all your global settings
+```bash
+$ git config --global --list
+                      -l
+```
+Get global username
+```bash
+$ git config --global user.name
+```
+Get global email
+```bash
+$ git config --global user.email
 ```
