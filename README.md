@@ -7,7 +7,7 @@ A collection of some of the most useful Git commands
     * [Getting Global Configs](#getting-global-configs)
     * [Setting Local Configs](#setting-local-configs)
     * [Getting Local Configs](#getting-local-configs)
-2. [Alias](#alias)
+2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
 
