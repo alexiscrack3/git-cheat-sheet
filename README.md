@@ -5,8 +5,10 @@ A collection of some of the most useful Git commands
 1. [Settings](#settings)
     * [Setting Global Configs](#setting-global-configs)
     * [Getting Global Configs](#getting-global-configs)
+    * [Removing Global Configs](#removing-global-configs)
     * [Setting Local Configs](#setting-local-configs)
     * [Getting Local Configs](#getting-local-configs)
+    * [Removing Local Configs](#removing-local-configs)
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
@@ -61,6 +63,16 @@ Get global email
 $ git config --global user.email
 ```
 
+### Removing Global Configs
+Remove global username
+```bash
+$ git config --global --unset user.name
+```
+Remove global email
+```bash
+$ git config --global --unset user.email
+```
+
 ### Setting Local Configs
 Set your username for current repository
 ```bash
@@ -79,6 +91,16 @@ $ git config --get user.name
 Get email
 ```bash
 $ git config --get user.email
+```
+
+### Removing Local Configs
+Remove username
+```bash
+$ git config --unset user.name
+```
+Remove email
+```bash
+$ git config --unset user.email
 ```
 
 ## Aliases
