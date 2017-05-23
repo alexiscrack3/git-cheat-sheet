@@ -7,6 +7,9 @@ A collection of some of the most useful Git commands
     * [Getting Global Configs](#getting-global-configs)
     * [Setting Local Configs](#setting-local-configs)
     * [Getting Local Configs](#getting-local-configs)
+2. [Alias](#alias)
+* [Creating Shortcuts](#creating-shortcuts)
+* [Setting Useful Shortcuts](#setting-useful-shortcuts)
 
 ## Settings
 ### Setting Global Configs
@@ -76,4 +79,40 @@ $ git config --get user.name
 Get email
 ```bash
 $ git config --get user.email
+```
+
+## Aliases
+### Creating Shortcuts
+// TODO
+```bash
+$ git config --global alias.<alias-name> "<command>"
+```
+### Setting Useful Shortcuts
+// TODO
+```bash
+$ git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>' --abbrev-commit"
+```
+// TODO
+```bash
+$ git config --global alias.ls "log --pretty=format:'%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate"
+```
+// TODO
+```bash
+$ git config --global alias.ll "log --pretty=format:'%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --numstat"
+```
+// TODO
+```bash
+$ git config --global alias.lnc "log --pretty=format:'%h\ %s\ [%cn]'"
+```
+// TODO
+```bash
+$ git config --global alias.lds "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --date=short"
+```
+// TODO
+```bash
+$ git config --global alias.ld "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --date=relative"
+```
+// TODO
+```bash
+$ git config --global alias.le "log --oneline --decorate"
 ```
