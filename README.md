@@ -5,7 +5,8 @@ A collection of some of the most useful Git commands
 1. [Settings](#settings)
     * [Setting Global Configs](#setting-global-configs)
     * [Getting Global Configs](#getting-global-configs)
-    * Local Configs
+    * [Setting Local Configs](#setting-local-configs)
+    * [Getting Local Configs](#getting-local-configs)
 
 ## Settings
 ### Setting Global Configs
@@ -55,4 +56,24 @@ $ git config --global user.name
 Get global email
 ```bash
 $ git config --global user.email
+```
+
+### Setting Local Configs
+Set your username for current repository
+```bash
+$ git config user.name "<name>"
+```
+Set your email for current repository
+```bash
+$ git config user.email "<email>"
+```
+
+### Getting Local Configs
+Get username
+```bash
+$ git config --get user.name
+```
+Get email
+```bash
+$ git config --get user.email
 ```
