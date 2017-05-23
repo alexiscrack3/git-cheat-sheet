@@ -8,8 +8,8 @@ A collection of some of the most useful Git commands
     * [Setting Local Configs](#setting-local-configs)
     * [Getting Local Configs](#getting-local-configs)
 2. [Alias](#alias)
-* [Creating Shortcuts](#creating-shortcuts)
-* [Setting Useful Shortcuts](#setting-useful-shortcuts)
+    * [Creating Shortcuts](#creating-shortcuts)
+    * [Setting Useful Shortcuts](#setting-useful-shortcuts)
 
 ## Settings
 ### Setting Global Configs
