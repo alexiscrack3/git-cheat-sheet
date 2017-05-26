@@ -13,6 +13,8 @@ A collection of some of the most useful Git commands
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
 3. [Submodules](#submodules)
+    * [Starting with Submodules](#starting-with-submodules)
+    * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
 ## Settings
 ### Setting Global Configs
@@ -1430,6 +1432,7 @@ $ git describe --tags --abbrev=0
 
 
 ## Submodules
+### Starting with Submodules
 Initialize a submodule
 ```bash
 $ git submodule init
@@ -1442,28 +1445,11 @@ Update a submodule
 ```bash
 $ git submodule update --init --recursive
 ```
-
-CLONING A PROJECT WITH SUBMODULES
-1st. way
+### Cloning a Project with Submodules
 Clone an existing repository and all its sub-modules recursively
 ```bash
 $ git clone --recursive <repository>
 ```
-
-2nd. way
-```bash
-Our folder module will be empty
-$ git clone <repository>
-```
-Initialize the local config file
-```bash
-$ git submodule init
-```
-// TODO
-```bash
-$ git submodule update
-```
-
 
 
 
