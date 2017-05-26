@@ -185,21 +185,21 @@ $ git add -u
 Begin an interactive staging session that lets you choose portions of a file to add to the next commit
 ```bash
 $ git add -p
-        --patch
-        #    y - stage this hunk
-        #    n - do not stage this hunk
-        #    q - quit; do not stage this hunk nor any of the remaining ones
-        #    a - stage this hunk and all later hunks in the file
-        #    d - do not stage this hunk nor any of the later hunks in the file
-        #    g - select a hunk to go to
-        #    / - search for a hunk matching the given regex
-        #    j - leave this hunk undecided, see next undecided hunk
-        #    J - leave this hunk undecided, see next hunk
-        #    k - leave this hunk undecided, see previous undecided hunk
-        #    K - leave this hunk undecided, see previous hunk
-        #    s - split the current hunk into smaller hunks
-        #    e - manually edit the current hunk
-        #    ? - print help
+          --patch
+#    y - stage this hunk
+#    n - do not stage this hunk
+#    q - quit; do not stage this hunk nor any of the remaining ones
+#    a - stage this hunk and all later hunks in the file
+#    d - do not stage this hunk nor any of the later hunks in the file
+#    g - select a hunk to go to
+#    / - search for a hunk matching the given regex
+#    j - leave this hunk undecided, see next undecided hunk
+#    J - leave this hunk undecided, see next hunk
+#    k - leave this hunk undecided, see previous undecided hunk
+#    K - leave this hunk undecided, see previous hunk
+#    s - split the current hunk into smaller hunks
+#    e - manually edit the current hunk
+#    ? - print help
 ```
 // TODO
 ```bash
@@ -258,8 +258,8 @@ git mv <file-from> <file-to>
 COMMITTING YOUR CHANGES
 Stage all modified and deleted paths
 ```bash
-$ git commit --all
-            -a
+$ git commit -a
+             --all
 ```
 Stage all files that have been modified and deleted, but new files you have not told git about are not affected
 ```bash
@@ -272,12 +272,12 @@ $ git commit -m "<message>" \ --author="Name <your_email@youremail.com>"
 // TODO
 ```bash
 $ git commit -m "<message>"
-           --mesage
+             --mesage
 ```
 Show unified diff of all file changes
 ```bash
 $ git commit -v
-           --verbose
+             --verbose
 ```
 If you want to check in which files a commit is going to be incorporated
 ```bash
@@ -349,7 +349,7 @@ $ git status
 Output in short format
 ```bash
 $ git status -s
-           --short
+             --short
 ```
 Status of ignored files
 ```bash
@@ -383,7 +383,7 @@ $ git diff HEAD^^
 It compares your staged changes against your HEAD (last commit)
 ```bash
 $ git diff --cached
-         --staged
+           --staged
 ```
 Differences between two commits
 ```bash
@@ -423,22 +423,22 @@ $ git ls-files -t
 Show staged files
 ```bash
 $ git ls-files -s
-             --stage
+               --stage
 ```
 Show deleted files
 ```bash
 $ git ls-files -d
-             --deleted
+               --deleted
 ```
 Show untracked files
 ```bash
 $ git ls-files -o
-             --others
+               --others
 ```
 Show modified files
 ```bash
 $ git ls-files -m
-             --modified
+               --modified
 ```
 Show ignored files
 ```bash
@@ -531,7 +531,7 @@ $ git stash save "<message>"
 Saving current state including untracked files
 ```bash
 $ git stash save -u
-               --include-untracked
+                 --include-untracked
 ```
 Listing stashed you have stored in your stack
 ```bash
@@ -576,7 +576,7 @@ $ git stash -k
 Stashing untracked files
 ```bash
 $ git stash -u
-          --untracked
+            --untracked
 ```
 // TODO
 ```bash
@@ -718,7 +718,7 @@ $ git clean
 If the git configuration variable clean.requireForce is not set to false, git clean will refuse to run unless given -f or -n
 ```bash
 $ git clean -f
-          --force
+            --force
 ```
 Don’t actually remove anything, just show what would be done
 ```bash
@@ -727,7 +727,7 @@ $ git clean -n
 Forcefully remove untracked directory
 ```bash
 $ git clean -f -d
-          -fd
+            -fd
 ```
 If you are clearing out untracked files, you can double check what files are going to be deleted with the dry run flag
 ```bash
@@ -878,7 +878,7 @@ $ git fetch <remote> <local-branch>
 After fetching, remove any remote-tracking references that no longer exist on the remote
 ```bash
 $ git fetch -p
-          --prune
+            --prune
 ```
 
 
@@ -914,12 +914,12 @@ $ git push <remote> <local-branch> <remote-branch>
 To push a local branch and set the remote as upstream
 ```bash
 $ git push -u <remote> <local-branch>
-         --set-upstream <remote> <local-branch>
+           --set-upstream <remote> <local-branch>
 ```
 Makes the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours
 ```bash
 $ git push -f <remote> <commit>:<local-branch>
-         --force
+           --force
 ```
 It refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the branch upstream
 ```bash
@@ -1011,7 +1011,7 @@ $ git branch -vv
 List both remote-tracking branches and local branches
 ```bash
 $ git branch -a
-           --all
+             --all
 ```
 Which branches are already merged into HEAD (i.e. the branch you're on)
 ```bash
@@ -1071,7 +1071,7 @@ TRACKING BRANCHES
 // TODO
 ```bash
 $ git branch -u <remote>/<remote-branch>
-           --set-upstream-to
+             --set-upstream-to
 ```
 // TODO
 ```bash
@@ -1330,7 +1330,7 @@ $ git cherry <branch>
 Find commits yet to be applied to upstream with additional information
 ```bash
 $ git cherry -v <branch>
-           --verbose
+             --verbose
 ```
 
 
