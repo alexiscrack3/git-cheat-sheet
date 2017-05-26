@@ -145,9 +145,11 @@ $ git config --global alias.le "log --oneline --decorate"
 
 
 INITIALIZING A REPOSITORY
+// TODO
 ```bash
 $ git init
 ```
+// TODO
 ```bash
 $ git init <directory>
 ```
@@ -199,6 +201,7 @@ $ git add -p
         #    e - manually edit the current hunk
         #    ? - print help
 ```
+// TODO
 ```bash
 $ git add -p <file>
 ```
@@ -234,6 +237,7 @@ It removes recursively from index
 ```bash
 $ git rm <directory> -r
 ```
+// TODO
 ```bash
 $ git rm <file>
 ```
@@ -261,9 +265,11 @@ Stage all files that have been modified and deleted, but new files you have not 
 ```bash
 $ git commit -am "<message>"
 ```
+// TODO
 ```bash
 $ git commit -m "<message>" \ --author="Name <your_email@youremail.com>"
 ```
+// TODO
 ```bash
 $ git commit -m "<message>"
            --mesage
@@ -319,6 +325,7 @@ GETTING HELP
 ```bash
 $ git help <command>
 ```
+// TODO
 ```bash
 $ git <command> --help
 ```
@@ -405,6 +412,7 @@ $ git diff <commit> HEAD -- <file>
 
 
 SEEING INFORMATION ABOUT FILES IN INDEX/WORKING DIRECTORY
+// TODO
 ```bash
 $ git ls-files
 ```
@@ -452,9 +460,11 @@ Show all commits in the current branch yet to be merged to <local-branch>
 ```bash
 $ git cherry -v <local-branch>
 ```
+// TODO
 ```bash
 $ git cherry -v <local-branch> <branch-to-be-merged>
 ```
+// TODO
 ```bash
 $ git log <branch-to-be-merged> ^<local-branch>
 ```
@@ -474,21 +484,27 @@ $ git blame -L <starting-line>,<ending-line> <file>
 
 
 BINARY SEARCH
+// TODO
 ```bash
 $ git bisect start
 ```
+// TODO
 ```bash
 $ git bisect bad
 ```
+// TODO
 ```bash
 $ git bisect good
 ```
+// TODO
 ```bash
 $ git bisect reset
 ```
+// TODO
 ```bash
 $ git bisect log
 ```
+// TODO
 ```bash
 $ git bisect log > bisect.log
 ```
@@ -562,9 +578,11 @@ Stashing untracked files
 $ git stash -u
           --untracked
 ```
+// TODO
 ```bash
 $ git stash --keep-index
 ```
+// TODO
 ```bash
 $ git stash --no-keep-index
 ```
@@ -729,6 +747,7 @@ $ git clean -i
 
 
 ADDING FORGOTTEN FILE TO LAST COMMIT
+// TODO
 ```bash
 $ git add <file>
 ```
@@ -762,9 +781,11 @@ $ git commit -v --amend
 
 
 MOVING THE LATEST COMMIT TO A NEW BRANCH
+// TODO
 ```bash
 $ git checkout -b <new-branch>
 ```
+// TODO
 ```bash
 $ git reset --hard HEAD~
 ```
@@ -821,12 +842,15 @@ Introduce particular commits from one branch onto a different branch
 ```bash
 $ git cherry-pick <branch>
 ```
+// TODO
 ```bash
 $ git cherry-pick --abort
 ```
+// TODO
 ```bash
 $ git cherry-pick --continue
 ```
+// TODO
 ```bash
 $ git cherry-pick --quit
 ```
@@ -927,16 +951,19 @@ $ git remote add <remote> <url>
 ```
 
 EDITING REMOTES
+// TODO
 ```bash
 $ git remote set-url <remote> <url
 ```
 
 RENAMING REMOTES
+// TODO
 ```bash
 $ git remote rename <old-remote> <new-remote>
 ```
 
 REMOVING REMOTES
+// TODO
 ```bash
 $ git remote rm <remote>
 ```
@@ -1041,10 +1068,12 @@ $ git checkout <remote-branch>
 
 
 TRACKING BRANCHES
+// TODO
 ```bash
 $ git branch -u <remote>/<remote-branch>
            --set-upstream-to
 ```
+// TODO
 ```bash
 $ git branch <local-branch> -u <remote>/<remote-branch>
 ```
@@ -1056,6 +1085,7 @@ $ git branch --unset-upstream
 
 
 SWITCHING TO ANOTHER BRANCH
+// TODO
 ```bash
 $ git checkout <branch>
 ```
@@ -1086,6 +1116,7 @@ $ git push <remote> :<branch>
 
 
 RENAMING BRANCHES
+// TODO
 ```bash
 $ git branch -m <old-local-branch-name> <new-local-branch-name>
 ```
@@ -1097,6 +1128,7 @@ $ git branch -m <new-local-branch-name>
 
 
 MERGING BRANCHES
+// TODO
 ```bash
 $ git merge <remote>/<remote-branch>
 ```
@@ -1108,6 +1140,7 @@ The --no-ff flag causes the merge to always create a new commit object. This avo
 ```bash
 $ git merge --no-ff <local-branch>
 ```
+// TODO
 ```bash
 $ git merge --abort
 ```
@@ -1115,6 +1148,7 @@ $ git merge --abort
 
 
 MERGED BRANCHES
+// TODO
 ```bash
 $ git branch --merged
 ```
@@ -1122,6 +1156,7 @@ List all branches that are already merged into
 ```bash
 $ git branch --merged <local-branch> <local-branch>
 ```
+// TODO
 ```bash
 $ git branch -r --merged
 ```
@@ -1136,6 +1171,7 @@ $ git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 
 
 GETTING THE NAME OF CURRENT BRANCH
+// TODO
 ```bash
 $ git rev-parse --abbrev-ref HEAD
 ```
@@ -1175,6 +1211,7 @@ Maximum number of commits to display
 ```bash
 $ git log -n
 ```
+// TODO
 ```bash
 $ git log --max-count
 ```
@@ -1190,9 +1227,11 @@ Include which files were altered and the relative number of lines that were adde
 ```bash
 $ git log --stat
 ```
+// TODO
 ```bash
 $ git log --shortstat
 ```
+// TODO
 ```bash
 $ git log --summary
 ```
@@ -1204,12 +1243,15 @@ Search for commits with a commit message that matches <pattern> , which can be a
 ```bash
 $ git log --grep="<pattern>"
 ```
+// TODO
 ```bash
 $ git log --graph --decorate ﻿--oneline
 ```
+// TODO
 ```bash
 $ git log --graph --pretty=oneline --abbrev-commit
 ```
+// TODO
 ```bash
 $ git log --pretty=oneline
 ```
@@ -1217,6 +1259,7 @@ What changed since two weeks?
 ```bash
 $ git log --no-merges --raw --since='2 weeks ago'
 ```
+// TODO
 ```bash
 $ git log <origin>/<remote-branch>
 ```
@@ -1305,6 +1348,7 @@ $ git reflog --relative-date
 
 
 SEEING CHANGES FOR A FILE
+// TODO
 ```bash
 $ git gitk <file>
 ```
@@ -1315,6 +1359,7 @@ $ git gitk <file>
 
 
 ANNOTATING TAGS
+// TODO
 ```bash
 $ git tag <tag-name>
 ```
@@ -1322,11 +1367,13 @@ Tag specific commit
 ```bash
 $ git tag <tag-name> <commit>
 ```
+// TODO
 ```bash
 $ git tag -a <tag-name> -m "<message>"
 ```
 
 PUSHING TAGS
+// TODO
 ```bash
 $ git push <remote> <tag>
 ```
@@ -1334,38 +1381,45 @@ Tags are not automatically pushed when you push a branch or use the --all option
 ```bash
 $ git push <remote> --tags
 ```
+// TODO
 ```bash
 $ git push --follow-tags
 ```
 
 DELETING LOCAL TAG
+// TODO
 ```bash
 $ git tag --delete <tag-name>
         -d
 ```
 
 DELETING REMOTE TAG
+// TODO
 ```bash
 $ git push <remote> :<tag-name>
 ```
 
 LISTING YOUR TAGS
+// TODO
 ```bash
 $ git tag
 ```
 
 SEEING TAG DATA
+// TODO
 ```
 $ git show <tag-name>
 ```
 
 SEEING TAG MESSAGE
+// TODO
 ```bash
 $ git tag -n
 ```
 
 
 SHOWING THE MOST RECENT TAG ON THE CURRENT BRANCH
+// TODO
 ```bash
 $ git describe --tags --abbrev=0
 ```
@@ -1375,12 +1429,15 @@ $ git describe --tags --abbrev=0
 
 
 ADDING A SUBMODULE TO PROJECT
+// TODO
 ```bash
 $ git submodule init
 ```
+// TODO
 ```bash
 $ git submodule add <url> <directory>
 ```
+// TODO
 ```bash
 $ git submodule update --init --recursive
 ```
@@ -1401,6 +1458,7 @@ Initialize the local config file
 ```bash
 $ git submodule init
 ```
+// TODO
 ```bash
 $ git submodule update
 ```
@@ -1409,12 +1467,15 @@ $ git submodule update
 
 
 CREATING BACKUPS
+// TODO
 ```bash
 $ git archive HEAD --format=zip > <name>.zip
 ```
+// TODO
 ```bash
 $ git archive HEAD | gzip > <name>.tar.gz
 ```
+// TODO
 ```bash
 $ git archive <local-branch> --format=zip --output=<name>.zip
 ```
@@ -1435,6 +1496,7 @@ What about if you want to ignore some local changes to a tracked file?
 
 
 LISTING IGNORED FILES
+// TODO
 ```bash
 $ git check-ignore *
 ```
@@ -1442,6 +1504,7 @@ $ git check-ignore *
 
 
 EXPORTING A BRANCH WITH HISTORY TO A FILE
+// TODO
 ```bash
 $ git bundle create <file> <branch-name>
 ```
@@ -1449,6 +1512,7 @@ $ git bundle create <file> <branch-name>
 
 
 SEARCHING COMMITED CODE
+// TODO
 ```bash
 $ git grep <pattern>
 ```
@@ -1456,6 +1520,7 @@ $ git grep <pattern>
 
 
 IMPORTING FROM A BUNDLE
+// TODO
 ```bash
 $ git clone repo.bundle <repo-dir> -b <branch-name>
 ```
@@ -1463,6 +1528,7 @@ $ git clone repo.bundle <repo-dir> -b <branch-name>
 
 
 COUNTING UNPACKED NUMBER OF OBJECTS AND THEIR DISK CONSUMPTION
+// TODO
 ```bash
 $ git count-objects --human-readable
 ```
