@@ -12,6 +12,7 @@ A collection of some of the most useful Git commands
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
+3. [Submodules](#submodules)
 
 ## Settings
 ### Setting Global Configs
@@ -1428,16 +1429,16 @@ $ git describe --tags --abbrev=0
 
 
 
-ADDING A SUBMODULE TO PROJECT
-// TODO
+## Submodules
+Initialize a submodule
 ```bash
 $ git submodule init
 ```
-// TODO
+Add given repository as a submodule
 ```bash
 $ git submodule add <url> <directory>
 ```
-// TODO
+Update a submodule
 ```bash
 $ git submodule update --init --recursive
 ```
