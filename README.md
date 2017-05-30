@@ -12,7 +12,19 @@ A collection of some of the most useful Git commands
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
-3. [Submodules](#submodules)
+3. [Tagging](#tagging)
+    * [Creating Tags](#creating-tags)
+        * [Annotated Tags](#annotated-tags)
+        * [Lightweight Tags](#lightweight-tags)
+    * [Searching Tags](#searching-tags)
+    * [Tagging Later](#tagging-later)
+    * [Sharing Tags](#sharing-tags)
+    * [Deleting Tags](#deleting-tags)
+        * [Local Tag](#local-tag)
+        * [Remote Tag](#remote-tag)
+    * [Seeing](#seeing)
+    * [Listing Tags](#listing-tags)
+4. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -1360,71 +1372,73 @@ $ git gitk <file>
 
 
 
-
-ANNOTATING TAGS
-// TODO
-```bash
-$ git tag <tag-name>
-```
-Tag specific commit
-```bash
-$ git tag <tag-name> <commit>
-```
-// TODO
+## Tagging
+### Creating Tags
+Git uses two main types of tags: lightweight and annotated.
+#### Annotated Tags
 ```bash
 $ git tag -a <tag-name> -m "<message>"
 ```
+#### Lightweight Tags
+```bash
+$ git tag <tag-name>
+```
 
-PUSHING TAGS
-// TODO
+### Searching Tags
+Search for tags with a particular pattern.
+```bash
+$ git tag -l "v1.8.5*"
+```
+
+### Tagging Later
+Tag specific commit.
+```bash
+$ git tag <tag-name> <commit>
+```
+
+### Sharing Tags
+By default, the git push command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them.
 ```bash
 $ git push <remote> <tag>
 ```
-Tags are not automatically pushed when you push a branch or use the --all option. The --tags flag sends all of your local tags to the remote repository
+All tags under refs/tags are pushed to the remote repository.
 ```bash
 $ git push <remote> --tags
 ```
-// TODO
+Push missing annotated tags reachable from the pushed refs.
 ```bash
 $ git push --follow-tags
 ```
 
-DELETING LOCAL TAG
-// TODO
+### Deleting Tags
+#### Local Tag
 ```bash
-$ git tag --delete <tag-name>
-        -d
+$ git tag -d <tag-name>
+          --delete
 ```
-
-DELETING REMOTE TAG
-// TODO
+#### Remote Tag
 ```bash
 $ git push <remote> :<tag-name>
 ```
 
-LISTING YOUR TAGS
-// TODO
-```bash
-$ git tag
-```
-
-SEEING TAG DATA
-// TODO
+### Seeing
+Seeing tag data.
 ```
 $ git show <tag-name>
 ```
-
-SEEING TAG MESSAGE
-// TODO
+Seeing tag message.
 ```bash
 $ git tag -n
 ```
-
-
-SHOWING THE MOST RECENT TAG ON THE CURRENT BRANCH
-// TODO
+Showing the most recent tag on the current branch.
 ```bash
 $ git describe --tags --abbrev=0
+```
+
+### Listing Tags
+This command lists the tags in alphabetical order
+```bash
+$ git tag
 ```
 
 
