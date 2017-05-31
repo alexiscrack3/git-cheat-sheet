@@ -15,9 +15,10 @@ A collection of some of the most useful Git commands
 3. [Getting a Git Repository](#getting-a-git-repository)
     * [Initializing a Repository](#initializing-a-repository)
     * [Initializing a Shared Repository](#initializing-a-shared-repository)
-4. [Recording Changes](#recording-changes)
+4. [Adding Changes](#adding-changes)
     * [Tracking New or Modified Files](#tracking-new-or-modified-files)
     * [Interactive Staging](#interactive-staging)
+6. [Removing Files](#removing-files)
 5. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
@@ -177,7 +178,7 @@ Create a repository that doesn’t have a working directory, making it impossibl
 $ git init --bare
 ```
 
-## Recording Changes
+## Adding Changes
 ### Tracking New or Modified Files
 Add all files.
 ```bash
@@ -219,7 +220,7 @@ $ git add -p
 # e - manually edit the current hunk
 # ? - print help
 ```
-Add to index modified files
+Add modified files to index
 ```bash
 $ git add $(git ls-files --modified)
 ```
@@ -234,27 +235,26 @@ $ git add -i
 #   Then q (to quit)
 ```
 
-
-REMOVING A FILE
-It removes deleted files from your staging area
+## Removing Files
+Remove file from the working tree
 ```bash
-$ git rm $(git ls-files --deleted)
+$ git rm <file>
 ```
-It only removes a file from index but not from disk
+Remove recursively directory the working tree
+```bash
+$ git rm -r <directory>
+```
+Remove a file from index but not from disk
 ```bash
 $ git rm --cached <file>
 ```
-It only removes recursively files from index but not from disk
+Remove recursively a directory from index but not from disk
 ```bash
 $ git rm --cached -r <directory>
 ```
-It removes recursively from index
+Remove files from the working tree
 ```bash
-$ git rm <directory> -r
-```
-// TODO
-```bash
-$ git rm <file>
+$ git rm $(git ls-files --deleted)
 ```
 
 
