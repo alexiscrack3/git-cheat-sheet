@@ -15,7 +15,10 @@ A collection of some of the most useful Git commands
 3. [Getting a Git Repository](#getting-a-git-repository)
     * [Initializing a Repository](#initializing-a-repository)
     * [Initializing a Shared Repository](#initializing-a-shared-repository)
-4. [Tagging](#tagging)
+4. [Recording Changes](#recording-changes)
+    * [Tracking New or Modified Files](#tracking-new-or-modified-files)
+    * [Interactive Staging](#interactive-staging)
+5. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -27,7 +30,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-5. [Submodules](#submodules)
+6. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -174,64 +177,62 @@ Create a repository that doesn’t have a working directory, making it impossibl
 $ git init --bare
 ```
 
-
-STAGING NEW OR MODIFIED FILE
-Add all files
+## Recording Changes
+### Tracking New or Modified Files
+Add all files.
 ```bash
 $ git add .
 ```
-Add a specific file
+Add a specific file.
 ```bash
 $ git add <file>
 ```
-Add a specific directory
+Add a specific directory.
 ```bash
 $ git add <directory>
 ```
-Add files with an extension file
+Add files with an extension file.
 ```bash
 $ git add *.<extension>
 ```
-Add to index modified and deleted tracked files but it will never stage new files
+Add to index modified and deleted tracked files but it will never stage new files.
 ```bash
 $ git add -u
+          --update
 ```
-Begin an interactive staging session that lets you choose portions of a file to add to the next commit
+Begin an interactive staging session that lets you choose portions of a file to add to the next commit.
 ```bash
 $ git add -p
           --patch
-#    y - stage this hunk
-#    n - do not stage this hunk
-#    q - quit; do not stage this hunk nor any of the remaining ones
-#    a - stage this hunk and all later hunks in the file
-#    d - do not stage this hunk nor any of the later hunks in the file
-#    g - select a hunk to go to
-#    / - search for a hunk matching the given regex
-#    j - leave this hunk undecided, see next undecided hunk
-#    J - leave this hunk undecided, see next hunk
-#    k - leave this hunk undecided, see previous undecided hunk
-#    K - leave this hunk undecided, see previous hunk
-#    s - split the current hunk into smaller hunks
-#    e - manually edit the current hunk
-#    ? - print help
-```
-// TODO
-```bash
-$ git add -p <file>
+# y - stage this hunk
+# n - do not stage this hunk
+# q - quit; do not stage this hunk nor any of the remaining ones
+# a - stage this hunk and all later hunks in the file
+# d - do not stage this hunk nor any of the later hunks in the file
+# g - select a hunk to go to
+# / - search for a hunk matching the given regex
+# j - leave this hunk undecided, see next undecided hunk
+# J - leave this hunk undecided, see next hunk
+# k - leave this hunk undecided, see previous undecided hunk
+# K - leave this hunk undecided, see previous hunk
+# s - split the current hunk into smaller hunks
+# e - manually edit the current hunk
+# ? - print help
 ```
 Add to index modified files
 ```bash
 $ git add $(git ls-files --modified)
 ```
 
-STAGING ONLY UNTRACKED FILES
-Type a (for "add untracked")
-Then * (for "all")
-Then q (to quit)
+### Interactive Staging
+Staging only untracked files.
 ```bash
 $ git add -i
+          --interactive
+#   Type a (for "add untracked")
+#   Then * (for "all")
+#   Then q (to quit)
 ```
-
 
 
 REMOVING A FILE
