@@ -236,23 +236,23 @@ $ git add -i
 ```
 
 ## Removing Files
-Remove file from the working tree
+Remove file from the working tree.
 ```bash
 $ git rm <file>
 ```
-Remove recursively directory the working tree
+Remove recursively directory the working tree.
 ```bash
 $ git rm -r <directory>
 ```
-Remove a file from index but not from disk
+Remove a file from index but not from disk.
 ```bash
 $ git rm --cached <file>
 ```
-Remove recursively a directory from index but not from disk
+Remove recursively a directory from index but not from disk.
 ```bash
 $ git rm --cached -r <directory>
 ```
-Remove files from the working tree
+Remove files from the working tree.
 ```bash
 $ git rm $(git ls-files --deleted)
 ```
