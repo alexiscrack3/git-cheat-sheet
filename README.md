@@ -30,15 +30,15 @@ A collection of some of the most useful Git commands
 
 ## Settings
 ### Setting Global Configs
-Set your username for every repository
+Set your username for every repository.
 ```bash
 $ git config --global user.name "<name>"
 ```
-Set your email for every repository
+Set your email for every repository.
 ```bash
 $ git config --global user.email "<email>"
 ```
-Color output of capable git commands. value: true, false, auto
+Color output of capable git commands. value: true, false, auto.
 ```bash
 $ git config --global color.ui <value>
 ```
@@ -46,11 +46,11 @@ A boolean to make git-clean do nothing unless given -f, -i or -n. Defaults to tr
 ```bash
 $ git config --global clean.requireForce <value>
 ```
-Make git case sensitive. Possible values: true, false
+Make git case sensitive. Possible values: true, false.
 ```bash
 $ git config --global core.ignorecase <value>
 ```
-Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners)
+Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
 ```bash
 $ git config --global push.default <value>
 ```
@@ -64,56 +64,56 @@ $ git config --global core.editor <editor>
 ```
 
 ### Getting Global Configs
-Get all your global configs
+Get all your global configs.
 ```bash
 $ git config --global --list
                       -l
 ```
-Get global username
+Get global username.
 ```bash
 $ git config --global user.name
 ```
-Get global email
+Get global email.
 ```bash
 $ git config --global user.email
 ```
 
 ### Removing Global Configs
-Remove global username
+Remove global username.
 ```bash
 $ git config --global --unset user.name
 ```
-Remove global email
+Remove global email.
 ```bash
 $ git config --global --unset user.email
 ```
 
 ### Setting Local Configs
-Set your username for current repository
+Set your username for current repository.
 ```bash
 $ git config user.name "<name>"
 ```
-Set your email for current repository
+Set your email for current repository.
 ```bash
 $ git config user.email "<email>"
 ```
 
 ### Getting Local Configs
-Get username
+Get username.
 ```bash
 $ git config --get user.name
 ```
-Get email
+Get email.
 ```bash
 $ git config --get user.email
 ```
 
 ### Removing Local Configs
-Remove username
+Remove username.
 ```bash
 $ git config --unset user.name
 ```
-Remove email
+Remove email.
 ```bash
 $ git config --unset user.email
 ```
@@ -1441,26 +1441,22 @@ This command lists the tags in alphabetical order
 $ git tag
 ```
 
-
-
-
-
 ## Submodules
 ### Starting with Submodules
-Initialize a submodule
+Initialize a submodule.
 ```bash
 $ git submodule init
 ```
-Add given repository as a submodule
+Add given repository as a submodule.
 ```bash
 $ git submodule add <url> <directory>
 ```
-Update a submodule
+Update a submodule.
 ```bash
 $ git submodule update --init --recursive
 ```
 ### Cloning a Project with Submodules
-Clone an existing repository and all its sub-modules recursively
+Clone an existing repository and all its sub-modules recursively.
 ```bash
 $ git clone --recursive <repository>
 ```
