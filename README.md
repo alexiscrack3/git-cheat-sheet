@@ -12,7 +12,10 @@ A collection of some of the most useful Git commands
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
-3. [Tagging](#tagging)
+3. [Getting a Git Repository](#getting-a-git-repository)
+    * [Initializing a Repository](#initializing-a-repository)
+    * [Initializing a Shared Repository](#initializing-a-shared-repository)
+4. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -24,7 +27,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-4. [Submodules](#submodules)
+5. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -154,23 +157,19 @@ $ git config --global alias.ld "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %
 $ git config --global alias.le "log --oneline --decorate"
 ```
 
-
-
-
-
-
-INITIALIZING A REPOSITORY
-// TODO
+## Getting a Git Repository
+### Initializing a Repository
+Create empty git repository or re-initialize an existing one.
 ```bash
 $ git init
 ```
-// TODO
+Create empty git repository in directory
 ```bash
 $ git init <directory>
 ```
 
-INITIALIZING A SHARED REPOSITORY
-Creates a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
+### Initializing a Shared Repository
+Create a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
 ```bash
 $ git init --bare
 ```
