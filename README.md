@@ -307,19 +307,19 @@ $ git commit --only <file>
 ```
 
 ## Cloning Repository
-Clone repository in the current directory
+Clone repository in the current directory.
 ```bash
 $ git clone <repository>
 ```
-Clone repository into directory
+Clone repository into directory.
 ```bash
 $ git clone <repository> <directory>
 ```
-Clone repository and set remote name
+Clone repository and set remote name.
 ```bash
 $ git clone --origin <new-remote-name> <repository>
 ```
-Clone repository and point HEAD to the given branch
+Clone repository and point HEAD to the given branch.
 ```bash
 $ git clone -b <branch> <repository>
             --branch
