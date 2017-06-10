@@ -74,8 +74,8 @@ $ git config --global core.editor <editor>
 ### Getting Global Configs
 Get all your global configs.
 ```bash
-$ git config --global --list
-                      -l
+$ git config --global -l
+                      --list
 ```
 Get global username.
 ```bash
@@ -241,7 +241,7 @@ Remove file from the working tree.
 ```bash
 $ git rm <file>
 ```
-Remove recursively directory the working tree.
+Remove recursively directory from the working tree.
 ```bash
 $ git rm -r <directory>
 ```
