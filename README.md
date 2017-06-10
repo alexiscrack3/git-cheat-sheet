@@ -19,7 +19,8 @@ A collection of some of the most useful Git commands
     * [Tracking New or Modified Files](#tracking-new-or-modified-files)
     * [Interactive Staging](#interactive-staging)
 6. [Removing Files](#removing-files)
-5. [Tagging](#tagging)
+7. [Renaming Files](#renaming-files)
+8. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -31,7 +32,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-6. [Submodules](#submodules)
+9. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -257,18 +258,17 @@ Remove files from the working tree.
 $ git rm $(git ls-files --deleted)
 ```
 
-
-
-RENAMING FILES
-1st. way
-mv <old-name> <new-name>
-git rm <old-name>
-git add <new-name>
-
-2nd. way
-git mv <file-from> <file-to>
-
-
+## Renaming Files
+First way.
+```bash
+$ mv <old-name> <new-name>
+$ git rm <old-name>
+$ git add <new-name>
+```
+Second way.
+```bash
+$ git mv <file-from> <file-to>
+```
 
 COMMITTING YOUR CHANGES
 Stage all modified and deleted paths
