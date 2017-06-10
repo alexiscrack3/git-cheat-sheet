@@ -20,7 +20,8 @@ A collection of some of the most useful Git commands
     * [Interactive Staging](#interactive-staging)
 6. [Removing Files](#removing-files)
 7. [Renaming Files](#renaming-files)
-8. [Tagging](#tagging)
+8. [Committing Your Changes](#committing-your-changes)
+9. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -32,7 +33,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-9. [Submodules](#submodules)
+10. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -270,37 +271,35 @@ Second way.
 $ git mv <file-from> <file-to>
 ```
 
-COMMITTING YOUR CHANGES
-Stage all modified and deleted paths
+## Committing Your Changes
+Use the given message as the commit message.
+```bash
+$ git commit -m "<message>"
+             --message
+```
+Use the given message as the commit message and override the author name used in the commit.
+```bash
+$ git commit -m "<message>" --author="Name <your_email@youremail.com>"
+```
+Stage all modified and deleted paths, but new files you have not told git about are not affected.
 ```bash
 $ git commit -a
              --all
 ```
-Stage all files that have been modified and deleted, but new files you have not told git about are not affected
+Stage all modified and deleted path using the given message, but new files you have not told git about are not affected.
 ```bash
 $ git commit -am "<message>"
 ```
-// TODO
-```bash
-$ git commit -m "<message>" \ --author="Name <your_email@youremail.com>"
-```
-// TODO
-```bash
-$ git commit -m "<message>"
-             --mesage
-```
-Show unified diff of all file changes
+Show unified diff of all file changes.
 ```bash
 $ git commit -v
              --verbose
 ```
-If you want to check in which files a commit is going to be incorporated
+Show list of paths that are to be commited or not, and any untracked.
 ```bash
 $ git commit --dry-run --short
 ```
-
-SKIPPING STAGING AREA DURING COMMIT
-This only works with tracked files
+Skip staging area and commit files, this only works with tracked files.
 ```bash
 $ git commit --only <file>
 ```
