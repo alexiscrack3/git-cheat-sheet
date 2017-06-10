@@ -21,7 +21,8 @@ A collection of some of the most useful Git commands
 6. [Removing Files](#removing-files)
 7. [Renaming Files](#renaming-files)
 8. [Committing Your Changes](#committing-your-changes)
-9. [Tagging](#tagging)
+9. [Cloning Repository](#cloning-repository)
+10. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -33,7 +34,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-10. [Submodules](#submodules)
+11. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -304,28 +305,28 @@ Skip staging area and commit files, this only works with tracked files.
 $ git commit --only <file>
 ```
 
-
-
-CLONING AN EXISTING REPOSITORY
-Clone the repository in the current directory
+## Cloning Repository
+Clone repository in the current directory
 ```bash
 $ git clone <repository>
 ```
-Clone the repository inside of directory
-The question: "how do I clone a repo and set the remote name to something other that origin?"
+Clone repository into directory
 ```bash
 $ git clone <repository> <directory>
 ```
-Clone a repository and set the remote name
+Clone repository and set remote name
 ```bash
 $ git clone --origin <new-remote-name> <repository>
 ```
-
-CLONING A SINGLE BRANCH
+Clone repository and point HEAD to the given branch
+```bash
+$ git clone -b <branch> <repository>
+            --branch
+```
+Clone only history leading up to the main branch or the one specified by -b
 ```bash
 $ git clone -b <branch> --single-branch <repository>
 ```
-
 
 ```bash
 cat .git/config
