@@ -22,7 +22,8 @@ A collection of some of the most useful Git commands
 7. [Renaming Files](#renaming-files)
 8. [Committing Your Changes](#committing-your-changes)
 9. [Cloning Repository](#cloning-repository)
-10. [Tagging](#tagging)
+10. [Listing Changes](#listing-changes)
+11. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -34,7 +35,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-11. [Submodules](#submodules)
+12. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -328,36 +329,8 @@ Clone only history leading up to the main branch or the one specified by -b
 $ git clone -b <branch> --single-branch <repository>
 ```
 
-```bash
-cat .git/config
-```
-~/.gitconfig file: Specific to your user. You can make Git read and write to this file specifically by passing the --global option
-config file in the git directory (that is, .git/config). Each level overrides values in the previous level
-
-
-
-GETTING HELP
-```bash
-$ git help <command>
-```
-// TODO
-```bash
-$ git <command> --help
-```
-
-
-
-GETTING THE VERSION
-```bash
-$ git --version
-```
-
-
-
-
-
-
-LISTING CHANGED FILES IN YOUR WORKING DIRECTORY
+## Listing Changes
+Show working-tree status
 ```bash
 $ git status
 ```
@@ -1528,4 +1501,29 @@ COUNTING UNPACKED NUMBER OF OBJECTS AND THEIR DISK CONSUMPTION
 // TODO
 ```bash
 $ git count-objects --human-readable
+```
+
+
+```bash
+cat .git/config
+```
+~/.gitconfig file: Specific to your user. You can make Git read and write to this file specifically by passing the --global option
+config file in the git directory (that is, .git/config). Each level overrides values in the previous level
+
+
+
+GETTING HELP
+```bash
+$ git help <command>
+```
+// TODO
+```bash
+$ git <command> --help
+```
+
+
+
+GETTING THE VERSION
+```bash
+$ git --version
 ```
