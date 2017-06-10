@@ -23,7 +23,8 @@ A collection of some of the most useful Git commands
 8. [Committing Your Changes](#committing-your-changes)
 9. [Cloning Repository](#cloning-repository)
 10. [Listing Changes](#listing-changes)
-11. [Tagging](#tagging)
+11. [Showing Differences](#showing-differences)
+12. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -35,7 +36,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-12. [Submodules](#submodules)
+13. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -330,23 +331,22 @@ $ git clone -b <branch> --single-branch <repository>
 ```
 
 ## Listing Changes
-Show working-tree status
+Show working-tree status.
 ```bash
 $ git status
 ```
-Output in short format
+Output in short format.
 ```bash
 $ git status -s
              --short
 ```
-Status of ignored files
+Status of ignored files.
 ```bash
 $ git status --ignored
 ```
 
-
-SHOWING DIFFERENCES
-What's different from our most recent commit
+## Showing Differences
+What's different from our most recent commit (staged and unstaged changes)
 ```bash
 $ git diff
 ```
@@ -357,45 +357,35 @@ $ git diff HEAD
 What's different from our previous commit
 ```bash
 $ git diff HEAD~1
-         HEAD^1
-         HEAD^
-```
- What's different from two previous commits
- ```bash
-$ git diff HEAD^2
+           HEAD^1
+           HEAD^
 ```
 What's different from two previous commits
-```bash
-$ git diff HEAD^^
+ ```bash
+$ git diff HEAD~2
+           HEAD^2
+           HEAD^^
 ```
-It compares your staged changes against your HEAD (last commit)
+Show staged changes against your HEAD
 ```bash
 $ git diff --cached
            --staged
 ```
-Differences between two commits
+Show changes between commits
 ```bash
 $ git diff <commit> <commit>
 ```
-Prints out diff
+Show changes in file between commits
 ```bash
-$ git diff > <file>
+$ git diff <commit> <commit> <file>
 ```
 Show inline word diff
 ```bash
 $ git diff --word-diff
 ```
-diff the same file between two different commits on the same branch
+Print out changes
 ```bash
-$ git diff <commit> HEAD <file>
-```
-diff the same file between two different commits on the same branch
-```bash
-$ git diff <commit>..HEAD -- <file>
-```
-diff the same file between two different commits on the same branch
-```bash
-$ git diff <commit> HEAD -- <file>
+$ git diff > <file>
 ```
 
 
