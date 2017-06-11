@@ -24,7 +24,8 @@ A collection of some of the most useful Git commands
 9. [Cloning Repository](#cloning-repository)
 10. [Listing Changes](#listing-changes)
 11. [Showing Differences](#showing-differences)
-12. [Tagging](#tagging)
+12. [Listing Files](#listing-files)
+13. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -36,7 +37,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-13. [Submodules](#submodules)
+14. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -388,50 +389,60 @@ Print out changes.
 $ git diff > <file>
 ```
 
-
-SEEING INFORMATION ABOUT FILES IN INDEX/WORKING DIRECTORY
-// TODO
+## Listing Files
+Show information about files in the index and the working tree.
 ```bash
 $ git ls-files
 ```
-Show all tracked files
+Show cached files.
 ```bash
-$ git ls-files -t
+$ git ls-files -c
+               --cached
 ```
-Show staged files
-```bash
-$ git ls-files -s
-               --stage
-```
-Show deleted files
-```bash
-$ git ls-files -d
-               --deleted
-```
-Show untracked files
-```bash
-$ git ls-files -o
-               --others
-```
-Show modified files
+Show modified files.
 ```bash
 $ git ls-files -m
                --modified
 ```
-Show ignored files
+Show deleted files.
 ```bash
-$ git ls-files --others --ignored --exclude-from=.git/info/exclude
+$ git ls-files -d
+               --deleted
 ```
-Show ignored files
+Show all untracked or ignored files
+```bash
+$ git ls-files -o
+               --others
+```
+Show only ignored files in the output. When showing files in the index, print only those matched by an exclude pattern. When showing "other" files, show only those matched by an exclude pattern.
+```bash
+$ git ls-files -i
+               --ignored
+```
+Show all untracked files
+```bash
+$ git ls-files --others --exclude-standard
+```
+Show all ignored files
 ```bash
 $ git ls-files --others --ignored --exclude-standard
 ```
-Show untracked files
+Show staged contents (mode bits, object name and stage number).
 ```bash
-$ git ls-files --exclude-standard --others
+$ git ls-files -s
+               --stage
 ```
-
-
+This option identifies the file status with the following tags
+```bash
+$ git ls-files -t
+# H - cached
+# S - skip-worktree
+# M - unmerged
+# R - removed/deleted
+# C - modified/changed
+# K - to be killed
+# ? - other
+```
 
 SHOWING ALL COMMITS TO BE MERGED
 Show all commits in the current branch yet to be merged to <local-branch>
