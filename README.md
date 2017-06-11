@@ -346,44 +346,44 @@ $ git status --ignored
 ```
 
 ## Showing Differences
-What's different from our most recent commit (staged and unstaged changes)
+What's different from our most recent commit (staged and unstaged changes).
 ```bash
 $ git diff
 ```
-What's different from our most recent commit (staged and unstaged changes)
+What's different from our most recent commit (staged and unstaged changes).
 ```bash
 $ git diff HEAD
 ```
-What's different from our previous commit
+What's different from our previous commit.
 ```bash
 $ git diff HEAD~1
            HEAD^1
            HEAD^
 ```
-What's different from two previous commits
+What's different from two previous commits.
  ```bash
 $ git diff HEAD~2
            HEAD^2
            HEAD^^
 ```
-Show staged changes against your HEAD
+Show staged changes against your HEAD.
 ```bash
 $ git diff --cached
            --staged
 ```
-Show changes between commits
+Show changes between commits.
 ```bash
 $ git diff <commit> <commit>
 ```
-Show changes in file between commits
+Show changes in file between commits.
 ```bash
 $ git diff <commit> <commit> <file>
 ```
-Show inline word diff
+Show inline word diff.
 ```bash
 $ git diff --word-diff
 ```
-Print out changes
+Print out changes.
 ```bash
 $ git diff > <file>
 ```
