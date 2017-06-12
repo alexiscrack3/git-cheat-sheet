@@ -610,7 +610,7 @@ Return the state of your unstaged files as they were in your last commit.
 ```bash
 $ git checkout .
 ```
-Return the state of your unstaged files as they were in your HEAD (last commit)
+Return the state of your unstaged files as they were in your HEAD (last commit).
 ```bash
 $ git checkout HEAD
 ```
@@ -618,7 +618,7 @@ Return the state of your unstaged files that match the regular expression as the
 ```bash
 $ git checkout \*.txt
 ```
-Return the state of your file as it was in your last commit
+Return the state of your file as it was in your last commit.
 ```bash
 $ git checkout <file>
 ```
@@ -648,7 +648,7 @@ Interactively select hunks in diff for a specific file.
 $ git checkout -p <file>
                --patch
 ```
-Restore a deleted file
+Restore a deleted file.
 ```bash
 $ git checkout <deleting-commit>^ -- <file>
 ```
@@ -666,7 +666,7 @@ Revert initial commit.
 ```bash
 $ git update-ref -d HEAD
 ```
-Revert merge commit. The -m followed by the 1 indicates that we want to keep the parent side of the merge (the branch we are merging into)
+Revert merge commit. The -m followed by the 1 indicates that we want to keep the parent side of the merge (the branch we are merging into).
 ```bash
 $ git revert -m 1 <commit>
              --mainline
@@ -724,11 +724,11 @@ Only show what would and what would not be removed.
 $ git clean -n
             --dry-run
 ```
-Remove untracked directories
+Remove untracked directories.
 ```bash
 $ git clean -d
 ```
-Remove only ignored files
+Remove only ignored files.
 ```bash
 $ git clean -X
 ```
@@ -758,7 +758,7 @@ $ git commit --amend --author="Name <your_email@youremail.com>"
 ```
 
 ### Rebase Commits
-Rebase your current HEAD onto branch. NEVER rebase published commits
+Rebase your current HEAD onto branch. NEVER rebase published commits.
 ```bash
 $ git rebase <branch>
 ```
@@ -885,37 +885,37 @@ $ git pull --rebase <remote>
 
 
 ### Pushing
-To push a local branch (current branch)
+To push a local branch (current branch).
 ```bash
 $ git push
 ```
-To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository
+To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository.
 ```bash
 $ git push <remote> <local-branch>
 ```
-To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository
+To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository.
 ```bash
 $ git push <remote> <local-branch> <remote-branch>
 ```
-To push a local branch and set the remote as upstream
+To push a local branch and set the remote as upstream.
 ```bash
 $ git push -u <remote> <local-branch>
            --set-upstream <remote> <local-branch>
 ```
-Makes the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours
+Makes the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours.
 ```bash
 $ git push -f <remote> <commit>:<local-branch>
            --force
 ```
-It refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the branch upstream
+It refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the branch upstream.
 ```bash
 $ git push --force-with-lease
 ```
-Pushes up the repo and its refs for the first time
+Pushes up the repo and its refs for the first time.
 ```bash
 $ git push -u <remote> --all
 ```
-Git obtains the current branch name from HEAD
+Git obtains the current branch name from HEAD.
 ```bash
 $ git push <remote> HEAD
 ```
@@ -923,7 +923,7 @@ Push all refs under refs/heads/
 ```bash
 $ git push --all
 ```
-Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs
+Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs.
 ```bash
 $ git push --mirror
 ```
@@ -936,28 +936,28 @@ $ git push --mirror
 
 
 LISTING BRANCHES
-List the local branches
+List the local branches.
 ```bash
 $ git branch
 ```
-List the remote-tracking branches
+List the remote-tracking branches.
 ```bash
 $ git branch -r
 ```
-Show sha1 and commit subject line for each head, along with relationship to upstream branch (if any)
+Show sha1 and commit subject line for each head, along with relationship to upstream branch (if any).
 ```bash
 $ git branch -v
 ```
-If given twice, print the name of the upstream branch, as well (see also git remote show <remote>)
+If given twice, print the name of the upstream branch, as well (see also git remote show <remote>).
 ```bash
 $ git branch -vv
 ```
-List both remote-tracking branches and local branches
+List both remote-tracking branches and local branches.
 ```bash
 $ git branch -a
              --all
 ```
-Which branches are already merged into HEAD (i.e. the branch you're on)
+Which branches are already merged into HEAD (i.e. the branch you're on).
 ```bash
 $ git branch --merged
 ```
@@ -972,39 +972,39 @@ $ git branch --no-merged
  ```
 
 CREATING BRANCHES
-Creates a new branch
+Creates a new branch.
 ```bash
 $ git branch <branch>
 ```
-Creates a new branch and set up a remote branch to track
+Creates a new branch and set up a remote branch to track.
 ```bash
 $ git branch --track <branch> <remote>/<remote-branch>
 ```
-Creates a new branch from a remote branch and no tracking any remote branch
+Creates a new branch from a remote branch and no tracking any remote branch.
 ```bash
 $ git branch --no-track <branch> <remote>/<remote-branch>
 ```
-Creates a new branch from commit and no tracking and no tracking any remote branch
+Creates a new branch from commit and no tracking and no tracking any remote branch.
 ```bash
 $ git branch --no-track <branch> <commit>
 ```
-Creates a new branch and switching to it
+Creates a new branch and switching to it.
 ```bash
 $ git checkout -b <branch>
 ```
-Creates a new branch from a local branch and switching to it
+Creates a new branch from a local branch and switching to it.
 ```bash
 $ git checkout -b <branch> <local-branch>
 ```
-Creates a new branch from a remote branch with a specific name and switching to it
+Creates a new branch from a remote branch with a specific name and switching to it.
 ```bash
 $ git checkout -b <branch> <remote>/<remote-branch>
 ```
-Creates a new branch from a remote branch with a specific name and switching to it without tracking
+Creates a new branch from a remote branch with a specific name and switching to it without tracking.
 ```bash
 $ git checkout -b <branch> <remote>/<remote-branch> --no-track
 ```
-Creates a new branch from a remote branch and switching to it
+Creates a new branch from a remote branch and switching to it.
 ```bash
 $ git checkout <remote-branch>
 ```
@@ -1021,7 +1021,7 @@ $ git branch -u <remote>/<remote-branch>
 ```bash
 $ git branch <local-branch> -u <remote>/<remote-branch>
 ```
-Stop tracking remote branch
+Stop tracking remote branch.
 ```bash
 $ git branch --unset-upstream
 ```
@@ -1040,19 +1040,19 @@ $ git checkout -
 
 
 DELETING BRANCHES
-Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes
+Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
 ```bash
 $ git branch -d <local-branch>
 ```
-Force delete the specified branch, even if it has unmerged changes
+Force delete the specified branch, even if it has unmerged changes.
 ```bash
 $ git branch -D <local-branch>
 ```
-Deletes remote branch
+Deletes remote branch.
 ```bash
 $ git push <remote> --delete <branch>
 ```
-Deletes remote branch
+Deletes remote branch.
 ```bash
 $ git push <remote> :<branch>
 ```
@@ -1064,7 +1064,7 @@ RENAMING BRANCHES
 ```bash
 $ git branch -m <old-local-branch-name> <new-local-branch-name>
 ```
-If you want to rename the current branch
+If you want to rename the current branch.
 ```bash
 $ git branch -m <new-local-branch-name>
 ```
@@ -1076,7 +1076,7 @@ MERGING BRANCHES
 ```bash
 $ git merge <remote>/<remote-branch>
 ```
-You can merge your changes if you are on
+You can merge your changes if you are on.
 ```bash
 $ git merge <local-branch> <another-local-branch>
 ```
@@ -1096,7 +1096,7 @@ MERGED BRANCHES
 ```bash
 $ git branch --merged
 ```
-List all branches that are already merged into
+List all branches that are already merged into.
 ```bash
 $ git branch --merged <local-branch> <local-branch>
 ```
@@ -1107,7 +1107,7 @@ $ git branch -r --merged
 
 
 REMOVING MERGED BRANCHES
-To delete any branches that have been merged into the currently checked out branch
+To delete any branches that have been merged into the currently checked out branch.
 ```bash
 $ git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 ```
@@ -1126,39 +1126,39 @@ $ git rev-parse --abbrev-ref HEAD
 
 
 VIEWING DETAIL ABOUT A COMMIT
-It shows details of the most recent commit
+It shows details of the most recent commit.
 ```bash
 $ git show
 ```
-It shows details of the most recent commit
+It shows details of the most recent commit.
 ```bash
 $ git show HEAD
 ```
-List filenames without the diffs
+List filenames without the diffs.
 ```bash
 $ git show HEAD --name-only
 ```
-It shows details of the last fetch
+It shows details of the last fetch.
 ```bash
 $ git show FETCH_HEAD
 ```
-It shows details of a particular commit number
+It shows details of a particular commit number.
 ```bash
 $ git show <commit>
 ```
-Reference a commit via commit message pattern matching
+Reference a commit via commit message pattern matching.
 ```bash
 $ git show :/<commit>
 ```
-It shows details of a particular stash
+It shows details of a particular stash.
 ```bash
 $ git show stash@{n}
 ```
-It shows details of a file on a branch
+It shows details of a file on a branch.
 ```bash
 $ git show <branch>:<file>
 ```
-It shows details of a file on a branch
+It shows details of a file on a branch.
 ```bash
 $ git show <commit>:<file>
 ```
@@ -1166,7 +1166,7 @@ Exporting to file
 ```bash
 $ git show <branch>:<file> > <path>
 ```
-It shows branches and their commits
+It shows branches and their commits.
 ```bash
 $ git show-branch
 ```
@@ -1174,11 +1174,11 @@ $ git show-branch
 
 
 FINDING COMMITS NOT MERGED UPSTREAM
-Find commits yet to be applied to upstream
+Find commits yet to be applied to upstream.
 ```bash
 $ git cherry <branch>
 ```
-Find commits yet to be applied to upstream with additional information
+Find commits yet to be applied to upstream with additional information.
 ```bash
 $ git cherry -v <branch>
              --verbose
@@ -1292,11 +1292,11 @@ $ git archive <local-branch> --format=zip --output=<name>.zip
 
 
 IGNORING CHANGES TO A TRACKED FILE
-Temporarily ignore changes
+Temporarily ignore changes.
 ```bash
 $ git update-index --assume-unchanged <file>
 ```
-Track changes again
+Track changes again.
 ```bash
 $ git update-index --no-assume-unchanged <file>
 ```
@@ -1312,11 +1312,11 @@ $ git check-ignore *
 
 
 RESOLVING CONFLICTS
-Finish with git add <file> and git commit
+Finish with git add <file> and git commit.
 ```bash
 $ git checkout --theirs <file>
 ```
-Finish with git add <file> and git commit
+Finish with git add <file> and git commit.
 ```bash
 $ git checkout --ours <file>
 ```
@@ -1375,7 +1375,7 @@ $ git log <branch-to-be-merged> ^<local-branch>
 
 
 SHOWING REPOSITORY CHANGES
-Run a quick web server, open a browser
+Run a quick web server, open a browser.
 ```bash
 $ git instaweb --httpd=webrick
 ```
