@@ -782,8 +782,11 @@ Make a list of commits to be rebased and open in $EDITOR.
 $ git rebase -i
              --interactive
 ```
-
-
+Rebase the current branch onto <branch>
+```bash
+$ git rebase -i <branch>
+             --interactive
+```
 
 
 RESOLVING CONFLICTS
