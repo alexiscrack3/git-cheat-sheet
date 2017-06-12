@@ -45,17 +45,6 @@ A collection of some of the most useful Git commands
     * [Remotes](#remotes)
     * [Fetch](#fetch)
 10. [Tagging](#tagging)
-    * [Creating Tags](#creating-tags)
-        * [Annotated Tags](#annotated-tags)
-        * [Lightweight Tags](#lightweight-tags)
-    * [Searching Tags](#searching-tags)
-    * [Tagging Later](#tagging-later)
-    * [Sharing Tags](#sharing-tags)
-    * [Deleting Tags](#deleting-tags)
-        * [Local Tag](#local-tag)
-        * [Remote Tag](#remote-tag)
-    * [Seeing](#seeing)
-    * [Listing Tags](#listing-tags)
 11. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
@@ -1210,30 +1199,22 @@ $ git gitk <file>
 
 
 ## Tagging
-### Creating Tags
-Git uses two main types of tags: lightweight and annotated.
-#### Annotated Tags
+Create annotated tag.
 ```bash
 $ git tag -a <tag-name> -m "<message>"
 ```
-#### Lightweight Tags
+Create lightweight tag.
 ```bash
 $ git tag <tag-name>
 ```
-
-### Searching Tags
+Create tag for specific commit.
+```bash
+$ git tag <tag-name> <commit>
+```
 Search for tags with a particular pattern.
 ```bash
 $ git tag -l "v1.8.5*"
 ```
-
-### Tagging Later
-Tag specific commit.
-```bash
-$ git tag <tag-name> <commit>
-```
-
-### Sharing Tags
 By default, the git push command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them.
 ```bash
 $ git push <remote> <tag>
@@ -1246,34 +1227,28 @@ Push missing annotated tags reachable from the pushed refs.
 ```bash
 $ git push --follow-tags
 ```
-
-### Deleting Tags
-#### Local Tag
+Delete local tag.
 ```bash
 $ git tag -d <tag-name>
           --delete
 ```
-#### Remote Tag
+Delete remote tag.
 ```bash
 $ git push <remote> :<tag-name>
 ```
-
-### Seeing
-Seeing tag data.
+Show tag data.
 ```
 $ git show <tag-name>
 ```
-Seeing tag message.
+Show tag message.
 ```bash
 $ git tag -n
 ```
-Showing the most recent tag on the current branch.
+Show the most recent tag on the current branch.
 ```bash
 $ git describe --tags --abbrev=0
 ```
-
-### Listing Tags
-This command lists the tags in alphabetical order
+List the tags in alphabetical order.
 ```bash
 $ git tag
 ```
