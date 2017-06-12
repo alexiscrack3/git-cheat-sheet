@@ -409,7 +409,7 @@ Show deleted files.
 $ git ls-files -d
                --deleted
 ```
-Show all untracked or ignored files
+Show all untracked or ignored files.
 ```bash
 $ git ls-files -o
                --others
@@ -419,11 +419,11 @@ Show only ignored files in the output. When showing files in the index, print on
 $ git ls-files -i
                --ignored
 ```
-Show all untracked files
+Show all untracked files.
 ```bash
 $ git ls-files --others --exclude-standard
 ```
-Show all ignored files
+Show all ignored files.
 ```bash
 $ git ls-files --others --ignored --exclude-standard
 ```
@@ -432,7 +432,7 @@ Show staged contents (mode bits, object name and stage number).
 $ git ls-files -s
                --stage
 ```
-This option identifies the file status with the following tags
+This option identifies the file status with the following tags.
 ```bash
 $ git ls-files -t
 # H - cached
