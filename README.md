@@ -12,20 +12,30 @@ A collection of some of the most useful Git commands
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
-3. [Getting a Git Repository](#getting-a-git-repository)
-    * [Initializing a Repository](#initializing-a-repository)
-    * [Initializing a Shared Repository](#initializing-a-shared-repository)
-4. [Adding Changes](#adding-changes)
-    * [Tracking New or Modified Files](#tracking-new-or-modified-files)
-    * [Interactive Staging](#interactive-staging)
-6. [Removing Files](#removing-files)
-7. [Renaming Files](#renaming-files)
-8. [Committing Your Changes](#committing-your-changes)
-9. [Cloning Repository](#cloning-repository)
-10. [Listing Changes](#listing-changes)
-11. [Showing Differences](#showing-differences)
-12. [Listing Files](#listing-files)
-13. [Tagging](#tagging)
+3. [Setting Up Repository](#setting-up-repository)
+    * [Initializing Repository](#initializing-repository)
+    * [Initializing Shared Repository](#initializing-shared-repository)
+    * [Cloning Repository](#cloning-repository)\
+4. [Saving Changes](#saving-changes)
+    * [Adding Changes](#adding-changes)
+        * [Tracking New or Modified Files](#tracking-new-or-modified-files)
+        * [Interactive Staging](#interactive-staging)
+    * [Removing Files](#removing-files)
+    * [Renaming Files](#renaming-files)
+    * [Committing Changes](#committing-changes)
+    * [Stashing Changes](#stashing-changes)
+5. [Inspecting Changes](#inspecting-changes)
+    * [Display State](#display-state)
+    * [Display Differences](#display-differences)
+    * [Display Logs](#display-logs)
+6. [Listing Files](#listing-files)
+7. [Undoing Changes](#undoing-changes)
+    * [Reverting Files](#reverting-files)
+    * [Reverting Commit](#reverting-commit)
+    * [Unstaging Staged File](#unstaging-staged-file)
+    * [Resetting Current Commit](#resetting-current-commit)
+    * [Removing Untracked Files](#removing-untracked-files)
+8. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -37,7 +47,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-14. [Submodules](#submodules)
+9. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -167,8 +177,8 @@ $ git config --global alias.ld "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %
 $ git config --global alias.le "log --oneline --decorate"
 ```
 
-## Getting a Git Repository
-### Initializing a Repository
+## Setting Up Repository
+### Initializing Repository
 Create empty git repository or re-initialize an existing one.
 ```bash
 $ git init
@@ -178,14 +188,38 @@ Create empty git repository in directory
 $ git init <directory>
 ```
 
-### Initializing a Shared Repository
+### Initializing Shared Repository
 Create a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
 ```bash
 $ git init --bare
 ```
 
-## Adding Changes
-### Tracking New or Modified Files
+### Cloning Repository
+Clone repository in the current directory.
+```bash
+$ git clone <repository>
+```
+Clone repository into directory.
+```bash
+$ git clone <repository> <directory>
+```
+Clone repository and set remote name.
+```bash
+$ git clone --origin <new-remote-name> <repository>
+```
+Clone repository and point HEAD to the given branch.
+```bash
+$ git clone -b <branch> <repository>
+            --branch
+```
+Clone only history leading up to the main branch or the one specified by -b
+```bash
+$ git clone -b <branch> --single-branch <repository>
+```
+
+## Saving Changes
+### Adding Changes
+#### Tracking New or Modified Files
 Add all files.
 ```bash
 $ git add .
@@ -231,7 +265,7 @@ Add modified files to index
 $ git add $(git ls-files --modified)
 ```
 
-### Interactive Staging
+#### Interactive Staging
 Staging only untracked files.
 ```bash
 $ git add -i
@@ -241,7 +275,7 @@ $ git add -i
 #   Then q (to quit)
 ```
 
-## Removing Files
+### Removing Files
 Remove file from the working tree.
 ```bash
 $ git rm <file>
@@ -263,7 +297,7 @@ Remove files from the working tree.
 $ git rm $(git ls-files --deleted)
 ```
 
-## Renaming Files
+### Renaming Files
 First way.
 ```bash
 $ mv <old-name> <new-name>
@@ -275,7 +309,7 @@ Second way.
 $ git mv <file-from> <file-to>
 ```
 
-## Committing Your Changes
+### Committing Changes
 Use the given message as the commit message.
 ```bash
 $ git commit -m "<message>"
@@ -308,30 +342,78 @@ Skip staging area and commit files, this only works with tracked files.
 $ git commit --only <file>
 ```
 
-## Cloning Repository
-Clone repository in the current directory.
+### Stashing Changes
+Stash away changes to dirty working directory.
 ```bash
-$ git clone <repository>
+$ git stash
 ```
-Clone repository into directory.
+Interactively select hunks from diff between HEAD and working tree to stash.
 ```bash
-$ git clone <repository> <directory>
+$ git stash -p
+            --patch
 ```
-Clone repository and set remote name.
+Stash only unstaged changes
 ```bash
-$ git clone --origin <new-remote-name> <repository>
+$ git stash -k
 ```
-Clone repository and point HEAD to the given branch.
+Include untracked files
 ```bash
-$ git clone -b <branch> <repository>
-            --branch
+$ git stash -u
+            --include-untracked
 ```
-Clone only history leading up to the main branch or the one specified by -b
+All changes already added to the index are left intact
 ```bash
-$ git clone -b <branch> --single-branch <repository>
+$ git stash --keep-index
+```
+All changes already added to the index are undone
+```bash
+$ git stash --no-keep-index
+```
+Save local changes to a new stash with message.
+```bash
+$ git stash save "<message>"
+```
+Save local changes including untracked files.
+```bash
+$ git stash save -u
+                 --include-untracked
+```
+List the stashes stored in the stack.
+```bash
+$ git stash list
+```
+Apply the changes recorded in the stash.
+```bash
+$ git stash apply stash@{n}
+```
+Remove and apply a single stashed state from the stack.
+```bash
+$ git stash pop
+```
+Show the changes recorder in the latest stash as a diff.
+```bash
+$ git stash show
+```
+Show the changes recorded in the stash as a diff.
+```bash
+$ git stash show stash@{n}
+```
+Show the changes recorded in the stash as a diff in patch format.
+```bash
+$ git stash show -p stash@{n}
+                 --patch
+```
+Remove a single stashed state from the stack.
+```bash
+$ git stash drop stash@{n}
+```
+Remove all the stashed states.
+```bash
+$ git stash clear
 ```
 
-## Listing Changes
+## Inspecting Changes
+### Display State
 Show working-tree status.
 ```bash
 $ git status
@@ -346,7 +428,7 @@ Status of ignored files.
 $ git status --ignored
 ```
 
-## Showing Differences
+### Display Differences
 What's different from our most recent commit (staged and unstaged changes).
 ```bash
 $ git diff
@@ -387,6 +469,66 @@ $ git diff --word-diff
 Print out changes.
 ```bash
 $ git diff > <file>
+```
+
+### Display Logs
+Show all commits.
+```bash
+$ git log
+```
+Show changes over time for a specific file.
+```bash
+$ git log <file>
+```
+Generate diff in patch format for a specific file.
+```bash
+$ git log -p <file>
+          --patch
+```
+Show changes over time for a specific file even if the file was renamed.
+```bash
+$ git log --follow <file>
+```
+Exports git log to text file.
+```bash
+$ git log > <file>
+```
+Show only commits that occur in the range.
+```bash
+$ git log <commit>..<commit>
+```
+Maximum number of commits to display.
+```bash
+$ git log -n
+          --max-count
+```
+Condense each commit to a single line.
+```bash
+$ git log --oneline
+```
+Show statistics for files modified in each commit.
+```bash
+$ git log --stat
+```
+Display only the changed/insertions/deletions line from the --stat command.
+```bash
+$ git log --shortstat
+```
+Generate condensed summary of extended header information
+```bash
+$ git log --summary
+```
+Search for commits by a particular author. The argument can be a plain string or a regular expression.
+```bash
+$ git log --author="<pattern>"
+```
+Search for commits with a commit message. The argument can be a plain string or a regular expression.
+```bash
+$ git log --grep="<pattern>"
+```
+Show changes since two weeks.
+```bash
+$ git log --no-merges --raw --since='2 weeks ago'
 ```
 
 ## Listing Files
@@ -444,292 +586,183 @@ $ git ls-files -t
 # ? - other
 ```
 
-SHOWING ALL COMMITS TO BE MERGED
-Show all commits in the current branch yet to be merged to <local-branch>
-```bash
-$ git cherry -v <local-branch>
-```
-// TODO
-```bash
-$ git cherry -v <local-branch> <branch-to-be-merged>
-```
-// TODO
-```bash
-$ git log <branch-to-be-merged> ^<local-branch>
-```
-
-
-
-BLAMING CHANGES
-Tells you who last modified each line of a file and which commit made the change
-```bash
-$ git blame <file>
-```
-Annotate only the given line range
-```bash
-$ git blame -L <starting-line>,<ending-line> <file>
-```
-
-
-
-BINARY SEARCH
-// TODO
-```bash
-$ git bisect start
-```
-// TODO
-```bash
-$ git bisect bad
-```
-// TODO
-```bash
-$ git bisect good
-```
-// TODO
-```bash
-$ git bisect reset
-```
-// TODO
-```bash
-$ git bisect log
-```
-// TODO
-```bash
-$ git bisect log > bisect.log
-```
-
-
-
-SHOWING REPOSITORY CHANGES
-Run a quick web server, open a browser
-```bash
-$ git instaweb --httpd=webrick
-```
-
-
-
-AVOIDING COMMIT A HALF-DONE WORK
-Create a new stash
-```bash
-$ git stash
-```
-Create a new stash with message
-```bash
-$ git stash save "<message>"
-```
-Saving current state including untracked files
-```bash
-$ git stash save -u
-                 --include-untracked
-```
-Listing stashed you have stored in your stack
-```bash
-$ git stash list
-```
-Reapply a specific stash
-```bash
-$ git stash apply stash@{n}
-```
-Remove a single stashed state from the stash list
-```bash
-$ git stash drop stash@{n}
-```
-Reapply and remove the last stash
-```bash
-$ git stash pop
-```
-Remove all the stashed states
-```bash
-$ git stash clear
-```
-Show changed files from the latest stash
-```bash
-$ git stash show
-```
-Show changed files
-```bash
-$ git stash show stash@{n}
-```
-Show changed files and diff in patch format
-```bash
-$ git stash show -p stash@{n}
-```
-Staging stashes interactively
-```bash
-$ git stash -p
-```
-Stashing only unstaged changes
-```bash
-$ git stash -k
-```
-Stashing untracked files
-```bash
-$ git stash -u
-            --untracked
-```
-// TODO
-```bash
-$ git stash --keep-index
-```
-// TODO
-```bash
-$ git stash --no-keep-index
-```
-
-
-
-
-REVERTING FILES
-Returns the state of your unstaged files as they were in your last commit
+## Undoing Changes
+### Reverting Files
+Return the state of your unstaged files as they were in your last commit.
 ```bash
 $ git checkout .
 ```
-Returns the state of your unstaged files that match the regular expression as they were in your last commit (required to escape with backslash the expression)
-```bash
-$ git checkout \*.storyboard
-```
-Returns the state of your unstaged files as they were in your HEAD (last commit)
+Return the state of your unstaged files as they were in your HEAD (last commit)
 ```bash
 $ git checkout HEAD
 ```
-Returns the state of your unstaged files as they were in the previous commit of HEAD
+Return the state of your unstaged files that match the regular expression as they were in your last commit.
 ```bash
-$ git checkout HEAD^
+$ git checkout \*.txt
 ```
-Returns the state of your file as it was in your last commit
+Return the state of your file as it was in your last commit
 ```bash
 $ git checkout <file>
 ```
-Returns the state of your file as it was in your last commit but if you have a file and a branch named the same, we will need to use this syntax
+Return the state of your file as it was in your last commit. Use two consecutive hyphens if file and branch have the same name.
 ```bash
 $ git checkout -- <file>
 ```
-This turns the <file> that resides in the working directory into an exact copy of the one from <commit> and adds it to the staging area
+This turns the <file> that resides in the working directory into an exact copy of the one from <commit> and adds it to the staging area.
 ```bash
 $ git checkout <commit> <file>
 ```
-Update all files in the working directory to match the specified commit. This will put you in a detached HEAD state
-```bash
-$ git checkout <commit> .
-```
-This turns the <file> that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area
+This turns the <file> that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
 ```bash
 $ git checkout stash@{n} <file>
 ```
-Interactively select hunks in diff
+Update all files in the working directory to match the specified commit. This will put you in a detached HEAD state.
+```bash
+$ git checkout <commit> .
+```
+Interactively select hunks in diff.
 ```bash
 $ git checkout -p
+               --patch
 ```
-Interactively select hunks in diff for a specific file
+Interactively select hunks in diff for a specific file.
 ```bash
 $ git checkout -p <file>
+               --patch
+```
+Restore a deleted file
+```bash
+$ git checkout <deleting-commit>^ -- <file>
 ```
 
-RESTORING DELETED FILE
-```bash
-$ git checkout <deleting-commit>^ -- <file_path>
-```
-
-
-
-UNSTAGING A STAGED FILE
-This unstages all files and leave the working directory unchanged
-```bash
-$ git reset
-```
-This unstages all files and leave the working directory unchanged
-```bash
-$ git reset HEAD
-```
-Unstaging a file
-```bash
-$ git reset <file>
-```
-This can be used in reverse when removing changes from the index
-```bash
-$ git reset -p
-```
-
-REMOVING COMMIT TO A KNOWN STATE
-Do not touch the index file nor the working tree
-```bash
-$ git reset --soft
-```
-Reset the index but not the working tree (default)
-```bash
-$ git reset --mixed
-```
-Match the working tree and index to the given tree
-```bash
-$ git reset --hard
-```
-Like --hard, but keep local working tree changes
-```bash
-$ git reset --keep
-```
-Move the current branch to <commit>. All changes made since <commit> will reside in the working directory, which lets you re-commit the project history. NEVER reset to commits that have been pushed to a public repository
-```bash
-$ git reset <commit>
-```
-
-
-
-REVERTING COMMIT
-Generate a new commit that undoes all of the changes introduced in the commit, then apply it to the current branch
+### Reverting Commit
+Generate a new commit that undoes all of the changes introduced in the commit.
 ```bash
 $ git revert <commit>
 ```
-Cancel the revert operation
+Cancel the revert operation.
 ```bash
 $ git revert --abort
 ```
-
-
-REVERTING MERGE COMMIT
-We specify the merge using the SHA1 hash of the merge commit. The -m followed by the 1 indicates that we want to keep the parent side of the merge (the branch we are merging into)
-```bash
-$ git revert -m 1 <commit>
-```
-
-
-
-REVERTING INITIAL COMMIT
+Revert initial commit.
 ```bash
 $ git update-ref -d HEAD
 ```
+Revert merge commit. The -m followed by the 1 indicates that we want to keep the parent side of the merge (the branch we are merging into)
+```bash
+$ git revert -m 1 <commit>
+             --mainline
+```
 
+### Unstaging Staged File
+Unstage all files and leave the working directory unchanged.
+```bash
+$ git reset
+```
+Unstage all files and leave the working directory unchanged.
+```bash
+$ git reset HEAD
+```
+Unstage a file.
+```bash
+$ git reset <file>
+```
+Select diff hunks to remove from the index.
+```bash
+$ git reset -p
+            --patch
+```
 
+### Resetting Current Commit
+Reset the index and working tree to the given tree.
+```bash
+$ git reset --hard <commit>
+```
+Reset the index but not the working tree (default).
+```bash
+$ git reset --mixed <commit>
+```
+Do not reset the index file nor the working tree.
+```bash
+$ git reset --soft <commit>
+```
+Like --hard, but keep local working tree changes.
+```bash
+$ git reset --keep <commit>
+```
 
-REMOVING UNTRACKED DIRECTORIES/FILES
+### Removing Untracked Files
+Remove untracked files from working tree.
 ```bash
 $ git clean
 ```
-If the git configuration variable clean.requireForce is not set to false, git clean will refuse to run unless given -f or -n
+Required when clean.requireForce is true (default).
 ```bash
 $ git clean -f
             --force
 ```
-Don’t actually remove anything, just show what would be done
+Only show what would and what would not be removed.
 ```bash
 $ git clean -n
+            --dry-run
 ```
-Forcefully remove untracked directory
+Remove untracked directories
 ```bash
-$ git clean -f -d
-            -fd
+$ git clean -d
 ```
-If you are clearing out untracked files, you can double check what files are going to be deleted with the dry run flag
+Remove only ignored files
 ```bash
-$ git clean -fd --dry-run
+$ git clean -X
 ```
-Cleaning the files from .gitignore
-```bash
-$ git clean -X -f
-```
-Interactive mode
+Show what would be done and clean files interactively
 ```bash
 $ git clean -i
+            --interactive
 ```
+
+## Blaming Changes
+Show what revision and author last modified each line of a file.
+```bash
+$ git blame <file>
+```
+Annotate only the given line range.
+```bash
+$ git blame -L <starting-line>,<ending-line> <file>
+```
+
+## Binary Search
+Reset bisection state and start a new bisection.
+```bash
+$ git bisect start
+```
+Mark current or given revision as bad.
+```bash
+$ git bisect bad
+```
+Mark current or given revision as good.
+```bash
+$ git bisect good
+```
+Finish bisection search and return to the given branch (or master).
+```bash
+$ git bisect reset
+```
+Show the log of the current bisection.
+```bash
+$ git bisect log
+```
+Print out the log of the current bisection.
+```bash
+$ git bisect log > file.log
+```
+
+
+
+
+
+
+
+
 
 
 
@@ -1078,7 +1111,7 @@ SWITCHING TO ANOTHER BRANCH
 ```bash
 $ git checkout <branch>
 ```
-Checkout previous branch
+Quickly jump back to previous branch.
 ```bash
 $ git checkout -
 ```
@@ -1167,99 +1200,6 @@ $ git rev-parse --abbrev-ref HEAD
 
 
 
-VIEWING THE COMMIT HISTORY
-Show all commits
-```bash
-$ git log
-```
-Show changes over time for a specific file
-```bash
-$ git log <file>
-```
-Generate diff in patch format for a specific file
-```bash
-$ git log -p <file>
-```
-If want to see the entire history
-```bash
-$ git log --follow <file>
-```
-If want to see the entire history of the file (including history beyond renames and with diffs for each change)
-```bash
-$ git log --follow -p <file>
-```
-Exports a git log to a text file
-```bash
-$ git log > <file>
-```
-Show only commits that occur in the range. Both arguments can be either a commit ID, a branch name, HEAD, or any other kind of revision reference
-```bash
-$ git log <commit>..<commit>
-```
-Maximum number of commits to display
-```bash
-$ git log -n
-```
-// TODO
-```bash
-$ git log --max-count
-```
-Limits the number of commits to show
-```bash
-$ git log -n -n
-```
-Condense each commit to a single line. This is useful for getting a high-level overview of the project history
-```bash
-$ git log --oneline
-```
-Include which files were altered and the relative number of lines that were added or deleted from each of them
-```bash
-$ git log --stat
-```
-// TODO
-```bash
-$ git log --shortstat
-```
-// TODO
-```bash
-$ git log --summary
-```
-Search for commits by a particular author. The argument can be a plain string or a regular expression
-```bash
-$ git log --author="<pattern>"
-```
-Search for commits with a commit message that matches <pattern> , which can be a plain string or a regular expression
-```bash
-$ git log --grep="<pattern>"
-```
-// TODO
-```bash
-$ git log --graph --decorate ﻿--oneline
-```
-// TODO
-```bash
-$ git log --graph --pretty=oneline --abbrev-commit
-```
-// TODO
-```bash
-$ git log --pretty=oneline
-```
-What changed since two weeks?
-```bash
-$ git log --no-merges --raw --since='2 weeks ago'
-```
-// TODO
-```bash
-$ git log <origin>/<remote-branch>
-```
-Last commit a file appeared in. This same command will even work for files that have been deleted if you know the path and name of the file in question
-```bash
-$ git log -1 <file>
-```
-Number of commits of each contributor
-```bash
-$ git shortlog -s -n
-```
 
 
 
@@ -1482,6 +1422,30 @@ $ git bundle create <file> <branch-name>
 
 
 
+SHOWING ALL COMMITS TO BE MERGED
+Show all commits in the current branch yet to be merged to <local-branch>
+```bash
+$ git cherry -v <local-branch>
+```
+// TODO
+```bash
+$ git cherry -v <local-branch> <branch-to-be-merged>
+```
+// TODO
+```bash
+$ git log <branch-to-be-merged> ^<local-branch>
+```
+
+
+
+SHOWING REPOSITORY CHANGES
+Run a quick web server, open a browser
+```bash
+$ git instaweb --httpd=webrick
+```
+
+
+
 SEARCHING COMMITED CODE
 // TODO
 ```bash
@@ -1502,6 +1466,12 @@ COUNTING UNPACKED NUMBER OF OBJECTS AND THEIR DISK CONSUMPTION
 // TODO
 ```bash
 $ git count-objects --human-readable
+```
+
+
+NUMBER OF COMMITS OF EACH CONTRIBUTOR
+```bash
+$ git shortlog -s -n
 ```
 
 
