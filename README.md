@@ -414,7 +414,7 @@ $ git stash clear
 
 ## Inspecting Changes
 ### Display State
-Show working tree status.
+Show working directory status.
 ```bash
 $ git status
 ```
@@ -532,7 +532,7 @@ $ git log --no-merges --raw --since='2 weeks ago'
 ```
 
 ## Listing Files
-Show information about files in the index and the working tree.
+Show information about files in the index and the working directory.
 ```bash
 $ git ls-files
 ```
