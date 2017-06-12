@@ -40,6 +40,7 @@ A collection of some of the most useful Git commands
 8. [Rewriting History](#rewriting-history)
     * [Fix Up Commit](#fix-up-commit)
     * [Rebase Commits](#rebase-commits)
+    * [Copy Commits](#copy-commits)
 9. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
@@ -788,6 +789,28 @@ $ git rebase -i <branch>
              --interactive
 ```
 
+### Copy Commits
+Jump into the branch that you want to insert the commit into.
+```bash
+$ git cherry-pick <commit>
+```
+Introduce particular commits from one branch onto a different branch.
+```bash
+$ git cherry-pick <branch>
+```
+Cancel revert or cherry-pick sequence.
+```bash
+$ git cherry-pick --abort
+```
+Resume revert or cherry-pick sequence.
+```bash
+$ git cherry-pick --continue
+```
+End revert or cherry-pick sequence.
+```bash
+$ git cherry-pick --quit
+```
+
 
 RESOLVING CONFLICTS
 Finish with git add <file> and git commit
@@ -800,28 +823,6 @@ $ git checkout --ours <file>
 ```
 
 
-
-COPYING COMMITS
-Jump into the branch that you want to insert the commit into
-```bash
-$ git cherry-pick <commit>
-```
-Introduce particular commits from one branch onto a different branch
-```bash
-$ git cherry-pick <branch>
-```
-// TODO
-```bash
-$ git cherry-pick --abort
-```
-// TODO
-```bash
-$ git cherry-pick --continue
-```
-// TODO
-```bash
-$ git cherry-pick --quit
-```
 
 
 
