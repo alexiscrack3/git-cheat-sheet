@@ -41,7 +41,10 @@ A collection of some of the most useful Git commands
     * [Fix Up Commit](#fix-up-commit)
     * [Rebase Commits](#rebase-commits)
     * [Copy Commits](#copy-commits)
-9. [Tagging](#tagging)
+9. [Collaborating](#collaborating)
+    * [Remotes](#remotes)
+    * [Fetch](#fetch)
+10. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -53,7 +56,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-10. [Submodules](#submodules)
+11. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -811,63 +814,88 @@ End revert or cherry-pick sequence.
 $ git cherry-pick --quit
 ```
 
-
-RESOLVING CONFLICTS
-Finish with git add <file> and git commit
+## Collaborating
+### Remotes
+Create a new connection to a remote repository. After adding a remote, you’ll be able to use <remote> as a convenient shortcut for <url> in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
 ```bash
-$ git checkout --theirs <file>
+$ git remote add <remote> <url>
 ```
-Finish with git add <file> and git commit
+Change URL for a remote.
 ```bash
-$ git checkout --ours <file>
+$ git remote set-url <remote> <url
+```
+Rename a remote and update all associated tracking branches.
+```bash
+$ git remote rename <old-remote> <new-remote>
+```
+Remove a remote and all associated tracking branches.
+```bash
+$ git remote rm <remote>
+```
+List remote names.
+```bash
+$ git remote
+```
+Show remote url after name.
+```bash
+$ git remote -v
+             --verbose
+```
+Show information about a given remote
+```bash
+$ git remote show <remote>
 ```
 
-
-
-
-
-
-FECTHING FROM YOUR REMOTES
-When no remote is specified, by default the origin remote will be used
+### Fetch
+Fetch objects and refs from repository to see what everybody else has been working on. It has absolutely no affect on local development work because it doesn’t force to merge changes. When no remote is specified, by default the origin remote will be used.
 ```bash
 $ git fetch
 ```
-Fetch all remotes
+Fetch objects and refs from all remotes.
 ```bash
 $ git fetch --all
 ```
-Fetch all of the branches from the repository to see what everybody else has been working on. It has absolutely no affect on your local development work because it doesn’t force you to merge changes. When you finish to review changes you have to merge remote branch to a local branch
+Fetch objects and refs from the specified remote.
 ```bash
 $ git fetch <remote>
 ```
-Fetch the specified branch
+Fetch objects and refs from the specified remote and branch.
 ```bash
 $ git fetch <remote> <local-branch>
 ```
-After fetching, remove any remote-tracking references that no longer exist on the remote
+Remove any remote-tracking references that no longer exist on the remote.
 ```bash
 $ git fetch -p
             --prune
 ```
 
-
-
-PULLING FROM YOUR REMOTES
-```bash
-$ git pull <remote> <local-branch>
-```
-Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy. This is the same as git fetch <remote> followed by git merge origin/<current-branch>
+## Pulling
+Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
 ```bash
 $ git pull <remote>
 ```
-Same as pull command, but instead of using git merge to integrate the remote branch with the local one, use git rebase
+Fetch the specified remote’s copy of the branch and merge it into the local copy.
+```bash
+$ git pull <remote> <branch>
+```
+Instead of using git merge to integrate the remote branch with the local one, use git rebase.
 ```bash
 $ git pull --rebase <remote>
 ```
 
 
 
-PUSHING TO YOUR REMOTES
+
+
+
+
+
+
+
+
+
+
+### Pushing
 To push a local branch (current branch)
 ```bash
 $ git push
@@ -913,49 +941,7 @@ $ git push --mirror
 
 
 
-ADDING REMOTES
-Create a new connection to a remote repository. After adding a remote, you’ll be able to use <remote> as a convenient shortcut for <url> in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead
-```bash
-$ git remote add <remote> <url>
-```
 
-EDITING REMOTES
-// TODO
-```bash
-$ git remote set-url <remote> <url
-```
-
-RENAMING REMOTES
-// TODO
-```bash
-$ git remote rename <old-remote> <new-remote>
-```
-
-REMOVING REMOTES
-// TODO
-```bash
-$ git remote rm <remote>
-```
-
-LISTING YOUR REMOTES
-List remote names
-```bash
-$ git remote
-```
-List remote names and url
-```bash
-$ git remote -v
-```
-List remote names
-```bash
-$ git remote show
-```
-
-SHOWING INFORMATION ABOUT A REMOTE
-Explicitly tells you which local branches are tracking which remote branches
-```bash
-$ git remote show <remote>
-```
 
 
 
@@ -1350,6 +1336,15 @@ $ git check-ignore *
 ```
 
 
+RESOLVING CONFLICTS
+Finish with git add <file> and git commit
+```bash
+$ git checkout --theirs <file>
+```
+Finish with git add <file> and git commit
+```bash
+$ git checkout --ours <file>
+```
 
 
 BINARY SEARCH
