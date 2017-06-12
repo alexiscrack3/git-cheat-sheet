@@ -15,15 +15,15 @@ A collection of some of the most useful Git commands
 3. [Setting Up Repository](#setting-up-repository)
     * [Initializing Repository](#initializing-repository)
     * [Initializing Shared Repository](#initializing-shared-repository)
-    * [Cloning Repository](#cloning-repository)\
+    * [Cloning Repository](#cloning-repository)
 4. [Saving Changes](#saving-changes)
-    * [Adding Changes](#adding-changes)
+    * [Adding Files](#adding-files)
         * [Tracking New or Modified Files](#tracking-new-or-modified-files)
         * [Interactive Staging](#interactive-staging)
     * [Removing Files](#removing-files)
     * [Renaming Files](#renaming-files)
-    * [Committing Changes](#committing-changes)
-    * [Stashing Changes](#stashing-changes)
+    * [Committing Files](#committing-files)
+    * [Stashing Files](#stashing-files)
 5. [Inspecting Changes](#inspecting-changes)
     * [Display State](#display-state)
     * [Display Differences](#display-differences)
@@ -218,7 +218,7 @@ $ git clone -b <branch> --single-branch <repository>
 ```
 
 ## Saving Changes
-### Adding Changes
+### Adding Files
 #### Tracking New or Modified Files
 Add all files.
 ```bash
@@ -276,11 +276,11 @@ $ git add -i
 ```
 
 ### Removing Files
-Remove file from the working tree.
+Remove file from the working directory.
 ```bash
 $ git rm <file>
 ```
-Remove recursively directory from the working tree.
+Remove recursively directory from the working directory.
 ```bash
 $ git rm -r <directory>
 ```
@@ -292,7 +292,7 @@ Remove recursively a directory from index but not from disk.
 ```bash
 $ git rm --cached -r <directory>
 ```
-Remove files from the working tree.
+Remove files from the working directory.
 ```bash
 $ git rm $(git ls-files --deleted)
 ```
@@ -309,7 +309,7 @@ Second way.
 $ git mv <file-from> <file-to>
 ```
 
-### Committing Changes
+### Committing Files
 Use the given message as the commit message.
 ```bash
 $ git commit -m "<message>"
@@ -342,12 +342,12 @@ Skip staging area and commit files, this only works with tracked files.
 $ git commit --only <file>
 ```
 
-### Stashing Changes
+### Stashing Files
 Stash away changes to dirty working directory.
 ```bash
 $ git stash
 ```
-Interactively select hunks from diff between HEAD and working tree to stash.
+Interactively select hunks from diff between HEAD and working directory to stash.
 ```bash
 $ git stash -p
             --patch
@@ -414,7 +414,7 @@ $ git stash clear
 
 ## Inspecting Changes
 ### Display State
-Show working-tree status.
+Show working tree status.
 ```bash
 $ git status
 ```
@@ -674,25 +674,25 @@ $ git reset -p
 ```
 
 ### Resetting Current Commit
-Reset the index and working tree to the given tree.
+Reset the index and working directory to the given commit.
 ```bash
 $ git reset --hard <commit>
 ```
-Reset the index but not the working tree (default).
+Reset the index but not the working directory (default).
 ```bash
 $ git reset --mixed <commit>
 ```
-Do not reset the index file nor the working tree.
+Do not reset the index file nor the working directory.
 ```bash
 $ git reset --soft <commit>
 ```
-Like --hard, but keep local working tree changes.
+Like --hard, but keep local working directory changes.
 ```bash
 $ git reset --keep <commit>
 ```
 
 ### Removing Untracked Files
-Remove untracked files from working tree.
+Remove untracked files from working directory.
 ```bash
 $ git clean
 ```
