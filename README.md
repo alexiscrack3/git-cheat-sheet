@@ -28,6 +28,7 @@ A collection of some of the most useful Git commands
     * [Display State](#display-state)
     * [Display Differences](#display-differences)
     * [Display Logs](#display-logs)
+    * [Blame Changes](#blame-changes)
 6. [Listing Files](#listing-files)
 7. [Undoing Changes](#undoing-changes)
     * [Reverting Files](#reverting-files)
@@ -531,6 +532,16 @@ Show changes since two weeks.
 $ git log --no-merges --raw --since='2 weeks ago'
 ```
 
+### Blame Changes
+Show what revision and author last modified each line of a file.
+```bash
+$ git blame <file>
+```
+Annotate only the given line range.
+```bash
+$ git blame -L <starting-line>,<ending-line> <file>
+```
+
 ## Listing Files
 Show information about files in the index and the working directory.
 ```bash
@@ -720,15 +731,9 @@ $ git clean -i
             --interactive
 ```
 
-## Blaming Changes
-Show what revision and author last modified each line of a file.
-```bash
-$ git blame <file>
-```
-Annotate only the given line range.
-```bash
-$ git blame -L <starting-line>,<ending-line> <file>
-```
+
+
+
 
 ## Binary Search
 Reset bisection state and start a new bisection.
@@ -755,16 +760,6 @@ Print out the log of the current bisection.
 ```bash
 $ git bisect log > file.log
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
