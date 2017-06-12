@@ -27,6 +27,7 @@ A collection of some of the most useful Git commands
 5. [Inspecting Changes](#inspecting-changes)
     * [Display State](#display-state)
     * [Display Differences](#display-differences)
+    * [Display Reflog Information](#display-reflog-information)
     * [Display Logs](#display-logs)
     * [Blame Changes](#blame-changes)
 6. [Listing Files](#listing-files)
@@ -36,7 +37,10 @@ A collection of some of the most useful Git commands
     * [Unstaging Staged File](#unstaging-staged-file)
     * [Resetting Current Commit](#resetting-current-commit)
     * [Removing Untracked Files](#removing-untracked-files)
-8. [Tagging](#tagging)
+8. [Rewriting History](#rewriting-history)
+    * [Fix Up Commit](#fix-up-commit)
+    * [Rebase Commits](#rebase-commits)
+9. [Tagging](#tagging)
     * [Creating Tags](#creating-tags)
         * [Annotated Tags](#annotated-tags)
         * [Lightweight Tags](#lightweight-tags)
@@ -48,7 +52,7 @@ A collection of some of the most useful Git commands
         * [Remote Tag](#remote-tag)
     * [Seeing](#seeing)
     * [Listing Tags](#listing-tags)
-9. [Submodules](#submodules)
+10. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -472,6 +476,16 @@ Print out changes.
 $ git diff > <file>
 ```
 
+### Display Reflog Information
+Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
+```bash
+$ git reflog
+```
+Show the reflog with relative date information (e.g. 2 weeks ago).
+```bash
+$ git reflog --relative-date
+```
+
 ### Display Logs
 Show all commits.
 ```bash
@@ -731,110 +745,44 @@ $ git clean -i
             --interactive
 ```
 
-
-
-
-
-## Binary Search
-Reset bisection state and start a new bisection.
-```bash
-$ git bisect start
-```
-Mark current or given revision as bad.
-```bash
-$ git bisect bad
-```
-Mark current or given revision as good.
-```bash
-$ git bisect good
-```
-Finish bisection search and return to the given branch (or master).
-```bash
-$ git bisect reset
-```
-Show the log of the current bisection.
-```bash
-$ git bisect log
-```
-Print out the log of the current bisection.
-```bash
-$ git bisect log > file.log
-```
-
-
-
-ADDING FORGOTTEN FILE TO LAST COMMIT
-// TODO
-```bash
-$ git add <file>
-```
-Add forgotten file and lets you edit the previous commit's message
+## Rewriting History
+### Fix Up Commit
+Add forgotten files and edit the last commit's message.
 ```bash
 $ git commit --amend
 ```
-Add forgotten file without changing its commit message
+Add forgotten files without changing commit's message.
 ```bash
 $ git commit --amend --no-edit
 ```
-
-CHANGING YOUR LAST COMMIT
-Change your commit message using the terminal
+Change commit's message. NEVER amend commits that have been pushed to a public repository.
 ```bash
-$ git commit --amend
+$ git commit --amend -m "<message>"
 ```
-Changes your commit message. NEVER amend commits that have been pushed to a public repository
+Override the author name used in the commit.
 ```bash
-$ git commit --amend -m "New commit message"
-```
-Amend author
-```bash
-$ git commit --amend --author='<name> <email>'
-```
-Reword the previous commit
-```bash
-$ git commit -v --amend
+$ git commit --amend --author="Name <your_email@youremail.com>"
 ```
 
-
-
-MOVING THE LATEST COMMIT TO A NEW BRANCH
-// TODO
-```bash
-$ git checkout -b <new-branch>
-```
-// TODO
-```bash
-$ git reset --hard HEAD~
-```
-
-
-
-REBASING COMMITS
+### Rebase Commits
 Rebase your current HEAD onto branch. NEVER rebase published commits
 ```bash
 $ git rebase <branch>
 ```
-Abort a rebase
+Abort current rebase.
 ```bash
 $ git rebase --abort
 ```
-Continue a rebase after resolving conflicts
+Continue after resolving merge conflict.
 ```bash
 $ git rebase --continue
 ```
+Make a list of commits to be rebased and open in $EDITOR.
+```bash
+$ git rebase -i
+             --interactive
+```
 
-1st. way
-git checkout <local-branch>
-git rebase <remote-branch>      // Rebase the current branch onto <remote-branch>, which can be any kind of commit reference (an ID, a branch name, a tag, or a relative reference to HEAD). This allow us do a standard fast-forward merge
-
-2nd. way
-git rebase <remote-brach> <local-branch>
-
-3rd.way
-git rebase -i <remote-branch>   // This opens an editor where you can enter commands for each commit to be rebase. Pick and/or squash commits. Finally, you can do a fast-forward merge to integrate the polished branch into the main code base
-
-4th. way
-git rebase -i HEAD~10           // If you have not yet pushed the commit anywhere, you can use git rebase -i to remove that commit. The ~10 means rebase the last 10 commits.
 
 
 
@@ -1259,16 +1207,6 @@ $ git cherry -v <branch>
 
 
 
-VIEWING THE STATE HISTORY
-Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before
-```bash
-$ git reflog
-```
-Show the reflog with relative date information (e.g. 2 weeks ago).
-```bash
-$ git reflog --relative-date
-```
-
 
 
 SEEING CHANGES FOR A FILE
@@ -1405,6 +1343,35 @@ LISTING IGNORED FILES
 // TODO
 ```bash
 $ git check-ignore *
+```
+
+
+
+
+BINARY SEARCH
+Reset bisection state and start a new bisection.
+```bash
+$ git bisect start
+```
+Mark current or given revision as bad.
+```bash
+$ git bisect bad
+```
+Mark current or given revision as good.
+```bash
+$ git bisect good
+```
+Finish bisection search and return to the given branch (or master).
+```bash
+$ git bisect reset
+```
+Show the log of the current bisection.
+```bash
+$ git bisect log
+```
+Print out the log of the current bisection.
+```bash
+$ git bisect log > file.log
 ```
 
 
