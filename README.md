@@ -982,6 +982,10 @@ Delete the specified branch even if it has unmerged changes.
 ```bash
 $ git branch -D <local-branch>
 ```
+Delete local branches that have been merged into the current branch.
+```bash
+$ git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+```
 Delete remote branch from the remote repository.
 ```bash
 $ git push <remote> --delete <branch>
@@ -1083,17 +1087,6 @@ Quickly jump back to previous branch.
 ```bash
 $ git checkout -
 ```
-
-
-
-
-
-REMOVING MERGED BRANCHES
-To delete any branches that have been merged into the currently checked out branch.
-```bash
-$ git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
-```
-
 
 
 GETTING THE NAME OF CURRENT BRANCH
