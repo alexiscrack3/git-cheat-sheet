@@ -26,10 +26,11 @@ A collection of some of the most useful Git commands
     * [Stashing Files](#stashing-files)
 5. [Inspecting Changes](#inspecting-changes)
     * [Display State](#display-state)
-    * [Display Differences](#display-differences)
-    * [Display Reflog Information](#display-reflog-information)
+    * [Display Objects](#display-objects)
     * [Display Logs](#display-logs)
+    * [Display Differences](#display-differences)
     * [Blame Changes](#blame-changes)
+    * [Display Reflog Information](#display-reflog-information)
 6. [Listing Files](#listing-files)
 7. [Undoing Changes](#undoing-changes)
     * [Reverting Files](#reverting-files)
@@ -436,57 +437,38 @@ Status of ignored files.
 $ git status --ignored
 ```
 
-### Display Differences
-What's different from our most recent commit (staged and unstaged changes).
+### Display Objects
+Show details of the most recent commit.
 ```bash
-$ git diff
+$ git show
 ```
-What's different from our most recent commit (staged and unstaged changes).
+Show details of the object (blobs, trees, tags and commits).
 ```bash
-$ git diff HEAD
+$ git show <object>
 ```
-What's different from our previous commit.
+Show details of the most recent commit.
 ```bash
-$ git diff HEAD~1
-           HEAD^1
-           HEAD^
+$ git show HEAD
 ```
-What's different from two previous commits.
- ```bash
-$ git diff HEAD~2
-           HEAD^2
-           HEAD^^
-```
-Show staged changes against your HEAD.
+Show filenames of the most recent commit without the diffs.
 ```bash
-$ git diff --cached
-           --staged
+$ git show HEAD --name-only
 ```
-Show changes between commits.
+Show details of commit via commit message pattern matching.
 ```bash
-$ git diff <commit> <commit>
+$ git show :/<commit>
 ```
-Show changes in file between commits.
+Show details of a file on a object.
 ```bash
-$ git diff <commit> <commit> <file>
+$ git show <object>:<file>
 ```
-Show inline word diff.
+Export file to path.
 ```bash
-$ git diff --word-diff
+$ git show <branch>:<file> > <path>
 ```
-Print out changes.
+Show branches and their commits
 ```bash
-$ git diff > <file>
-```
-
-### Display Reflog Information
-Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
-```bash
-$ git reflog
-```
-Show the reflog with relative date information (e.g. 2 weeks ago).
-```bash
-$ git reflog --relative-date
+$ git show-branch
 ```
 
 ### Display Logs
@@ -549,6 +531,49 @@ Show changes since two weeks.
 $ git log --no-merges --raw --since='2 weeks ago'
 ```
 
+### Display Differences
+What's different from our most recent commit (staged and unstaged changes).
+```bash
+$ git diff
+```
+What's different from our most recent commit (staged and unstaged changes).
+```bash
+$ git diff HEAD
+```
+What's different from our previous commit.
+```bash
+$ git diff HEAD~1
+           HEAD^1
+           HEAD^
+```
+What's different from two previous commits.
+ ```bash
+$ git diff HEAD~2
+           HEAD^2
+           HEAD^^
+```
+Show staged changes against your HEAD.
+```bash
+$ git diff --cached
+           --staged
+```
+Show changes between commits.
+```bash
+$ git diff <commit> <commit>
+```
+Show changes in file between commits.
+```bash
+$ git diff <commit> <commit> <file>
+```
+Show inline word diff.
+```bash
+$ git diff --word-diff
+```
+Print out changes.
+```bash
+$ git diff > <file>
+```
+
 ### Blame Changes
 Show what revision and author last modified each line of a file.
 ```bash
@@ -557,6 +582,16 @@ $ git blame <file>
 Annotate only the given line range.
 ```bash
 $ git blame -L <starting-line>,<ending-line> <file>
+```
+
+### Display Reflog Information
+Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
+```bash
+$ git reflog
+```
+Show the reflog with relative date information (e.g. 2 weeks ago).
+```bash
+$ git reflog --relative-date
 ```
 
 ## Listing Files
@@ -1088,62 +1123,10 @@ Quickly jump back to previous branch.
 $ git checkout -
 ```
 
-
-GETTING THE NAME OF CURRENT BRANCH
-// TODO
+## Others
+Get the name of current branch.
 ```bash
 $ git rev-parse --abbrev-ref HEAD
-```
-
-
-
-
-
-
-VIEWING DETAIL ABOUT A COMMIT
-It shows details of the most recent commit.
-```bash
-$ git show
-```
-It shows details of the most recent commit.
-```bash
-$ git show HEAD
-```
-List filenames without the diffs.
-```bash
-$ git show HEAD --name-only
-```
-It shows details of the last fetch.
-```bash
-$ git show FETCH_HEAD
-```
-It shows details of a particular commit number.
-```bash
-$ git show <commit>
-```
-Reference a commit via commit message pattern matching.
-```bash
-$ git show :/<commit>
-```
-It shows details of a particular stash.
-```bash
-$ git show stash@{n}
-```
-It shows details of a file on a branch.
-```bash
-$ git show <branch>:<file>
-```
-It shows details of a file on a branch.
-```bash
-$ git show <commit>:<file>
-```
-Exporting to file
-```bash
-$ git show <branch>:<file> > <path>
-```
-It shows branches and their commits.
-```bash
-$ git show-branch
 ```
 
 
@@ -1242,6 +1225,7 @@ Update a submodule.
 ```bash
 $ git submodule update --init --recursive
 ```
+
 ### Cloning a Project with Submodules
 Clone an existing repository and all its sub-modules recursively.
 ```bash
