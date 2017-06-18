@@ -55,10 +55,15 @@ A collection of some of the most useful Git commands
     * [Merge Branches](#merge-branches)
     * [Track Branches](#track-branches)
     * [Switch to Branch](#switch-to-branch)
-11. [Tagging](#tagging)
-12. [Submodules](#submodules)
+11. [Debugging](#debugging)
+    * [File Annotation](#file-annotation)
+    * [Binary Search](#binary-search)
+12. [Tagging](#tagging)
+13. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
+14. [Others](#others)
+15. [Getting Help](#getting-help)
 
 ## Settings
 ### Setting Global Configs
@@ -101,6 +106,10 @@ Get all your global configs.
 $ git config --global -l
                       --list
 ```
+Get all your global configs.
+```bash
+$ cat ~/.gitconfig
+```
 Get global username.
 ```bash
 $ git config --global user.name
@@ -131,6 +140,15 @@ $ git config user.email "<email>"
 ```
 
 ### Getting Local Configs
+Get all your local configs.
+```bash
+$ git config --global -l
+                      --list
+```
+Get all your local configs.
+```bash
+$ cat .git/config
+```
 Get username.
 ```bash
 $ git config --get user.name
@@ -574,16 +592,6 @@ Print out changes.
 $ git diff > <file>
 ```
 
-### Blame Changes
-Show what revision and author last modified each line of a file.
-```bash
-$ git blame <file>
-```
-Annotate only the given line range.
-```bash
-$ git blame -L <starting-line>,<ending-line> <file>
-```
-
 ### Display Reflog Information
 Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
 ```bash
@@ -902,6 +910,10 @@ Remove any remote-tracking references that no longer exist on the remote.
 $ git fetch -p
             --prune
 ```
+Fetch from all remotes, not just one.
+```bash
+$ git remote update
+```
 
 ### Pulling
 Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
@@ -1123,38 +1135,42 @@ Quickly jump back to previous branch.
 $ git checkout -
 ```
 
-## Others
-Get the name of current branch.
+## Debugging
+### File Annotation
+Show what revision and author last modified each line of a file.
 ```bash
-$ git rev-parse --abbrev-ref HEAD
+$ git blame <file>
+```
+Annotate only the given line range.
+```bash
+$ git blame -L <starting-line>,<ending-line> <file>
 ```
 
-
-
-FINDING COMMITS NOT MERGED UPSTREAM
-Find commits yet to be applied to upstream.
+## Binary Search
+Reset bisection state and start a new bisection.
 ```bash
-$ git cherry <branch>
+$ git bisect start
 ```
-Find commits yet to be applied to upstream with additional information.
+Mark current or given revision as bad.
 ```bash
-$ git cherry -v <branch>
-             --verbose
+$ git bisect bad
 ```
-
-
-
-
-
-SEEING CHANGES FOR A FILE
-// TODO
+Mark current or given revision as good.
 ```bash
-$ git gitk <file>
+$ git bisect good
 ```
-
-
-
-
+Finish bisection search and return to the given branch (or master).
+```bash
+$ git bisect reset
+```
+Show the log of the current bisection.
+```bash
+$ git bisect log
+```
+Print out the log of the current bisection.
+```bash
+$ git bisect log > <name>.log
+```
 
 ## Tagging
 Create annotated tag.
@@ -1232,22 +1248,90 @@ Clone an existing repository and all its sub-modules recursively.
 $ git clone --recursive <repository>
 ```
 
+## Others
+Get the name of current branch.
+```bash
+$ git rev-parse --abbrev-ref HEAD
+```
+Number of commits of each contributor.
+```bash
+$ git shortlog -s -n
+               -sn
+```
+Number of commits of each contributor and ensures that merge commits aren’t being counted.
+```bash
+git shortlog -sn --all --no-merges
+```
+The Git repository browser.
+```bash
+$ git gitk <file>
+```
+Instantly browse your working repository in gitweb.
+```bash
+$ git instaweb --httpd=webrick
+```
+Create backup with your repository’s files.
+```bash
+$ git archive --format=zip > <name>.zip
+```
+Create backup with your repository’s files.
+```bash
+$ git archive <object> --format=zip --output=<name>.zip
+```
+Create backup with your repository’s files.
+```bash
+$ git archive | gzip > <name>.tar.gz
+```
+Export branch with history to a file.
+```bash
+$ git bundle create <file> <branch-name>
+```
+Import from a bundle.
+```bash
+$ git clone repo.bundle <repo-dir> -b <branch-name>
+```
+Count unpacked number of objects and their disk consumption.
+```bash
+$ git count-objects --human-readable
+```
+Remove files that are listed in the .gitignore but still on the repository.
+```bash
+$ git ls-files -i --exclude-from=.gitignore | xargs git rm --cached  
+```
+
+## Getting Help
+Display help information about git.
+```bash
+$ git help <command>
+```
+Display help information about git.
+```bash
+$ git <command> --help
+```
+Get git version.
+```bash
+$ git --version
+```
+Print lines matching a pattern.
+```bash
+$ git grep <pattern>
+```
+List ignored files.
+```bash
+$ git check-ignore *
+```
 
 
-CREATING BACKUPS
-// TODO
+FINDING COMMITS NOT MERGED UPSTREAM
+Find commits yet to be applied to upstream.
 ```bash
-$ git archive HEAD --format=zip > <name>.zip
+$ git cherry <branch>
 ```
-// TODO
+Find commits yet to be applied to upstream with additional information.
 ```bash
-$ git archive HEAD | gzip > <name>.tar.gz
+$ git cherry -v <branch>
+             --verbose
 ```
-// TODO
-```bash
-$ git archive <local-branch> --format=zip --output=<name>.zip
-```
-
 
 
 IGNORING CHANGES TO A TRACKED FILE
@@ -1263,13 +1347,6 @@ Files that should never be tracked are listed in your .gitignore file.
 What about if you want to ignore some local changes to a tracked file?
 
 
-LISTING IGNORED FILES
-// TODO
-```bash
-$ git check-ignore *
-```
-
-
 RESOLVING CONFLICTS
 Finish with git add <file> and git commit.
 ```bash
@@ -1279,42 +1356,6 @@ Finish with git add <file> and git commit.
 ```bash
 $ git checkout --ours <file>
 ```
-
-
-BINARY SEARCH
-Reset bisection state and start a new bisection.
-```bash
-$ git bisect start
-```
-Mark current or given revision as bad.
-```bash
-$ git bisect bad
-```
-Mark current or given revision as good.
-```bash
-$ git bisect good
-```
-Finish bisection search and return to the given branch (or master).
-```bash
-$ git bisect reset
-```
-Show the log of the current bisection.
-```bash
-$ git bisect log
-```
-Print out the log of the current bisection.
-```bash
-$ git bisect log > file.log
-```
-
-
-
-EXPORTING A BRANCH WITH HISTORY TO A FILE
-// TODO
-```bash
-$ git bundle create <file> <branch-name>
-```
-
 
 
 SHOWING ALL COMMITS TO BE MERGED
@@ -1329,67 +1370,4 @@ $ git cherry -v <local-branch> <branch-to-be-merged>
 // TODO
 ```bash
 $ git log <branch-to-be-merged> ^<local-branch>
-```
-
-
-
-SHOWING REPOSITORY CHANGES
-Run a quick web server, open a browser.
-```bash
-$ git instaweb --httpd=webrick
-```
-
-
-
-SEARCHING COMMITED CODE
-// TODO
-```bash
-$ git grep <pattern>
-```
-
-
-
-IMPORTING FROM A BUNDLE
-// TODO
-```bash
-$ git clone repo.bundle <repo-dir> -b <branch-name>
-```
-
-
-
-COUNTING UNPACKED NUMBER OF OBJECTS AND THEIR DISK CONSUMPTION
-// TODO
-```bash
-$ git count-objects --human-readable
-```
-
-
-NUMBER OF COMMITS OF EACH CONTRIBUTOR
-```bash
-$ git shortlog -s -n
-```
-
-
-```bash
-cat .git/config
-```
-~/.gitconfig file: Specific to your user. You can make Git read and write to this file specifically by passing the --global option
-config file in the git directory (that is, .git/config). Each level overrides values in the previous level
-
-
-
-GETTING HELP
-```bash
-$ git help <command>
-```
-// TODO
-```bash
-$ git <command> --help
-```
-
-
-
-GETTING THE VERSION
-```bash
-$ git --version
 ```
