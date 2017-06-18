@@ -44,6 +44,8 @@ A collection of some of the most useful Git commands
 9. [Collaborating](#collaborating)
     * [Remotes](#remotes)
     * [Fetch](#fetch)
+    * [Pulling](#pulling)
+    * [Pushing](#pushing)
 10. [Tagging](#tagging)
 11. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
@@ -858,7 +860,11 @@ $ git fetch -p
             --prune
 ```
 
-## Pulling
+### Pulling
+Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
+```bash
+$ git pull
+```
 Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
 ```bash
 $ git pull <remote>
@@ -872,56 +878,36 @@ Instead of using git merge to integrate the remote branch with the local one, us
 $ git pull --rebase <remote>
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
 ### Pushing
-To push a local branch (current branch).
+Push the current branch to <remote>, along with all of the necessary commits and internal object.
 ```bash
 $ git push
 ```
-To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository.
+Push the specified branch to <remote>, along with all of the necessary commits and internal object.
 ```bash
 $ git push <remote> <local-branch>
 ```
-To push to the branch of the same name on the remote. This creates a local branch (remote branch for us) in the destination repository.
+Push to a remote branch with a different name than your local branch, along with all of the necessary commits and internal object.
 ```bash
 $ git push <remote> <local-branch> <remote-branch>
 ```
-To push a local branch and set the remote as upstream.
+Push a local branch and set the remote as upstream.
 ```bash
 $ git push -u <remote> <local-branch>
            --set-upstream <remote> <local-branch>
 ```
-Makes the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours.
+Make the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours.
 ```bash
 $ git push -f <remote> <commit>:<local-branch>
            --force
 ```
+Push all refs under refs/heads/ path.
+```bash
+$ git push --all
+```
 It refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the branch upstream.
 ```bash
 $ git push --force-with-lease
-```
-Pushes up the repo and its refs for the first time.
-```bash
-$ git push -u <remote> --all
-```
-Git obtains the current branch name from HEAD.
-```bash
-$ git push <remote> HEAD
-```
-Push all refs under refs/heads/
-```bash
-$ git push --all
 ```
 Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs.
 ```bash
