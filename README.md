@@ -46,8 +46,16 @@ A collection of some of the most useful Git commands
     * [Fetch](#fetch)
     * [Pulling](#pulling)
     * [Pushing](#pushing)
-10. [Tagging](#tagging)
-11. [Submodules](#submodules)
+10. [Using Branches](#using-branches)
+    * [Create Branches](#create-branches)
+    * [Rename Branches](#rename-branches)
+    * [Delete Branches](#delete-branches)
+    * [List Branches](#list-branches)
+    * [Merge Branches](#merge-branches)
+    * [Track Branches](#track-branches)
+    * [Switch to Branch](#switch-to-branch)
+11. [Tagging](#tagging)
+12. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 
@@ -832,7 +840,7 @@ Show remote url after name.
 $ git remote -v
              --verbose
 ```
-Show information about a given remote
+Show information about a given remote.
 ```bash
 $ git remote show <remote>
 ```
@@ -914,108 +922,160 @@ Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs.
 $ git push --mirror
 ```
 
+## Using Branches
+### Create Branches
+Create new branch.
+```bash
+$ git branch <branch>
+```
+Create new branch and set up a remote branch to track.
+```bash
+$ git branch --track <branch> <remote>/<remote-branch>
+```
+Create new branch from a remote branch and no tracking any remote branch.
+```bash
+$ git branch --no-track <branch> <remote>/<remote-branch>
+```
+Create new branch from commit and no tracking and no tracking any remote branch.
+```bash
+$ git branch --no-track <branch> <commit>
+```
+Create new branch and switch to it from a remote branch.
+```bash
+$ git checkout <remote-branch>
+```
+Create new branch and switch to it.
+```bash
+$ git checkout -b <branch>
+```
+Create new branch and switch to it at given local branch.
+```bash
+$ git checkout -b <branch> <local-branch>
+```
+Create new branch and switch to it at given remote branch.
+```bash
+$ git checkout -b <branch> <remote>/<remote-branch>
+```
+Create new branch and switch to it at given remote branch and without tracking.
+```bash
+$ git checkout -b <branch> <remote>/<remote-branch> --no-track
+```
 
+### Rename Branches
+Rename a branch and the corresponding reflog.
+```bash
+$ git branch -m <old-local-branch-name> <new-local-branch-name>
+             --move
+```
+Rename current branch and the corresponding reflog.
+```bash
+$ git branch -m <new-local-branch-name>
+```
 
+### Delete Branches
+Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
+```bash
+$ git branch -d <local-branch>
+             --delete
+```
+Delete the specified branch even if it has unmerged changes.
+```bash
+$ git branch -D <local-branch>
+```
+Delete remote branch from the remote repository.
+```bash
+$ git push <remote> --delete <branch>
+```
+Delete remote branch from the remote repository.
+```bash
+$ git push <remote> :<branch>
+```
 
-
-
-
-
-LISTING BRANCHES
-List the local branches.
+### List Branches
+List local branches.
 ```bash
 $ git branch
 ```
-List the remote-tracking branches.
+List only remote branches.
 ```bash
 $ git branch -r
+             --remotes
 ```
-Show sha1 and commit subject line for each head, along with relationship to upstream branch (if any).
+Show SHA-1 and commit subject line for each head.
 ```bash
 $ git branch -v
+             -vv--verbose
 ```
-If given twice, print the name of the upstream branch, as well (see also git remote show <remote>).
+Show SHA-1 and commit subject line for each head, along with relationship to upstream branch (if any).
 ```bash
 $ git branch -vv
 ```
-List both remote-tracking branches and local branches.
+List both remote and local branches.
 ```bash
 $ git branch -a
              --all
 ```
-Which branches are already merged into HEAD (i.e. the branch you're on).
+Only list branches which are fully contained by HEAD.
 ```bash
 $ git branch --merged
 ```
-Lists branches merged into <branch>
+Only list branches which are fully contained by branch.
 ```bash
 $ git branch --merged <branch>
 ```
-All the branches that contain work you haven't yet merged in. By default this applies to only the local branches.
-The -a flag will show both local and remote branches, and the -r flag shows only the remote branches.
+List all branches that are already merged into.
+```bash
+$ git branch --merged <local-branch> <local-branch>
+```
+List all remote branches that are already merged into.
+```bash
+$ git branch -r --merged
+            --remotes
+```
+Do not list branches which are fully contained by HEAD.
 ```bash
 $ git branch --no-merged
  ```
 
-CREATING BRANCHES
-Creates a new branch.
+### Merge Branches
+Merge remote branch into current branch.
 ```bash
-$ git branch <branch>
+$ git merge <remote>/<remote-branch>
 ```
-Creates a new branch and set up a remote branch to track.
+Merge local branch into current branch.
 ```bash
-$ git branch --track <branch> <remote>/<remote-branch>
+$ git merge <local-branch>
 ```
-Creates a new branch from a remote branch and no tracking any remote branch.
+Generate a merge commit even if the merge resolved as a fast-forward.
 ```bash
-$ git branch --no-track <branch> <remote>/<remote-branch>
+$ git merge --no-ff <local-branch>
 ```
-Creates a new branch from commit and no tracking and no tracking any remote branch.
+Restore the original branch and abort the merge operation.
 ```bash
-$ git branch --no-track <branch> <commit>
+$ git merge --abort
 ```
-Creates a new branch and switching to it.
+Merge the last checked out branch.
 ```bash
-$ git checkout -b <branch>
-```
-Creates a new branch from a local branch and switching to it.
-```bash
-$ git checkout -b <branch> <local-branch>
-```
-Creates a new branch from a remote branch with a specific name and switching to it.
-```bash
-$ git checkout -b <branch> <remote>/<remote-branch>
-```
-Creates a new branch from a remote branch with a specific name and switching to it without tracking.
-```bash
-$ git checkout -b <branch> <remote>/<remote-branch> --no-track
-```
-Creates a new branch from a remote branch and switching to it.
-```bash
-$ git checkout <remote-branch>
+$ git merge -
 ```
 
-
-
-TRACKING BRANCHES
-// TODO
+### Track Branches
+Branch will start tracking remote branch.
 ```bash
 $ git branch -u <remote>/<remote-branch>
-             --set-upstream-to
+            --set-upstream-to
 ```
-// TODO
+Branch will start tracking remote branch.
 ```bash
 $ git branch <local-branch> -u <remote>/<remote-branch>
 ```
-Stop tracking remote branch.
+Branch will stop tracking remote branch.
 ```bash
 $ git branch --unset-upstream
 ```
 
-
-
-SWITCHING TO ANOTHER BRANCH
-// TODO
+### Switch to Branch
+Switch to a different branch.
 ```bash
 $ git checkout <branch>
 ```
@@ -1025,71 +1085,7 @@ $ git checkout -
 ```
 
 
-DELETING BRANCHES
-Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
-```bash
-$ git branch -d <local-branch>
-```
-Force delete the specified branch, even if it has unmerged changes.
-```bash
-$ git branch -D <local-branch>
-```
-Deletes remote branch.
-```bash
-$ git push <remote> --delete <branch>
-```
-Deletes remote branch.
-```bash
-$ git push <remote> :<branch>
-```
 
-
-
-RENAMING BRANCHES
-// TODO
-```bash
-$ git branch -m <old-local-branch-name> <new-local-branch-name>
-```
-If you want to rename the current branch.
-```bash
-$ git branch -m <new-local-branch-name>
-```
-
-
-
-MERGING BRANCHES
-// TODO
-```bash
-$ git merge <remote>/<remote-branch>
-```
-You can merge your changes if you are on.
-```bash
-$ git merge <local-branch> <another-local-branch>
-```
-The --no-ff flag causes the merge to always create a new commit object. This avoids losing information.
-```bash
-$ git merge --no-ff <local-branch>
-```
-// TODO
-```bash
-$ git merge --abort
-```
-
-
-
-MERGED BRANCHES
-// TODO
-```bash
-$ git branch --merged
-```
-List all branches that are already merged into.
-```bash
-$ git branch --merged <local-branch> <local-branch>
-```
-// TODO
-```bash
-$ git branch -r --merged
-```
 
 
 REMOVING MERGED BRANCHES
