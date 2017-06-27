@@ -1313,6 +1313,10 @@ Remove files that are listed in the .gitignore but still on the repository.
 ```bash
 $ git ls-files -i --exclude-from=.gitignore | xargs git rm --cached  
 ```
+Show the last 10 local branches you recently worked on, sorted by the time that we were last working there.
+```bash
+$ git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+```
 
 ## Getting Help
 Display help information about git.
