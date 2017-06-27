@@ -534,6 +534,10 @@ Condense each commit to a single line.
 ```bash
 $ git log --oneline
 ```
+Get a list of commits made in the last two weeks.
+```bash
+$ git log --since='2 weeks'
+```
 Show statistics for files modified in each commit.
 ```bash
 $ git log --stat
@@ -554,9 +558,29 @@ Search for commits with a commit message. The argument can be a plain string or 
 ```bash
 $ git log --grep="<pattern>"
 ```
+Show what every contributor has been getting up to across all branches.
+```bash
+$ git log --all --oneline --no-merges
+```
 Show changes since two weeks.
 ```bash
 $ git log --no-merges --raw --since='2 weeks ago'
+```
+Generate a Changelog.
+```bash
+$ git log --oneline --no-merges <last tag>..HEAD
+```
+Check which changes you’re about to pull.
+```bash
+$ git log --oneline --no-merges HEAD..<remote>/<branch>
+```
+Review what you’re about to push.
+```bash
+$ git log --oneline --no-merges <remote>/<branch>..HEAD
+```
+View complex logs.
+```bash
+$ git log --graph --all --decorate --stat --date=iso
 ```
 
 ### Display Differences
