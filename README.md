@@ -174,6 +174,7 @@ $ git config --unset user.email
 ```bash
 $ git config --global alias.<alias-name> "<command>"
 ```
+
 ### Setting Useful Shortcuts
 // TODO
 ```bash
@@ -202,6 +203,10 @@ $ git config --global alias.ld "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %
 // TODO
 ```bash
 $ git config --global alias.le "log --oneline --decorate"
+```
+git blame implies that the developer we’re looking for did something wrong, and this might not always be the case.
+```bash
+$ git config --global alias.praise blame
 ```
 
 ## Setting Up Repository
