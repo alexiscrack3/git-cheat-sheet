@@ -471,8 +471,8 @@ $ git show <object>
 ```
 Ignore white space when comparing lines.
 ```bash
-$ git show <object> --ignore-all-space
-                    -w
+$ git show <object> -w
+                    --ignore-all-space
 ```
 Show details of the most recent commit.
 ```bash
@@ -566,8 +566,8 @@ $ git diff
 ```
 Ignore white space when comparing lines.
 ```bash
-$ git diff --ignore-all-space
-           -w
+$ git diff -w
+           --ignore-all-space
 ```
 What's different from our most recent commit (staged and unstaged changes).
 ```bash
