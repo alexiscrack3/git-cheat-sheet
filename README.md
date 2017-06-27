@@ -469,6 +469,11 @@ Show details of the object (blobs, trees, tags and commits).
 ```bash
 $ git show <object>
 ```
+Ignore white space when comparing lines.
+```bash
+$ git show <object> --ignore-all-space
+                    -w
+```
 Show details of the most recent commit.
 ```bash
 $ git show HEAD
@@ -558,6 +563,11 @@ $ git log --no-merges --raw --since='2 weeks ago'
 What's different from our most recent commit (staged and unstaged changes).
 ```bash
 $ git diff
+```
+Ignore white space when comparing lines.
+```bash
+$ git diff --ignore-all-space
+           -w
 ```
 What's different from our most recent commit (staged and unstaged changes).
 ```bash
