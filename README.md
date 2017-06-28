@@ -1288,9 +1288,13 @@ $ git clone --recursive <repository>
 ```
 
 ## Others
-Get the name of current branch.
+Get SHA-1 of object.
 ```bash
-$ git rev-parse --abbrev-ref HEAD
+$ git rev-parse <object>
+```
+Get a non-ambiguous short name of object.
+```bash
+$ git rev-parse --abbrev-ref <object>
 ```
 Number of commits of each contributor.
 ```bash
