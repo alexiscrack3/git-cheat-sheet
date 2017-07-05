@@ -182,7 +182,7 @@ $ git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Crese
 ```
 // TODO
 ```bash
-git config --global alias.lgds "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>' --abbrev-commit --date=short"
+git config --global alias.lgf "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>' --abbrev-commit"
 ```
 // TODO
 ```bash
