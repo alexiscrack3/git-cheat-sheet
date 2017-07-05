@@ -1349,6 +1349,10 @@ Show the last 10 local branches you recently worked on, sorted by the time that 
 ```bash
 $ git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 ```
+Output information on each ref (bisect, heads, remotes or tags).
+```bash
+$ git for-each-ref refs/heads/
+```
 
 ## Getting Help
 Display help information about git.
