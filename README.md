@@ -1117,7 +1117,7 @@ List all branches that are already merged into.
 ```bash
 $ git branch --merged <local-branch> <local-branch>
 ```
-List all remote branches that are already merged into.
+List all remote branches that have already been merged into current branch.
 ```bash
 $ git branch -r --merged
             --remotes
