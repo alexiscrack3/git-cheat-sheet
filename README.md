@@ -486,6 +486,11 @@ Show filenames of the most recent commit without the diffs.
 ```bash
 $ git show HEAD --name-only
 ```
+Show details of an object with pretty format.
+```bash
+$ git show --format="<format>" <object>
+           --pretty
+```
 Show details of commit via commit message pattern matching.
 ```bash
 $ git show :/<commit>
