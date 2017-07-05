@@ -1129,7 +1129,19 @@ $ git branch -r --merged
 Do not list branches which are fully contained by HEAD.
 ```bash
 $ git branch --no-merged
- ```
+```
+List local branches, ordered by most recent commit.
+```bash
+$ git for-each-ref --sort=-committerdate refs/heads/
+```
+List local branches, ordered by most recent commit (since version 2.7.0).
+```bash
+$ git branch --sort=-committerdate  # DESC
+```
+List local branches, ordered by least recent commit (since version 2.7.0).
+```bash
+$ git branch --sort=committerdate  # ASC
+```
 
 ### Merge Branches
 Merge remote branch into current branch.
