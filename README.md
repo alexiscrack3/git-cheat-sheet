@@ -469,6 +469,10 @@ Show details of the most recent commit.
 ```bash
 $ git show
 ```
+Show details of the most recent commit.
+```bash
+$ git show HEAD
+```
 Show details of the object (blobs, trees, tags and commits).
 ```bash
 $ git show <object>
@@ -478,13 +482,13 @@ Ignore white space when comparing lines.
 $ git show <object> -w
                     --ignore-all-space
 ```
-Show details of the most recent commit.
+Show only names of changed files without the diffs.
 ```bash
-$ git show HEAD
+$ git show --name-only <object>
 ```
-Show filenames of the most recent commit without the diffs.
+Show only names and status of changed files without the diffs.
 ```bash
-$ git show HEAD --name-only
+$ git show --name-status <object>
 ```
 Show details of an object with pretty format.
 ```bash
