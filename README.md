@@ -1184,6 +1184,10 @@ Branch will start tracking remote branch.
 ```bash
 $ git branch <local-branch> -u <remote>/<remote-branch>
 ```
+Branch will start tracking remote branch.
+```bash
+$ git branch --set-upstream-to=<remote>/<remote-branch> <local-branch>
+```
 Branch will stop tracking remote branch.
 ```bash
 $ git branch --unset-upstream
