@@ -301,7 +301,7 @@ $ git add -p
 # e - manually edit the current hunk
 # ? - print help
 ```
-Add modified files to index
+Add modified files to index.
 ```bash
 $ git add $(git ls-files --modified)
 ```
@@ -398,20 +398,20 @@ Interactively select hunks from diff between HEAD and working directory to stash
 $ git stash -p
             --patch
 ```
-Stash only unstaged changes
+Stash only unstaged changes.
 ```bash
 $ git stash -k
 ```
-Include untracked files
+Include untracked files.
 ```bash
 $ git stash -u
             --include-untracked
 ```
-All changes already added to the index are left intact
+All changes already added to the index are left intact.
 ```bash
 $ git stash --keep-index
 ```
-All changes already added to the index are undone
+All changes already added to the index are undone.
 ```bash
 $ git stash --no-keep-index
 ```
@@ -517,7 +517,7 @@ Export file to path.
 ```bash
 $ git show <branch>:<file> > <path>
 ```
-Show branches and their commits
+Show branches and their commits.
 ```bash
 $ git show-branch
 ```
@@ -569,7 +569,7 @@ Display only the changed/insertions/deletions line from the --stat command.
 ```bash
 $ git log --shortstat
 ```
-Generate condensed summary of extended header information
+Generate condensed summary of extended header information.
 ```bash
 $ git log --summary
 ```
@@ -847,7 +847,7 @@ Remove only ignored files.
 ```bash
 $ git clean -X
 ```
-Show what would be done and clean files interactively
+Show what would be done and clean files interactively.
 ```bash
 $ git clean -i
             --interactive
@@ -1378,7 +1378,7 @@ $ git count-objects --human-readable
 ```
 Remove files that are listed in the .gitignore but still on the repository.
 ```bash
-$ git ls-files -i --exclude-from=.gitignore | xargs git rm --cached  
+$ git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
 ```
 Show the last 10 local branches you recently worked on, sorted by the time that we were last working there.
 ```bash
