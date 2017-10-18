@@ -272,6 +272,11 @@ Add files with an extension file.
 ```bash
 $ git add *.<extension>
 ```
+Do not actually add files; only show which ones would be added.
+```bash
+$ git add -n
+          --dry-run
+```
 Add to index modified and deleted tracked files but it will never stage new files.
 ```bash
 $ git add -u
@@ -331,6 +336,11 @@ $ git rm --cached -r <directory>
 Remove files from the working directory.
 ```bash
 $ git rm $(git ls-files --deleted)
+```
+Do not actually remove the files, just show if they exist in the index.
+```bash
+$ git rm -n
+         --dry-run
 ```
 
 ### Renaming Files
