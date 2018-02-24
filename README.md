@@ -1,7 +1,9 @@
 # GitHub Cheat Sheet
+
 A collection of some of the most useful Git commands
 
 ## Table of Contents
+
 1. [Settings](#settings)
     * [Setting Global Configs](#setting-global-configs)
     * [Getting Global Configs](#getting-global-configs)
@@ -66,7 +68,9 @@ A collection of some of the most useful Git commands
 15. [Getting Help](#getting-help)
 
 ## Settings
+
 ### Setting Global Configs
+
 Set your username for every repository.
 ```bash
 $ git config --global user.name "<name>"
@@ -101,6 +105,7 @@ $ git config --global core.editor <editor>
 ```
 
 ### Getting Global Configs
+
 Get all your global configs.
 ```bash
 $ git config --global -l
@@ -120,6 +125,7 @@ $ git config --global user.email
 ```
 
 ### Removing Global Configs
+
 Remove global username.
 ```bash
 $ git config --global --unset user.name
@@ -130,6 +136,7 @@ $ git config --global --unset user.email
 ```
 
 ### Setting Local Configs
+
 Set your username for current repository.
 ```bash
 $ git config user.name "<name>"
@@ -140,6 +147,7 @@ $ git config user.email "<email>"
 ```
 
 ### Getting Local Configs
+
 Get all your local configs.
 ```bash
 $ git config --global -l
@@ -159,6 +167,7 @@ $ git config --get user.email
 ```
 
 ### Removing Local Configs
+
 Remove username.
 ```bash
 $ git config --unset user.name
@@ -169,13 +178,16 @@ $ git config --unset user.email
 ```
 
 ## Aliases
+
 ### Creating Shortcuts
+
 // TODO
 ```bash
 $ git config --global alias.<alias-name> "<command>"
 ```
 
 ### Setting Useful Shortcuts
+
 // TODO
 ```bash
 $ git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>' --abbrev-commit"
@@ -214,7 +226,9 @@ $ git config --global alias.praise blame
 ```
 
 ## Setting Up Repository
+
 ### Initializing Repository
+
 Create empty git repository or re-initialize an existing one.
 ```bash
 $ git init
@@ -225,6 +239,7 @@ $ git init <directory>
 ```
 
 ### Initializing Shared Repository
+
 Create a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
 ```bash
 $ git init --bare
@@ -254,8 +269,11 @@ $ git clone -b <branch> --single-branch <repository>
 ```
 
 ## Saving Changes
+
 ### Adding Files
+
 #### Tracking New or Modified Files
+
 Add all files.
 ```bash
 $ git add .
@@ -317,6 +335,7 @@ $ git add -i
 ```
 
 ### Removing Files
+
 Remove file from the working directory.
 ```bash
 $ git rm <file>
@@ -344,6 +363,7 @@ $ git rm -n
 ```
 
 ### Renaming Files
+
 First way.
 ```bash
 $ mv <old-name> <new-name>
@@ -356,6 +376,7 @@ $ git mv <file-from> <file-to>
 ```
 
 ### Committing Files
+
 Use the given message as the commit message.
 ```bash
 $ git commit -m "<message>"
@@ -459,7 +480,9 @@ $ git stash clear
 ```
 
 ## Inspecting Changes
+
 ### Display State
+
 Show working directory status.
 ```bash
 $ git status
@@ -475,6 +498,7 @@ $ git status --ignored
 ```
 
 ### Display Objects
+
 Show details of the most recent commit.
 ```bash
 $ git show
@@ -523,6 +547,7 @@ $ git show-branch
 ```
 
 ### Display Logs
+
 Show all commits.
 ```bash
 $ git log
@@ -607,6 +632,7 @@ $ git log --graph --all --decorate --stat --date=iso
 ```
 
 ### Display Differences
+
 What's different from our most recent commit (staged and unstaged changes).
 ```bash
 $ git diff
@@ -655,6 +681,7 @@ $ git diff > <file>
 ```
 
 ### Display Reflog Information
+
 Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
 ```bash
 $ git reflog
@@ -665,6 +692,7 @@ $ git reflog --relative-date
 ```
 
 ## Listing Files
+
 Show information about files in the index and the working directory.
 ```bash
 $ git ls-files
@@ -720,7 +748,9 @@ $ git ls-files -t
 ```
 
 ## Undoing Changes
+
 ### Reverting Files
+
 Return the state of your unstaged files as they were in your last commit.
 ```bash
 $ git checkout .
@@ -769,6 +799,7 @@ $ git checkout <deleting-commit>^ -- <file>
 ```
 
 ### Reverting Commit
+
 Generate a new commit that undoes all of the changes introduced in the commit.
 ```bash
 $ git revert <commit>
@@ -807,6 +838,7 @@ $ git reset -p
 ```
 
 ### Resetting Current Commit
+
 Reset the index and working directory to the given commit.
 ```bash
 $ git reset --hard <commit>
@@ -825,6 +857,7 @@ $ git reset --keep <commit>
 ```
 
 ### Removing Untracked Files
+
 Remove untracked files from working directory.
 ```bash
 $ git clean
@@ -854,7 +887,9 @@ $ git clean -i
 ```
 
 ## Rewriting History
+
 ### Fix Up Commit
+
 Add forgotten files and edit the last commit's message.
 ```bash
 $ git commit --amend
@@ -873,6 +908,7 @@ $ git commit --amend --author="Name <your_email@youremail.com>"
 ```
 
 ### Rebase Commits
+
 Rebase your current HEAD onto branch. NEVER rebase published commits.
 ```bash
 $ git rebase <branch>
@@ -897,6 +933,7 @@ $ git rebase -i <branch>
 ```
 
 ### Copy Commits
+
 Jump into the branch that you want to insert the commit into.
 ```bash
 $ git cherry-pick <commit>
@@ -919,7 +956,9 @@ $ git cherry-pick --quit
 ```
 
 ## Collaborating
+
 ### Remotes
+
 Create a new connection to a remote repository. After adding a remote, you’ll be able to use <remote> as a convenient shortcut for <url> in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
 ```bash
 $ git remote add <remote> <url>
@@ -951,6 +990,7 @@ $ git remote show <remote>
 ```
 
 ### Fetch
+
 Fetch objects and refs from repository to see what everybody else has been working on. It has absolutely no affect on local development work because it doesn’t force to merge changes. When no remote is specified, by default the origin remote will be used.
 ```bash
 $ git fetch
@@ -978,6 +1018,7 @@ $ git remote update
 ```
 
 ### Pulling
+
 Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
 ```bash
 $ git pull
@@ -996,6 +1037,7 @@ $ git pull --rebase <remote>
 ```
 
 ### Pushing
+
 Push the current branch to <remote>, along with all of the necessary commits and internal object.
 ```bash
 $ git push
@@ -1032,7 +1074,9 @@ $ git push --mirror
 ```
 
 ## Using Branches
+
 ### Create Branches
+
 Create new branch.
 ```bash
 $ git branch <branch>
@@ -1071,6 +1115,7 @@ $ git checkout -b <branch> <remote>/<remote-branch> --no-track
 ```
 
 ### Rename Branches
+
 Rename a branch and the corresponding reflog.
 ```bash
 $ git branch -m <old-local-branch-name> <new-local-branch-name>
@@ -1082,6 +1127,7 @@ $ git branch -m <new-local-branch-name>
 ```
 
 ### Delete Branches
+
 Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
 ```bash
 $ git branch -d <local-branch>
@@ -1105,6 +1151,7 @@ $ git push <remote> :<branch>
 ```
 
 ### List Branches
+
 List local branches.
 ```bash
 $ git branch
@@ -1163,6 +1210,7 @@ $ git branch --sort=committerdate  # ASC
 ```
 
 ### Merge Branches
+
 Merge remote branch into current branch.
 ```bash
 $ git merge <remote>/<remote-branch>
@@ -1185,6 +1233,7 @@ $ git merge -
 ```
 
 ### Track Branches
+
 Branch will start tracking remote branch.
 ```bash
 $ git branch -u <remote>/<remote-branch>
@@ -1204,6 +1253,7 @@ $ git branch --unset-upstream
 ```
 
 ### Switch to Branch
+
 Switch to a different branch.
 ```bash
 $ git checkout <branch>
@@ -1214,7 +1264,9 @@ $ git checkout -
 ```
 
 ## Debugging
+
 ### File Annotation
+
 Show what revision and author last modified each line of a file.
 ```bash
 $ git blame <file>
@@ -1225,6 +1277,7 @@ $ git blame -L <starting-line>,<ending-line> <file>
 ```
 
 ## Binary Search
+
 Reset bisection state and start a new bisection.
 ```bash
 $ git bisect start
@@ -1251,6 +1304,7 @@ $ git bisect log > <name>.log
 ```
 
 ## Tagging
+
 Create annotated tag.
 ```bash
 $ git tag -a <tag-name> -m "<message>"
@@ -1306,7 +1360,9 @@ $ git tag
 ```
 
 ## Submodules
+
 ### Starting with Submodules
+
 Initialize a submodule.
 ```bash
 $ git submodule init
@@ -1321,12 +1377,14 @@ $ git submodule update --init --recursive
 ```
 
 ### Cloning a Project with Submodules
+
 Clone an existing repository and all its sub-modules recursively.
 ```bash
 $ git clone --recursive <repository>
 ```
 
 ## Others
+
 Get SHA-1 of object.
 ```bash
 $ git rev-parse <object>
@@ -1394,6 +1452,7 @@ $ git for-each-ref refs/heads/
 ```
 
 ## Getting Help
+
 Display help information about git.
 ```bash
 $ git help <command>
