@@ -819,6 +819,7 @@ git revert -m 1 <commit>
 ```
 
 ### Unstaging Staged File
+
 Unstage all files and leave the working directory unchanged.
 ```bash
 git reset
