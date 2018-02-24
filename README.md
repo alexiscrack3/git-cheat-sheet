@@ -1331,6 +1331,10 @@ Get SHA-1 of object.
 ```bash
 $ git rev-parse <object>
 ```
+Get SHA-1 of first commit.
+```bash
+$ git rev-list --max-parents=0 HEAD
+```
 Get a non-ambiguous short name of object.
 ```bash
 $ git rev-parse --abbrev-ref <object>
