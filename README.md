@@ -1034,13 +1034,13 @@ Return the state of your file as it was in your last commit. Use two consecutive
 git checkout -- <file>
 ```
 
-This turns the <file> that resides in the working directory into an exact copy of the one from <commit> and adds it to the staging area.
+This turns the file that resides in the working directory into an exact copy of the one from commit and adds it to the staging area.
 
 ```bash
 git checkout <commit> <file>
 ```
 
-This turns the <file> that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
+This turns the file that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
 
 ```bash
 git checkout stash@{n} <file>
@@ -1248,7 +1248,7 @@ git rebase -i
            --interactive
 ```
 
-Rebase the current branch onto <branch>
+Rebase the current branch onto branch
 
 ```bash
 git rebase -i <branch>
@@ -1291,7 +1291,7 @@ git cherry-pick --quit
 
 ### Remotes
 
-Create a new connection to a remote repository. After adding a remote, you’ll be able to use <remote> as a convenient shortcut for <url> in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
+Create a new connection to a remote repository. After adding a remote, you’ll be able to use remote as a convenient shortcut for url in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
 
 ```bash
 git remote add <remote> <url>
@@ -1401,13 +1401,13 @@ git pull --rebase <remote>
 
 ### Pushing
 
-Push the current branch to <remote>, along with all of the necessary commits and internal object.
+Push the current branch to remote, along with all of the necessary commits and internal object.
 
 ```bash
 git push
 ```
 
-Push the specified branch to <remote>, along with all of the necessary commits and internal object.
+Push the specified branch to remote, along with all of the necessary commits and internal object.
 
 ```bash
 git push <remote> <local-branch>
@@ -2041,20 +2041,20 @@ Files that should never be tracked are listed in your .gitignore file.
 What about if you want to ignore some local changes to a tracked file?
 
 RESOLVING CONFLICTS
-Finish with git add <file> and git commit.
+Finish with git add file and git commit.
 
 ```bash
 git checkout --theirs <file>
 ```
 
-Finish with git add <file> and git commit.
+Finish with git add file and git commit.
 
 ```bash
 git checkout --ours <file>
 ```
 
 SHOWING ALL COMMITS TO BE MERGED
-Show all commits in the current branch yet to be merged to <local-branch>
+Show all commits in the current branch yet to be merged to local-branch
 
 ```bash
 git cherry -v <local-branch>
