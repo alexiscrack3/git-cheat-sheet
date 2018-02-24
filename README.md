@@ -326,6 +326,7 @@ git add $(git ls-files --modified)
 ```
 
 #### Interactive Staging
+
 Staging only untracked files.
 ```bash
 git add -i
