@@ -410,6 +410,7 @@ git commit --only <file>
 ```
 
 ### Stashing Files
+
 Stash away changes to dirty working directory.
 ```bash
 git stash
