@@ -246,6 +246,7 @@ git init --bare
 ```
 
 ### Cloning Repository
+
 Clone repository in the current directory.
 ```bash
 git clone <repository>
