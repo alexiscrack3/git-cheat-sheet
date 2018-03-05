@@ -1152,6 +1152,12 @@ Like --hard, but keep local working directory changes.
 git reset --keep <commit>
 ```
 
+Get back to where things were a period of time ago (e.g. when you screw up a merge).
+
+```bash
+git reset --hard master@{"300 minutes ago"}
+```
+
 ### Removing Untracked Files
 
 Remove untracked files from working directory.
