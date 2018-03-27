@@ -95,10 +95,15 @@ A boolean to make git-clean do nothing unless given -f, -i or -n. Defaults to tr
 git config --global clean.requireForce <value>
 ```
 
-Make git case sensitive. Possible values: true, false.
+Makes git case sensitive. Possible values: true, false.
 
 ```bash
 git config --global core.ignorecase <value>
+```
+
+Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
+```bash
+git config --global diff.algorith <value>
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
