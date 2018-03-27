@@ -118,6 +118,12 @@ When set to true, automatically create a temporary stash entry before the operat
 git config --global rebase.autostash <value>
 ```
 
+Show full by default diff when using git stash show.
+
+```bash
+git config --global stash.showPatch true
+```
+
 // TODO
 
 ```bash
@@ -1256,6 +1262,7 @@ git rebase <branch>
 
 ```bash
 git rebase <branch> --autostash
+```
 
 Abort current rebase.
 
