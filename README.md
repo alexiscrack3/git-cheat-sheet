@@ -112,6 +112,12 @@ Defines the action git push should take. Possible values: nothing, matching, ups
 git config --global push.default <value>
 ```
 
+When set to true, automatically create a temporary stash entry before the operation begins, and apply it after the operation ends. Possible values: true, false.
+
+```bash
+git config --global rebase.autostash <value>
+```
+
 // TODO
 
 ```bash
@@ -1245,6 +1251,11 @@ Rebase your current HEAD onto branch. NEVER rebase published commits.
 ```bash
 git rebase <branch>
 ```
+
+ Automatically stashes any local changes made to your working copy before rebasing and reapplies them after the rebase is completed.
+
+```bash
+git rebase <branch> --autostash
 
 Abort current rebase.
 
