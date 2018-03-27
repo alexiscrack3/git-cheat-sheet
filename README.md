@@ -281,6 +281,12 @@ git blame implies that the developer we’re looking for did something wrong, an
 git config --global alias.praise blame
 ```
 
+Deletes all branches that are merged into your current branch from your local repo.
+
+```bash
+git config --global alias.tidy '!git branch | grep -v \* | xargs git branch -d'
+```
+
 ## Setting Up Repository
 
 ### Initializing Repository
