@@ -103,7 +103,7 @@ git config --global core.ignorecase <value>
 
 Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
 ```bash
-git config --global diff.algorith <value>
+git config --global diff.algorithm <value>
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
