@@ -392,6 +392,12 @@ Add files with an extension file.
 git add *.<extension>
 ```
 
+Allow adding otherwise ignored files.
+```bash
+git add -f <file>
+        --force
+```
+
 Do not actually add files; only show which ones would be added.
 
 ```bash
