@@ -534,6 +534,12 @@ Stage all modified and deleted path using the given message, but new files you h
 git commit -am "<message>"
 ```
 
+Allow recording an empty commit with no file changes.
+
+```bash
+git commit --allow-empty -m "<message>"
+```
+
 Show unified diff of all file changes.
 
 ```bash
