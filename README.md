@@ -46,7 +46,7 @@ A collection of some of the most useful Git commands
     * [Copy Commits](#copy-commits)
 9. [Collaborating](#collaborating)
     * [Remotes](#remotes)
-    * [Fetch](#fetch)
+    * [Fetching](#fetching)
     * [Pulling](#pulling)
     * [Pushing](#pushing)
 10. [Using Branches](#using-branches)
@@ -1381,7 +1381,7 @@ Show information about a given remote.
 git remote show <remote>
 ```
 
-### Fetch
+### Fetching
 
 Fetch objects and refs from repository to see what everybody else has been working on. It has absolutely no affect on local development work because it doesn’t force to merge changes. When no remote is specified, by default the origin remote will be used.
 
