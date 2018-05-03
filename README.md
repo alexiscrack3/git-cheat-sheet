@@ -1932,6 +1932,7 @@ Run as if git was started in given path.
 
 ```bash
 git -C <path> <command>
+```
 
 Get SHA-1 of object.
 
