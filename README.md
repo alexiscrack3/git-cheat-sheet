@@ -102,8 +102,15 @@ git config --global core.ignorecase <value>
 ```
 
 Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
+
 ```bash
 git config --global diff.algorithm <value>
+```
+
+Specify the style in which conflicted hunks are written out to working tree files upon merge. The default is "merge", which shows a <<<<<<< conflict marker, changes made by one side, a ======= marker, changes made by the other side, and then a >>>>>>> marker. An alternate style, "diff3", adds a ||||||| marker and the original text before the ======= marker.
+
+```bash
+git config --global merge.conflictstyle <style>
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
