@@ -1816,6 +1816,12 @@ Show the log of the current bisection.
 git bisect log
 ```
 
+Replay a bisection log.
+
+```bash
+git bisect replay
+```
+
 Print out the log of the current bisection.
 
 ```bash
