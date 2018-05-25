@@ -1408,10 +1408,28 @@ Fetch objects and refs from the specified remote.
 git fetch <remote>
 ```
 
+Fetch objects and refs from the specified remote. Dot means to use the local repository as the remote.
+
+```bash
+git fetch .
+```
+
 Fetch objects and refs from the specified remote and branch.
 
 ```bash
 git fetch <remote> <local-branch>
+```
+
+Merge local branch into master without having to checkout master first.
+
+```bash
+git fetch origin <local-branch>:master
+```
+
+Merge remote branch branch into local branch without having to checkout local branch first.
+
+```bash
+git fetch origin <remote-branch>:<local-branch>
 ```
 
 Remove any remote-tracking references that no longer exist on the remote.
