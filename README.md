@@ -1354,7 +1354,7 @@ git remote add <remote> <url>
 Change URL for a remote.
 
 ```bash
-git remote set-url <remote> <url
+git remote set-url <remote> <url>
 ```
 
 Rename a remote and update all associated tracking branches.
