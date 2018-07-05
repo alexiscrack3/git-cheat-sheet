@@ -587,11 +587,11 @@ Stash only unstaged changes.
 git stash -k
 ```
 
-Include untracked files.
+Save local changes including untracked files.
 
 ```bash
-git stash -u
-          --include-untracked
+git stash save -u
+               --include-untracked
 ```
 
 All changes already added to the index are left intact.
@@ -610,13 +610,6 @@ Save local changes to a new stash with message.
 
 ```bash
 git stash save "<message>"
-```
-
-Save local changes including untracked files.
-
-```bash
-git stash save -u
-               --include-untracked
 ```
 
 List the stashes stored in the stack.
