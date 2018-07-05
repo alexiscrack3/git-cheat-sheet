@@ -649,6 +649,18 @@ git stash show -p stash@{n}
                --patch
 ```
 
+Creates and checks out a new branch named starting from the commit at which the latest stash was originally created, applies the changes recorded in stash to the new working tree and index. If that succeeds, then drops the latest stash.
+
+```bash
+git stash branch <name>
+```
+
+Creates and checks out a new branch named starting from the commit at which the stash was originally created, applies the changes recorded in stash to the new working tree and index. If that succeeds, then drops the stash.
+
+```bash
+git stash branch <name> stash@{n}
+```
+
 Remove a single stashed state from the stack.
 
 ```bash
