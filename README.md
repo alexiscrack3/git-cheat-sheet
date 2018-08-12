@@ -2100,6 +2100,12 @@ List ignored files.
 git check-ignore *
 ```
 
+Determine which pattern is causing a particular file to be ignored.
+
+```bash
+git check-ignore -v <path>
+```
+
 FINDING COMMITS NOT MERGED UPSTREAM
 Find commits yet to be applied to upstream.
 
