@@ -400,6 +400,7 @@ git add *.<extension>
 ```
 
 Allow adding otherwise ignored files.
+
 ```bash
 git add -f <file>
         --force
