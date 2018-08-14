@@ -1792,6 +1792,12 @@ Quickly jump back to previous branch.
 git checkout -
 ```
 
+Quickly jump back to previous branch.
+
+```bash
+git checkout @{-1}
+```
+
 ## Debugging
 
 ### File Annotation
