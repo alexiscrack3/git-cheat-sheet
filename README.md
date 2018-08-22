@@ -1629,10 +1629,16 @@ Delete remote branch from the remote repository.
 git push <remote> --delete <branch>
 ```
 
-Delete remote branch from the remote repository.
+Delete remote branch from repository.
 
 ```bash
 git push <remote> :<branch>
+```
+
+Delete remote branch from repository.
+
+```bash
+git push <remote> --delete <branch>
 ```
 
 ### List Branches
