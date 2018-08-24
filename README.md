@@ -1140,6 +1140,12 @@ Revert initial commit.
 git update-ref -d HEAD
 ```
 
+Delete ref.
+
+```bash
+git update-ref -d <ref>
+```
+
 Revert merge commit. The -m followed by the 1 indicates that we want to keep the parent side of the merge (the branch we are merging into).
 
 ```bash
