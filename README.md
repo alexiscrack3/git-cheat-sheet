@@ -2041,7 +2041,8 @@ git archive --format=zip > <name>.zip
 Create backup with your repository’s files.
 
 ```bash
-git archive <object> --format=zip --output=<name>.zip
+git archive <object> --format=zip -o <name>.zip
+                                  --output=<name>.zip
 ```
 
 Create backup with your repository’s files.
