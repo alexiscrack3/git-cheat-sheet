@@ -243,10 +243,10 @@ git config --unset user.email
 
 ### Creating Shortcuts
 
-// TODO
+Create an alias for git commands.
 
 ```bash
-git config --global alias.<alias-name> "<command>"
+git config --global alias.<alias> "<command>"
 ```
 
 ### Setting Useful Shortcuts
