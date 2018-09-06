@@ -83,16 +83,22 @@ Set your email for every repository.
 git config --global user.email "<email>"
 ```
 
-Color output of capable git commands. value: true, false, auto.
+A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
+
+```bash
+git config --global clean.requireForce <value>
+```
+
+Turn on/off all Git’s colored terminal output. Possible values: true, false, auto.
 
 ```bash
 git config --global color.ui <value>
 ```
 
-A boolean to make git-clean do nothing unless given -f, -i or -n. Defaults to true. Possible values: true, false
+Set up default text editor.
 
 ```bash
-git config --global clean.requireForce <value>
+git config --global core.editor <editor>
 ```
 
 Makes git case sensitive. Possible values: true, false.
@@ -113,6 +119,12 @@ Specify the style in which conflicted hunks are written out to working tree file
 git config --global merge.conflictstyle <style>
 ```
 
+Set up your custom merge resolution and diff tools.
+
+```bash
+git config --global merge.tool <editor>
+```
+
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
 
 ```bash
@@ -129,18 +141,6 @@ Show full by default diff when using git stash show. Possible values: true, fals
 
 ```bash
 git config --global stash.showPatch <value>
-```
-
-// TODO
-
-```bash
-git config --global merge.tool <editor>
-```
-
-// TODO
-
-```bash
-git config --global core.editor <editor>
 ```
 
 ### Getting Global Configs
