@@ -1955,22 +1955,46 @@ git tag
 
 ### Starting with Submodules
 
-Initialize a submodule.
+Add given repository as a submodule.
+
+```bash
+git submodule add <url>
+```
+
+Initialize submodule.
 
 ```bash
 git submodule init
 ```
 
-Add given repository as a submodule.
+Show the status of a submodule.
 
 ```bash
-git submodule add <url> <directory>
+git submodule status
 ```
 
-Update a submodule.
+Update submodule.
 
 ```bash
-git submodule update --init --recursive
+git submodule update
+```
+
+Unregister all submodules.
+
+```bash
+git submodule deinit --f --all
+```
+
+Initialize and update submodule.
+
+```bash
+git submodule update --init
+```
+
+Use the status of the submodules remote-tracking branch.
+
+```bash
+git submodule update --remote
 ```
 
 ### Cloning a Project with Submodules
