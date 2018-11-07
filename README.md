@@ -1432,12 +1432,6 @@ Fetch objects and refs from the specified remote and branch.
 git fetch <remote> <local-branch>
 ```
 
-Merge local branch into master without having to checkout master first.
-
-```bash
-git fetch origin <local-branch>:master
-```
-
 Merge remote branch branch into local branch without having to checkout local branch first.
 
 ```bash
