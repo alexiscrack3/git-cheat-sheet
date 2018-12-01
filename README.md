@@ -2132,6 +2132,12 @@ Determine which pattern is causing a particular file to be ignored.
 git check-ignore -v <path>
 ```
 
+Find the commit ID of the original base.
+
+```bash
+git merge-base <local-branch> master
+```
+
 FINDING COMMITS NOT MERGED UPSTREAM
 Find commits yet to be applied to upstream.
 
