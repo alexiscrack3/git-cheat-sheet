@@ -1957,6 +1957,12 @@ Get the hash of object.
 git rev-parse <object>
 ```
 
+Get the hash of first commit.
+
+```bash
+git rev-list --max-parents=0 HEAD
+```
+
 Get the hash of the original base.
 
 ```bash
@@ -2044,12 +2050,6 @@ Run as if git was started in given path.
 
 ```bash
 git -C <path> <command>
-```
-
-Get SHA-1 of first commit.
-
-```bash
-git rev-list --max-parents=0 HEAD
 ```
 
 Number of commits of each contributor.
