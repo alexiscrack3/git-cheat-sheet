@@ -28,7 +28,7 @@ A collection of some of the most useful Git commands
     * [Display Objects](#display-objects)
     * [Display Logs](#display-logs)
     * [Display Differences](#display-differences)
-    * [Blame Changes](#blame-changes)
+    * [Blaming](#blaming)
     * [Display Reflog Information](#display-reflog-information)
 6. [Listing Files](#listing-files)
 7. [Undoing Changes](#undoing-changes)
@@ -925,6 +925,44 @@ Print out changes.
 git diff > <file>
 ```
 
+### Blaming
+
+Show what revision and author last modified each line of a file.
+
+```bash
+git blame <file>
+```
+
+Show the authors email address instead of username.
+
+```bash
+git blame -e <file>
+```
+
+Ignore whitespace changes. If a previous author has modified the spacing of a file by switching from tabs to spaces or adding new lines this, unfortunately, obscures the output of git blame by showing these changes.
+
+```bash
+git blame -w <file>
+```
+
+Detect moved or copied lines within in the same file. This will report the original author of the lines instead of the last author that moved or copied the lines.
+
+```bash
+git blame -M <file>
+```
+
+Detect lines that were moved or copied from other files. This will report the original author of the lines instead of the last author that moved or copied the lines.
+
+```bash
+git blame -C <file>
+```
+
+Restrict the output to the requested line range.
+
+```bash
+git blame -L <starting-line>,<ending-line> <file>
+```
+
 ### Display Reflog Information
 
 Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
@@ -1771,20 +1809,6 @@ git checkout @{-1}
 ```
 
 ## Debugging
-
-### File Annotation
-
-Show what revision and author last modified each line of a file.
-
-```bash
-git blame <file>
-```
-
-Annotate only the given line range.
-
-```bash
-git blame -L <starting-line>,<ending-line> <file>
-```
 
 ## Binary Search
 
