@@ -2000,6 +2000,12 @@ Get the hash of object.
 git rev-parse <object>
 ```
 
+Get the hash of the original base.
+
+```bash
+git merge-base <local-branch> master
+```
+
 Check whether or not the argument object is a valid reference.
 
 ```bash
@@ -2193,12 +2199,6 @@ Determine which pattern is causing a particular file to be ignored.
 
 ```bash
 git check-ignore -v <path>
-```
-
-Find the commit ID of the original base.
-
-```bash
-git merge-base <local-branch> master
 ```
 
 FINDING COMMITS NOT MERGED UPSTREAM
