@@ -1247,7 +1247,8 @@ git clean -d
 Remove only ignored files.
 
 ```bash
-git clean -X
+git clean -x
+          -X
 ```
 
 Show what would be done and clean files interactively.
