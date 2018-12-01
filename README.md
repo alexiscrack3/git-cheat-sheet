@@ -38,7 +38,7 @@ A collection of some of the most useful Git commands
     * [Fix Up Commit](#fix-up-commit)
     * [Rebase Commits](#rebase-commits)
     * [Copy Commits](#copy-commits)
-9. [Collaborating](#collaborating)
+9. [Synchronize](#synchronize)
     * [Remotes](#remotes)
     * [Fetching](#fetching)
     * [Pulling](#pulling)
@@ -1339,7 +1339,7 @@ End revert or cherry-pick sequence.
 git cherry-pick --quit
 ```
 
-## Collaborating
+## Synchronize
 
 ### Remotes
 
