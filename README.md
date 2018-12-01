@@ -316,6 +316,12 @@ Clone only history leading up to the main branch or the one specified by -b
 git clone -b <branch> --single-branch <repository>
 ```
 
+Clone the repository and only clone the history of commits specified by the option depth. In this example a clone of the repository is made and only the most recent commit is included.
+
+```bash
+git clone -depth=1 <repository>
+```
+
 ## Saving Changes
 
 ### Adding Files
