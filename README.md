@@ -24,7 +24,7 @@ A collection of some of the most useful Git commands
 5. [Inspecting Changes](#inspecting-changes)
     * [Display State](#display-state)
     * [Display Objects](#display-objects)
-    * [Display Logs](#display-logs)
+    * [Logging](#logging)
     * [Display Differences](#display-differences)
     * [Blaming](#blaming)
 6. [Listing Files](#listing-files)
@@ -675,7 +675,7 @@ Show branches and their commits.
 git show-branch
 ```
 
-### Display Logs
+### Logging
 
 Show all commits.
 
@@ -809,6 +809,50 @@ View complex logs.
 
 ```bash
 git log --graph --all --decorate --stat --date=iso
+```
+
+Summarize commits of current branch.
+
+```bash
+git shortlog
+```
+
+Summarize commits of all refs.
+
+```bash
+git shortlog --all
+```
+
+Summarize commits and supress the ones with more than one parent (merge commits).
+
+```bash
+git shortlog --no-merges
+```
+
+Summarize commits and suppress commit message.
+
+```bash
+git shortlog -s
+             --summary
+```
+
+Sort according to number of commits.
+
+```bash
+git shortlog -n
+             --numbered
+```
+
+Number of commits of each contributor.
+
+```bash
+git shortlog -sn
+```
+
+Number of commits of each contributor and ensures that merge commits aren’t being counted.
+
+```bash
+git shortlog -sn --all --no-merges
 ```
 
 ### Display Differences
@@ -2050,19 +2094,6 @@ Run as if git was started in given path.
 
 ```bash
 git -C <path> <command>
-```
-
-Number of commits of each contributor.
-
-```bash
-git shortlog -s -n
-             -sn
-```
-
-Number of commits of each contributor and ensures that merge commits aren’t being counted.
-
-```bash
-git shortlog -sn --all --no-merges
 ```
 
 The Git repository browser.
