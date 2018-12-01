@@ -5,12 +5,9 @@ A collection of some of the most useful Git commands
 ## Table of Contents
 
 1. [Settings](#settings)
-    * [Setting Global Configs](#setting-global-configs)
-    * [Getting Global Configs](#getting-global-configs)
-    * [Removing Global Configs](#removing-global-configs)
-    * [Setting Local Configs](#setting-local-configs)
-    * [Getting Local Configs](#getting-local-configs)
-    * [Removing Local Configs](#removing-local-configs)
+    * [Setting Configs](#setting-configs)
+    * [Getting Configs](#getting-configs)
+    * [Removing Configs](#removing-configs)
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
     * [Setting Useful Shortcuts](#setting-useful-shortcuts)
@@ -69,176 +66,119 @@ A collection of some of the most useful Git commands
 
 ## Settings
 
-### Setting Global Configs
+There are 3 configuration levels:
 
-Set your username for every repository.
+* User-specific settings. Options set with the --global flag are stored in ~/.gitconfig
+* Repository-specific settings. Options set with or without the --local flag are stored in \<repo\>/.git/config
+* System-wide settings. Options set with the --system flag are stored in $(prefix)/etc/gitconfig
+
+### Setting Configs
+
+Set username.
 
 ```bash
-git config --global user.name "<name>"
+git config [<config-level>] user.name "<name>"
 ```
 
-Set your email for every repository.
+Set email.
 
 ```bash
-git config --global user.email "<email>"
+git config [<config-level>] user.email "<email>"
 ```
 
 A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
 
 ```bash
-git config --global clean.requireForce <value>
+git config [<config-level>] clean.requireForce <value>
 ```
 
 Turn on/off all Git’s colored terminal output. Possible values: true, false, auto.
 
 ```bash
-git config --global color.ui <value>
+git config [<config-level>] color.ui <value>
 ```
 
 Set up default text editor.
 
 ```bash
-git config --global core.editor <editor>
+git config [<config-level>] core.editor <editor>
 ```
 
 Makes git case sensitive. Possible values: true, false.
 
 ```bash
-git config --global core.ignorecase <value>
+git config [<config-level>] core.ignorecase <value>
 ```
 
 Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
 
 ```bash
-git config --global diff.algorithm <value>
+git config [<config-level>] diff.algorithm <value>
 ```
 
 Specify the style in which conflicted hunks are written out to working tree files upon merge. The default is "merge", which shows a <<<<<<< conflict marker, changes made by one side, a ======= marker, changes made by the other side, and then a >>>>>>> marker. An alternate style, "diff3", adds a ||||||| marker and the original text before the ======= marker.
 
 ```bash
-git config --global merge.conflictstyle <style>
+git config [<config-level>] merge.conflictstyle <style>
 ```
 
 Set up your custom merge resolution and diff tools.
 
 ```bash
-git config --global merge.tool <editor>
+git config [<config-level>] merge.tool <editor>
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
 
 ```bash
-git config --global push.default <value>
+git config [<config-level>] push.default <value>
 ```
 
 When set to true, automatically create a temporary stash entry before the operation begins, and apply it after the operation ends. Possible values: true, false.
 
 ```bash
-git config --global rebase.autostash <value>
+git config [<config-level>] rebase.autostash <value>
 ```
 
 Show full by default diff when using git stash show. Possible values: true, false.
 
 ```bash
-git config --global stash.showPatch <value>
+git config [<config-level>] stash.showPatch <value>
 ```
 
-### Getting Global Configs
+### Getting Configs
 
-Get all your global configs.
-
-```bash
-git config --global -l
-                    --list
-```
-
-Get all your global configs.
+List all variables set in config file, along with their values.
 
 ```bash
-cat ~/.gitconfig
-```
-
-Get global username.
-
-```bash
-git config --global user.name
-```
-
-Get global email.
-
-```bash
-git config --global user.email
-```
-
-### Removing Global Configs
-
-Remove global username.
-
-```bash
-git config --global --unset user.name
-```
-
-Remove global email.
-
-```bash
-git config --global --unset user.email
-```
-
-### Setting Local Configs
-
-> Adding the --local option or not passing a config level option at all, will set the config for the current local repository.
-
-Set your username for current repository.
-
-```bash
-git config user.name "<name>"
-```
-
-Set your email for current repository.
-
-```bash
-git config user.email "<email>"
-```
-
-### Getting Local Configs
-
-Get all your local configs.
-
-```bash
-git config --global -l
-                    --list
-```
-
-Get all your local configs.
-
-```bash
-cat .git/config
+git config [<config-level>] -l
+                            --list
 ```
 
 Get username.
 
 ```bash
-git config --get user.name
+git config [<config-level>] [--get] user.name
 ```
 
 Get email.
 
 ```bash
-git config --get user.email
+git config [<config-level>] [--get] user.email
 ```
 
-### Removing Local Configs
+### Removing Configs
 
 Remove username.
 
 ```bash
-git config --unset user.name
+git config [<config-level>] --unset user.name
 ```
 
 Remove email.
 
 ```bash
-git config --unset user.email
+git config [<config-level>] --unset user.email
 ```
 
 ## Aliases
