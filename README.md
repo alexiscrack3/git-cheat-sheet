@@ -43,7 +43,7 @@ A collection of some of the most useful Git commands
     * [Fetching](#fetching)
     * [Pulling](#pulling)
     * [Pushing](#pushing)
-10. [Using Branches](#using-branches)
+10. [Branches](#branches)
     * [Create Branches](#create-branches)
     * [Rename Branches](#rename-branches)
     * [Delete Branches](#delete-branches)
@@ -1477,7 +1477,7 @@ Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs.
 git push --mirror
 ```
 
-## Using Branches
+## Branches
 
 ### Create Branches
 
