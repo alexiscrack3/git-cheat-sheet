@@ -275,6 +275,12 @@ Create empty git repository in directory
 git init <directory>
 ```
 
+Create empty git repository and apply template.
+
+```bash
+git init --template=<template-path> <repository>
+```
+
 ### Initializing Shared Repository
 
 Create a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
@@ -314,6 +320,12 @@ Clone only history leading up to the main branch or the one specified by -b
 
 ```bash
 git clone -b <branch> --single-branch <repository>
+```
+
+Clone the repository and apply template.
+
+```bash
+git clone --template=<template-path> <repository>
 ```
 
 Clone the repository and only clone the history of commits specified by the option depth. In this example a clone of the repository is made and only the most recent commit is included.
