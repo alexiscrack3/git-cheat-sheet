@@ -821,6 +821,18 @@ Search for commits with a commit message. The argument can be a plain string or 
 git log --grep="<pattern>"
 ```
 
+Display commits without merge commits.
+
+```bash
+git log --no-merges
+```
+
+Dsplay only merge commits.
+
+```bash
+git log --merges
+```
+
 Show what every contributor has been getting up to across all branches.
 
 ```bash
