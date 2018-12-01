@@ -1628,22 +1628,16 @@ Delete local branches that have been merged into the current branch.
 git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 ```
 
-Delete remote branch from the remote repository.
+Delete remote branch from repository.
 
 ```bash
 git push <remote> --delete <branch>
 ```
 
-Delete remote branch from repository.
+Push a delete signal to the remote that triggers a delete of the remote branch.
 
 ```bash
 git push <remote> :<branch>
-```
-
-Delete remote branch from repository.
-
-```bash
-git push <remote> --delete <branch>
 ```
 
 ### List Branches
