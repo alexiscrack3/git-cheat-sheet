@@ -55,8 +55,6 @@ A collection of some of the most useful Git commands
     * [Binary Search](#binary-search)
 12. [Tagging](#tagging)
 13. [Submodules](#submodules)
-    * [Starting with Submodules](#starting-with-submodules)
-    * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
 14. [Refs and the Reflog](#refs-and-the-reflog)
     * [Hashes](#hashes)
     * [Refs](#refs)
@@ -258,6 +256,12 @@ Clone only history leading up to the main branch or the one specified by -b
 
 ```bash
 git clone -b <branch> --single-branch <repository>
+```
+
+Clone repository and all its submodules recursively.
+
+```bash
+git clone --recursive <repository>
 ```
 
 Clone the repository and apply template.
@@ -1871,56 +1875,70 @@ git tag
 
 ## Submodules
 
-### Starting with Submodules
-
 Add given repository as a submodule.
 
 ```bash
 git submodule add <url>
 ```
 
-Initialize submodule.
+Add given repository as a submodule to path.
+
+```bash
+git submodule add <url> <path>
+```
+
+Initialize submodules recorded in the index by setting the submodule name in .git/config.
 
 ```bash
 git submodule init
 ```
 
-Show the status of a submodule.
+Initialize submodule at path.
+
+```bash
+git submodule init <path>
+```
+
+Show the status of the submodules.
 
 ```bash
 git submodule status
 ```
 
-Update submodule.
+Update the registered submodules to match what the superproject expects by cloning missing submodules and updating the working tree of the submodules.
 
 ```bash
 git submodule update
 ```
 
-Unregister all submodules.
-
-```bash
-git submodule deinit --f --all
-```
-
-Initialize and update submodule.
+Initialize and update submodules.
 
 ```bash
 git submodule update --init
 ```
 
-Use the status of the submodules remote-tracking branch.
+Instead of using the superproject’s recorded SHA-1 to update the submodule, use the status of the submodule’s remote-tracking branch.
 
 ```bash
 git submodule update --remote
 ```
 
-### Cloning a Project with Submodules
+Deinitialize submodule from repository.
 
-Clone an existing repository and all its sub-modules recursively.
+```bash`
+git submodule deinit <path>
+```
+
+Unregister all submodules.
 
 ```bash
-git clone --recursive <repository>
+git submodule deinit --all
+```
+
+Unregister all submodules with local changes.
+
+```bash
+git submodule deinit -f --all
 ```
 
 ## Refs and the Reflog
