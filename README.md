@@ -29,7 +29,6 @@ A collection of some of the most useful Git commands
     * [Display Logs](#display-logs)
     * [Display Differences](#display-differences)
     * [Blaming](#blaming)
-    * [Display Reflog Information](#display-reflog-information)
 6. [Listing Files](#listing-files)
 7. [Undoing Changes](#undoing-changes)
     * [Reverting Files](#reverting-files)
