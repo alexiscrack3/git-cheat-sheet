@@ -769,7 +769,7 @@ git log > <file>
 Show only commits that occur in the range.
 
 ```bash
-git log <commit>..<commit>
+git log <since>..<until>
 ```
 
 Maximum number of commits to display.
