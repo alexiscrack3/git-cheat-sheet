@@ -146,6 +146,12 @@ Show full by default diff when using git stash show. Possible values: true, fals
 git config [<config-level>] stash.showPatch <value>
 ```
 
+Open the configuration file in a text editor for manual editing.
+
+```bash
+git config [<config-level> --edit
+```
+
 ### Getting Configs
 
 List all variables set in config file, along with their values.
