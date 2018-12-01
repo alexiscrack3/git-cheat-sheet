@@ -53,7 +53,6 @@ A collection of some of the most useful Git commands
     * [Track Branches](#track-branches)
     * [Switch to Branch](#switch-to-branch)
 11. [Debugging](#debugging)
-    * [File Annotation](#file-annotation)
     * [Binary Search](#binary-search)
 12. [Tagging](#tagging)
 13. [Submodules](#submodules)
