@@ -10,7 +10,6 @@ A collection of some of the most useful Git commands
     * [Removing Configs](#removing-configs)
 2. [Aliases](#aliases)
     * [Creating Shortcuts](#creating-shortcuts)
-    * [Setting Useful Shortcuts](#setting-useful-shortcuts)
 3. [Setting Up Repository](#setting-up-repository)
     * [Initializing Repository](#initializing-repository)
     * [Initializing Shared Repository](#initializing-shared-repository)
@@ -200,68 +199,6 @@ Create an alias for git commands.
 
 ```bash
 git config [<config-level>] alias.<alias> "<command>"
-```
-
-### Setting Useful Shortcuts
-
-// TODO
-
-```bash
-git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>' --abbrev-commit"
-```
-
-// TODO
-
-```bash
-git config --global alias.lgf "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>' --abbrev-commit"
-```
-
-// TODO
-
-```bash
-git config --global alias.ls "log --pretty=format:'%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate"
-```
-
-// TODO
-
-```bash
-git config --global alias.ll "log --pretty=format:'%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --numstat"
-```
-
-// TODO
-
-```bash
-git config --global alias.lnc "log --pretty=format:'%h\ %s\ [%cn]'"
-```
-
-// TODO
-
-```bash
-git config --global alias.lds "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --date=short"
-```
-
-// TODO
-
-```bash
-git config --global alias.ld "log --pretty=format:'%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn]' --decorate --date=relative"
-```
-
-// TODO
-
-```bash
-git config --global alias.le "log --oneline --decorate"
-```
-
-git blame implies that the developer we’re looking for did something wrong, and this might not always be the case.
-
-```bash
-git config --global alias.praise blame
-```
-
-Deletes all branches that are merged into your current branch from your local repo.
-
-```bash
-git config --global alias.tidy '!git branch | grep -v \* | xargs git branch -d'
 ```
 
 ## Setting Up Repository
