@@ -1754,7 +1754,7 @@ Merge local branch into current branch.
 git merge <local-branch>
 ```
 
-Generate a merge commit even if the merge resolved as a fast-forward.
+Generate a merge commit (3-way merge) even if the merge resolved as a fast-forward.
 
 ```bash
 git merge --no-ff <local-branch>
