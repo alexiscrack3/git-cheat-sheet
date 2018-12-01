@@ -194,7 +194,7 @@ git config [<config-level>] --unset user.email
 Create an alias for git commands.
 
 ```bash
-git config --global alias.<alias> "<command>"
+git config [<config-level>] alias.<alias> "<command>"
 ```
 
 ### Setting Useful Shortcuts
