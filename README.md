@@ -9,7 +9,6 @@ A collection of some of the most useful Git commands
     * [Getting Configs](#getting-configs)
     * [Removing Configs](#removing-configs)
 2. [Aliases](#aliases)
-    * [Creating Shortcuts](#creating-shortcuts)
 3. [Setting Up Repository](#setting-up-repository)
     * [Initializing Repository](#initializing-repository)
     * [Initializing Shared Repository](#initializing-shared-repository)
@@ -191,8 +190,6 @@ git config [<config-level>] --unset user.email
 ```
 
 ## Aliases
-
-### Creating Shortcuts
 
 Create an alias for git commands.
 
