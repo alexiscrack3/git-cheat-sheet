@@ -61,8 +61,13 @@ A collection of some of the most useful Git commands
 13. [Submodules](#submodules)
     * [Starting with Submodules](#starting-with-submodules)
     * [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
-14. [Others](#others)
-15. [Getting Help](#getting-help)
+14. [Refs and the Reflog](#refs-and-the-reflog)
+    * [Hashes](#hashes)
+    * [Refs](#refs)
+    * [Special Refs](#special-refs)
+    * [Relative Refs](#relative-refs)
+15. [Others](#others)
+16. [Getting Help](#getting-help)
 
 ## Settings
 
@@ -893,17 +898,14 @@ git diff HEAD
 What's different from our previous commit.
 
 ```bash
-git diff HEAD~1
-         HEAD^1
-         HEAD^
+git diff HEAD~
+         HEAD~1
 ```
 
 What's different from two previous commits.
 
 ```bash
 git diff HEAD~2
-         HEAD^2
-         HEAD^^
 ```
 
 Show staged changes against your HEAD.
@@ -973,20 +975,6 @@ Restrict the output to the requested line range.
 
 ```bash
 git blame -L <starting-line>,<ending-line> <file>
-```
-
-### Display Reflog Information
-
-Contains information about the old state of branches and allows you to go back to that state if necessary. Using git reset it is then possible to change back to the commit it was before.
-
-```bash
-git reflog
-```
-
-Show the reflog with relative date information (e.g. 2 weeks ago).
-
-```bash
-git reflog --relative-date
 ```
 
 ## Listing Files
@@ -2000,18 +1988,67 @@ Clone an existing repository and all its sub-modules recursively.
 git clone --recursive <repository>
 ```
 
+## Refs and the Reflog
+
+### Hashes
+
+Returns the hash of object.
+
+```bash
+git rev-parse <object>
+```
+
+### Refs
+
+A ref is an indirect way of referring to a commit. You can think of it as a user-friendly alias for a commit hash.
+Refs are stored as normal text files in the .git/refs directory. To explore the refs in one of your repositories, navigate to .git/refs.
+The heads directory defines all of the local branches in your repository. Each filename matches the name of the corresponding branch, and inside the file you’ll find a commit hash. This commit hash is the location of the tip of the branch.
+
+### Special Refs
+
+In addition to the refs directory, there are a few special refs that reside in the top-level .git directory. These refs are created and updated by Git when necessary. They are listed below:
+
+* HEAD – The currently checked-out commit/branch.
+* FETCH_HEAD – The most recently fetched branch from a remote repo.
+* ORIG_HEAD – A backup reference to HEAD before drastic changes to it.
+* MERGE_HEAD – The commit(s) that you’re merging into the current branch with git merge.
+* CHERRY_PICK_HEAD – The commit that you’re cherry-picking.
+
+### Relative Refs
+
+The ~ character lets you reach parent commits. For example, the following displays the grandparent of HEAD.
+
+```bash
+git show HEAD~2
+```
+
+When working with merge commits, things get a little more complicated. Since merge commits have more than one parent, there is more than one path that you can follow. For 3-way merges, the first parent is from the branch that you were on when you performed the merge, and the second parent is from the branch that you passed to the git merge command.
+If you want to follow a different parent, you need to specify which one with the ^ character. For example, if HEAD is a merge commit, the following returns the second parent of HEAD.
+
+```bash
+git show HEAD^2
+```
+
+### Reflog
+
+The reflog is Git’s safety net. It records almost every change you make in your repository, regardless of whether you committed a snapshot or not. You can think of it as a chronological history of everything you’ve done in your local repo. Using git reset it is then possible to change back to the commit it was before.
+
+```bash
+git reflog
+```
+
+Show the reflog with relative date information (e.g. 2 weeks ago).
+
+```bash
+git reflog --relative-date
+```
+
 ## Others
 
 Run as if git was started in given path.
 
 ```bash
 git -C <path> <command>
-```
-
-Get SHA-1 of object.
-
-```bash
-git rev-parse <object>
 ```
 
 Get SHA-1 of first commit.
