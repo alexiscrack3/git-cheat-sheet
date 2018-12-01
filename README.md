@@ -65,6 +65,7 @@ A collection of some of the most useful Git commands
     * [Refs](#refs)
     * [Special Refs](#special-refs)
     * [Relative Refs](#relative-refs)
+    * [Reflog](#reflog)
 15. [Others](#others)
 16. [Getting Help](#getting-help)
 
