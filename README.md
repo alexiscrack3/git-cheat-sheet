@@ -1439,7 +1439,9 @@ git fetch <remote> <local-branch>
 
 Merge local branch into local branch master without having to checkout master first. Here `.` means to use the local repository as the remote.
 
+```bash
 git fetch . <local-branch>:master
+```
 
 Merge remote branch into local branch without having to checkout local branch first.
 
@@ -1992,10 +1994,22 @@ git clone --recursive <repository>
 
 ### Hashes
 
-Returns the hash of object.
+Get the hash of object.
 
 ```bash
 git rev-parse <object>
+```
+
+Check whether or not the argument object is a valid reference.
+
+```bash
+git rev-parse --verify <object>
+```
+
+Get a non-ambiguous short name of object.
+
+```bash
+git rev-parse --abbrev-ref <object>
 ```
 
 ### Refs
