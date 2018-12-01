@@ -2012,11 +2012,29 @@ Get a non-ambiguous short name of object.
 git rev-parse --abbrev-ref <object>
 ```
 
+Get a non-ambiguous short name of object.
+
+```bash
+git symbolic-ref --short <object>
+```
+
 ### Refs
 
 A ref is an indirect way of referring to a commit. You can think of it as a user-friendly alias for a commit hash.
 Refs are stored as normal text files in the .git/refs directory. To explore the refs in one of your repositories, navigate to .git/refs.
 The heads directory defines all of the local branches in your repository. Each filename matches the name of the corresponding branch, and inside the file you’ll find a commit hash. This commit hash is the location of the tip of the branch.
+
+Output information on each ref (bisect, heads, remotes or tags).
+
+```bash
+git for-each-ref refs/heads/
+```
+
+Show the last 10 local branches you recently worked on, sorted by the time that we were last working there.
+
+```bash
+git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+```
 
 ### Special Refs
 
@@ -2069,12 +2087,6 @@ Get SHA-1 of first commit.
 
 ```bash
 git rev-list --max-parents=0 HEAD
-```
-
-Get a non-ambiguous short name of object.
-
-```bash
-git rev-parse --abbrev-ref <object>
 ```
 
 Number of commits of each contributor.
@@ -2143,18 +2155,6 @@ Remove files that are listed in the .gitignore but still on the repository.
 
 ```bash
 git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
-```
-
-Show the last 10 local branches you recently worked on, sorted by the time that we were last working there.
-
-```bash
-git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
-```
-
-Output information on each ref (bisect, heads, remotes or tags).
-
-```bash
-git for-each-ref refs/heads/
 ```
 
 ## Getting Help
