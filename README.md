@@ -186,6 +186,8 @@ git config --global --unset user.email
 
 ### Setting Local Configs
 
+> Adding the --local option or not passing a config level option at all, will set the config for the current local repository.
+
 Set your username for current repository.
 
 ```bash
