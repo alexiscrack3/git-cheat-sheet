@@ -1917,6 +1917,12 @@ Initialize and update submodules.
 git submodule update --init
 ```
 
+Initialize and update submodule at path.
+
+```bash
+git submodule update --init <path>
+```
+
 Instead of using the superproject’s recorded SHA-1 to update the submodule, use the status of the submodule’s remote-tracking branch.
 
 ```bash
@@ -1925,7 +1931,7 @@ git submodule update --remote
 
 Deinitialize submodule from repository.
 
-```bash`
+```bash
 git submodule deinit <path>
 ```
 
