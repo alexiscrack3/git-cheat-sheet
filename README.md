@@ -1985,6 +1985,12 @@ Unregister all submodules with local changes.
 git submodule deinit -f --all
 ```
 
+Copy the new configuration from .gitmodules to .git/config
+
+```bash
+git submodule sync
+```
+
 Show the status of the submodules.
 
 ```bash
