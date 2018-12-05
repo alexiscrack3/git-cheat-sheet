@@ -192,7 +192,7 @@ git config [<config-level>] --unset user.email
 Create an alias for git commands.
 
 ```bash
-git config [<config-level>] alias.<alias> "<command>"
+git config [<config-level>] alias.<alias> '<command>'
 ```
 
 ## Setting Up Repository
@@ -1989,6 +1989,12 @@ Unregister all submodules with local changes.
 
 ```bash
 git submodule deinit -f --all
+```
+
+Evaluate shell command in each checked-out submodule.
+
+```bash
+git submodule foreach '<command>'
 ```
 
 ## Refs and the Reflog
