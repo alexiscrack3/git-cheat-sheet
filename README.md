@@ -1943,12 +1943,6 @@ Initialize submodule at path.
 git submodule init <path>
 ```
 
-Show the status of the submodules.
-
-```bash
-git submodule status
-```
-
 Update the registered submodules to match what the superproject expects by cloning missing submodules and updating the working tree of the submodules.
 
 ```bash
@@ -1989,6 +1983,18 @@ Unregister all submodules with local changes.
 
 ```bash
 git submodule deinit -f --all
+```
+
+Show the status of the submodules.
+
+```bash
+git submodule status
+```
+
+Prints out a summary of the difference between the submodule's HEAD and the one recorded in main repository.
+
+```bash
+git submodule summary <path>
 ```
 
 Evaluate shell command in each checked-out submodule.
