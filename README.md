@@ -914,6 +914,12 @@ Show inline word diff.
 git diff --word-diff
 ```
 
+Look for differences whose added or removed line matches the given pattern.
+
+```bash
+git diff -G <pattern>
+```
+
 Print out changes.
 
 ```bash
