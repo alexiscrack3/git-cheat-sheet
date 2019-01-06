@@ -644,6 +644,12 @@ Show only names and status of changed files without the diffs.
 git show --name-status <object>
 ```
 
+Generate diffstat instead of patch.
+
+```bash
+git show --stat
+```
+
 Show details of an object with pretty format.
 
 ```bash
