@@ -1711,16 +1711,16 @@ List local branches, ordered by most recent commit.
 git for-each-ref --sort=-committerdate refs/heads/
 ```
 
-List local branches, ordered by most recent commit (since version 2.7.0).
-
-```bash
-git branch --sort=-committerdate  # DESC
-```
-
 List local branches, ordered by least recent commit (since version 2.7.0).
 
 ```bash
 git branch --sort=committerdate  # ASC
+```
+
+List local branches, ordered by most recent commit (since version 2.7.0).
+
+```bash
+git branch --sort=-committerdate  # DESC
 ```
 
 ### Merge Branches
