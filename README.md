@@ -1131,6 +1131,26 @@ Generate a new commit that undoes all of the changes introduced in the commit.
 git revert <commit>
 ```
 
+This is a default option and doesn't need to be specified. This option will open the configured system editor and prompts you to edit the commit message prior to committing the revert.
+
+```bash
+git revert -e <commit>
+           --edit
+```
+
+This is the inverse of the -e option. The revert will not open the editor.
+
+```bash
+git revert --no-edit <commit>
+```
+
+Passing this option will prevent git revert from creating a new commit that inverses the target commit. Instead of creating the new commit this option will add the inverse changes to the Staging Index and Working Directory.
+
+```bash
+git revert -n <commit>
+           --no-commit
+```
+
 Cancel the revert operation.
 
 ```bash
