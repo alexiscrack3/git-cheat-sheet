@@ -2075,17 +2075,24 @@ Check whether or not the argument object is a valid reference.
 git rev-parse --verify <object>
 ```
 
-Get a non-ambiguous short name of object.
+Get symbolic name of object.
 
 ```bash
 git rev-parse --abbrev-ref <object>
 ```
 
-Get a non-ambiguous short name of object.
+Get symbolic name of object.
 
 ```bash
 git symbolic-ref --short <object>
 ```
+
+Get symbolic name of object.
+
+```bash
+git rev-name <object>
+```
+
 
 ### Refs
 
