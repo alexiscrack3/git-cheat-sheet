@@ -161,6 +161,12 @@ git config [<config-level>] -l
                             --list
 ```
 
+Show origin of config values.
+
+```
+git config [<config-level>] -l --show-origin
+                            --list
+
 Get username.
 
 ```bash
