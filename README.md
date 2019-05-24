@@ -2105,7 +2105,6 @@ Get symbolic name of object.
 git rev-name <object>
 ```
 
-
 ### Refs
 
 A ref is an indirect way of referring to a commit. You can think of it as a user-friendly alias for a commit hash.
@@ -2122,6 +2121,18 @@ Show the last 10 local branches you recently worked on, sorted by the time that 
 
 ```bash
 git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+```
+
+List references in a local repository.
+
+```bash
+git show-ref
+```
+
+List only refs/tags in a local repository.
+
+```bash
+git show-ref --tags
 ```
 
 ### Special Refs
