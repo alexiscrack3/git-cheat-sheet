@@ -1387,10 +1387,16 @@ git cherry-pick --quit
 
 ### Remotes
 
-Create a new connection to a remote repository. After adding a remote, you’ll be able to use remote as a convenient shortcut for url in other Git commands. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
+Create a new connection to a remote repository. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
 
 ```bash
 git remote add <remote> <url>
+```
+
+Remove a remote and all associated tracking branches.
+
+```bash
+git remote rm <remote>
 ```
 
 Change URL for a remote.
@@ -1399,16 +1405,16 @@ Change URL for a remote.
 git remote set-url <remote> <url>
 ```
 
+Retrieves the URLs for a remote.
+
+```bash
+git remote get-url <remote>
+```
+
 Rename a remote and update all associated tracking branches.
 
 ```bash
 git remote rename <old-remote> <new-remote>
-```
-
-Remove a remote and all associated tracking branches.
-
-```bash
-git remote rm <remote>
 ```
 
 List remote names.
