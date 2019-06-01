@@ -1337,18 +1337,17 @@ Continue after resolving merge conflict.
 git rebase --continue
 ```
 
-Make a list of commits to be rebased and open in $EDITOR.
-
-```bash
-git rebase -i
-           --interactive
-```
-
-Rebase the current branch onto branch
+Rebase the current branch onto branch.
 
 ```bash
 git rebase -i <branch>
            --interactive
+```
+
+Rebase to the root commit of your current branch.
+
+```bash
+git rebase -i --root
 ```
 
 ### Copy Commits
