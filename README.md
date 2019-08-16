@@ -1311,6 +1311,18 @@ Override the author name used in the commit.
 git commit --amend --author="Name <your_email@youremail.com>"
 ```
 
+The author of the resulting commit now belongs to the committer.
+
+```bash
+git commit --amend --reset-author
+```
+
+Take an existing commit object, and reuse the log message and the authorship information (including the timestamp) when creating the commit.
+
+```bash
+git commit --reuse-message=<commit>
+```
+
 ### Rebase Commits
 
 Rebase your current HEAD onto branch. NEVER rebase published commits.
