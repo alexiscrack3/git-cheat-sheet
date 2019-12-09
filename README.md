@@ -149,7 +149,8 @@ git config [<config-level>] stash.showPatch <value>
 Open the configuration file in a text editor for manual editing.
 
 ```bash
-git config [<config-level> --edit
+git config [<config-level> -e
+                           --edit
 ```
 
 ### Getting Configs
