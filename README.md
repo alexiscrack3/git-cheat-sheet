@@ -1092,10 +1092,10 @@ Return the state of your file as it was in your last commit. Use two consecutive
 git checkout -- <file>
 ```
 
-This turns the file that resides in the working directory into an exact copy of the one from commit and adds it to the staging area.
+This turns the file that resides in the working directory into an exact copy of the one from object (commit, branch, etc).
 
 ```bash
-git checkout <commit> <file>
+git checkout <object> <file>
 ```
 
 This turns the file that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
