@@ -1210,6 +1210,12 @@ git reset -p
           --patch
 ```
 
+Restore specified path in the working tree.
+
+```bash
+git restore --staged <file>
+```
+
 ### Resetting Current Commit
 
 Reset the index and working directory to the given commit.
