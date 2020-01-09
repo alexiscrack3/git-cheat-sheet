@@ -146,6 +146,12 @@ Show full by default diff when using git stash show. Possible values: true, fals
 git config [<config-level>] stash.showPatch <value>
 ```
 
+Show files which are not currently tracked by Git. Directories which contain only untracked files, are shown with the directory name only. Showing untracked files means that Git needs to lstat() all the files in the whole repository, which might be slow on some systems. So, this variable controls how the commands displays the untracked files.
+
+```bash
+git config [<config-level>] status.showUntrackedFiles <value>
+```
+
 Open the configuration file in a text editor for manual editing.
 
 ```bash
