@@ -606,6 +606,17 @@ git status -s
            --short
 ```
 
+Show untracked files. The mode parameter is used to specify the handling of untracked files. It is optional: it defaults to all. The possible options are:
+
+* no - Show no untracked files.
+* normal - Shows untracked files and directories.
+* all - Also shows individual files in untracked directories.
+
+```bash
+git status -u [=<mode>]
+           --untracked-files
+```
+
 Status of ignored files.
 
 ```bash
