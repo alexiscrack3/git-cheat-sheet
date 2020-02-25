@@ -1139,36 +1139,60 @@ git checkout <deleting-commit>^ -- <file>
 
 ### Reverting Commit
 
+Revert some existing commits.
+
+```bash
+git revert <sequencer>
+```
+
+Continue the operation in progress using the information in .git/sequencer. Can be used to continue after resolving conflicts in a failed cherry-pick or revert.
+
+```bash
+--continue
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--skip
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--quit
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--abort
+```
+
 Generate a new commit that undoes all of the changes introduced in the commit.
 
 ```bash
-git revert <commit>
+git revert <commit>…
 ```
 
 This is a default option and doesn't need to be specified. This option will open the configured system editor and prompts you to edit the commit message prior to committing the revert.
 
 ```bash
-git revert -e <commit>
-           --edit
+-e
+--edit
 ```
 
 This is the inverse of the -e option. The revert will not open the editor.
 
 ```bash
-git revert --no-edit <commit>
+--no-edit
 ```
 
 Passing this option will prevent git revert from creating a new commit that inverses the target commit. Instead of creating the new commit this option will add the inverse changes to the Staging Index and Working Directory.
 
 ```bash
-git revert -n <commit>
-           --no-commit
-```
-
-Cancel the revert operation.
-
-```bash
-git revert --abort
+-n
+--no-commit
 ```
 
 Revert initial commit.
