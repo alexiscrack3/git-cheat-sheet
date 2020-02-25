@@ -622,54 +622,45 @@ This option can be used to separate command-line options from the list of files,
 
 ### Display Objects
 
-Show details of the most recent commit.
-
-```bash
-git show
-```
-
-Show details of the most recent commit.
-
-```bash
-git show HEAD
-```
-
 Show details of the object (blobs, trees, tags and commits).
 
 ```bash
-git show <object>
+git show [-w | --ignore-all-space]
+         [--name-only] [--name-status]
+         [--stat] [--pretty | --format=<format>]
+         [<object>…]
 ```
 
 Ignore white space when comparing lines.
 
 ```bash
-git show <object> -w
-                  --ignore-all-space
+-w
+--ignore-all-space
 ```
 
 Show only names of changed files without the diffs.
 
 ```bash
-git show --name-only <object>
+--name-only
 ```
 
 Show only names and status of changed files without the diffs.
 
 ```bash
-git show --name-status <object>
+--name-status
 ```
 
 Generate diffstat instead of patch.
 
 ```bash
-git show --stat
+--stat
 ```
 
 Show details of an object with pretty format.
 
 ```bash
-git show --format="<format>" <object>
-         --pretty
+--pretty <object>
+--format=<format> <object> 
 ```
 
 Show details of commit via commit message pattern matching.
