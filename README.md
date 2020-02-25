@@ -10,7 +10,6 @@ A collection of some of the most useful Git commands
     * [Removing Configs](#removing-configs)
 2. [Setting Up Repository](#setting-up-repository)
     * [Initializing Repository](#initializing-repository)
-    * [Initializing Shared Repository](#initializing-shared-repository)
     * [Cloning Repository](#cloning-repository)
 3. [Saving Changes](#saving-changes)
     * [Adding Files](#adding-files)
@@ -213,30 +212,22 @@ Remove repository options.
 
 ### Initializing Repository
 
-Create empty git repository or re-initialize an existing one.
+Create an empty Git repository or reinitialize an existing one.
 
 ```bash
-git init
+git init [--template=<template_directory>] [--bare] [directory]
 ```
 
-Create empty git repository in directory
+Specify the directory from which templates will be used.
 
 ```bash
-git init <directory>
+--template=<template_directory>
 ```
 
-Create empty git repository and apply template.
+Create a bare repository.
 
 ```bash
-git init --template=<template-path> <repository>
-```
-
-### Initializing Shared Repository
-
-Create a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository.
-
-```bash
-git init --bare
+--bare
 ```
 
 ### Cloning Repository
