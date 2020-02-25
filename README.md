@@ -506,39 +506,28 @@ git stash
 Interactively select hunks from diff between HEAD and working directory to stash.
 
 ```bash
-git stash -p
-          --patch
+-p
+--patch
 ```
 
 Stash only unstaged changes.
 
 ```bash
-git stash -k
-```
-
-Save local changes including untracked files.
-
-```bash
-git stash save -u
-               --include-untracked
-```
-
-All changes already added to the index are left intact.
-
-```bash
-git stash --keep-index
+-k
+--keep-index
 ```
 
 All changes already added to the index are undone.
 
 ```bash
-git stash --no-keep-index
+--no-keep-index
 ```
 
-Save local changes to a new stash with message.
+Save local changes including untracked files.
 
 ```bash
-git stash save "<message>"
+-u
+--include-untracked
 ```
 
 List the stashes stored in the stack.
@@ -547,10 +536,29 @@ List the stashes stored in the stack.
 git stash list
 ```
 
+Show the changes recorded in the stash as a diff. Latest stash is used if stash is not provided.
+
+```bash
+git stash show [<options>] [<stash>]
+```
+
+Show the changes recorded in the stash as a diff in patch format.
+
+```bash
+-p
+--patch
+```
+
+Save local changes to a new stash with message.
+
+```bash
+git stash save ["<message>"]
+```
+
 Apply the changes recorded in the stash.
 
 ```bash
-git stash apply stash@{n}
+git stash apply [<stash>]
 ```
 
 Remove and apply a single stashed state from the stack.
@@ -559,41 +567,16 @@ Remove and apply a single stashed state from the stack.
 git stash pop
 ```
 
-Show the changes recorder in the latest stash as a diff.
+Creates and checks out a new branch named starting from the commit at which the stash was originally created, applies the changes recorded in stash to the new working tree and index, then drops the stash. Latest stash is used if stash is not provided.
 
 ```bash
-git stash show
-```
-
-Show the changes recorded in the stash as a diff.
-
-```bash
-git stash show stash@{n}
-```
-
-Show the changes recorded in the stash as a diff in patch format.
-
-```bash
-git stash show -p stash@{n}
-               --patch
-```
-
-Creates and checks out a new branch named starting from the commit at which the latest stash was originally created, applies the changes recorded in stash to the new working tree and index. If that succeeds, then drops the latest stash.
-
-```bash
-git stash branch <name>
-```
-
-Creates and checks out a new branch named starting from the commit at which the stash was originally created, applies the changes recorded in stash to the new working tree and index. If that succeeds, then drops the stash.
-
-```bash
-git stash branch <name> stash@{n}
+git stash branch <name> [<stash>]
 ```
 
 Remove a single stashed state from the stack.
 
 ```bash
-git stash drop stash@{n}
+git stash drop [<stash>]
 ```
 
 Remove all the stashed states.
