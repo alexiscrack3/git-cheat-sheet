@@ -379,7 +379,7 @@ git add $(git ls-files --modified)
 Remove file from the working directory.
 
 ```bash
-git rm [<options>] <pathspec>…
+git rm [-n | --dry-run] [-r] [--] <pathspec>…
 ```
 
 Do not actually remove the files, just show if they exist in the index.
