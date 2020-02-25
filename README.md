@@ -79,7 +79,7 @@ git config [<config-level>] [--add] name value
 Adds a new line to the option without altering any existing values.
 
 ```bash
---add
+--add name value
 ```
 
 Create an alias for git commands.
@@ -305,7 +305,9 @@ Clone the repository and only clone the history of commits specified by the opti
 Add file contents to the index.
 
 ```bash
-git add [<options>] [<pathspec>…]
+git add [-n | --dry-run] [-f | --force] [-u | --update]
+        [-i | --interactive] [-p | --patch]
+        [<pathspec>…]
 ```
 
 Do not actually add files; only show which ones would be added.
