@@ -376,7 +376,7 @@ git add -i
 Remove file from the working directory.
 
 ```bash
-git rm [<options>] <file>…
+git rm [<options>] <pathspec>…
 ```
 
 Do not actually remove the files, just show if they exist in the index.
