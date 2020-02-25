@@ -73,97 +73,103 @@ There are 3 configuration levels:
 Set repository option.
 
 ```bash
-git config [<config-level>] <name> <value>
+git config [<config-level>] [--add] name value
+```
+
+Adds a new line to the option without altering any existing values.
+
+```bash
+--add
 ```
 
 Create an alias for git commands.
 
 ```bash
-alias.<alias> '<command>'
+alias.* '<command>'
 ```
 
 A boolean to make git-blame show email in output.
 
 ```bash
-blame.showEmail <value>
+blame.showEmail value
 ```
 
 A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
 
 ```bash
-clean.requireForce <value>
+clean.requireForce value
 ```
 
 Turn on/off all Git’s colored terminal output. Possible values: true, false, auto.
 
 ```bash
-color.ui <value>
+color.ui value
 ```
 
 Set up default text editor.
 
 ```bash
-core.editor <value>
+core.editor value
 ```
 
 Makes git case sensitive. Possible values: true, false.
 
 ```bash
-core.ignorecase <value>
+core.ignorecase value
 ```
 
 Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
 
 ```bash
-diff.algorithm <value>
+diff.algorithm value
 ```
 
 Specify the style in which conflicted hunks are written out to working tree files upon merge. The default is "merge", which shows a <<<<<<< conflict marker, changes made by one side, a ======= marker, changes made by the other side, and then a >>>>>>> marker. An alternate style, "diff3", adds a ||||||| marker and the original text before the ======= marker.
 
 ```bash
-merge.conflictstyle <value>
+merge.conflictstyle value
 ```
 
 Set up your custom merge resolution and diff tools.
 
 ```bash
-merge.tool <value>
+merge.tool value
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
 
 ```bash
-push.default <value>
+push.default value
 ```
 
 When set to true, automatically create a temporary stash entry before the operation begins, and apply it after the operation ends. Possible values: true, false.
 
 ```bash
-rebase.autostash <value>
+rebase.autostash value
 ```
 
 Show full by default diff when using git stash show. Possible values: true, false.
 
 ```bash
-stash.showPatch <value>
+stash.showPatch value
 ```
 
 Show files which are not currently tracked by Git. Directories which contain only untracked files, are shown with the directory name only. Showing untracked files means that Git needs to lstat() all the files in the whole repository, which might be slow on some systems. So, this variable controls how the commands displays the untracked files.
 
 ```bash
-status.showUntrackedFiles <value>
+status.showUntrackedFiles value
 ```
 
 Set username.
 
 ```bash
-user.name <value>
+user.name value
 ```
 
 Set email.
 
 ```bash
-user.email <value>
+user.email value
 ```
 
 Open the configuration file in a text editor for manual editing.
@@ -178,13 +184,25 @@ Open the configuration file in a text editor for manual editing.
 Get repository option.
 
 ```bash
-git config [<config-level>] [--get] <name>
+git config [<config-level>] [--show-origin] [--get] name
+```
+
+Augment the output of all queried config options with the origin type (file, standard input, blob, command line) and the actual origin (config file path, ref, or blob id if applicable).
+
+```bash
+--show-origin
 ```
 
 Get repository options.
 
 ```bash
-git config [<config-level>] [<options>]
+git config [<config-level>] [--show-origin] -l --list
+```
+
+Augment the output of all queried config options with the origin type (file, standard input, blob, command line) and the actual origin (config file path, ref, or blob id if applicable).
+
+```bash
+--show-origin
 ```
 
 List all variables set in config file, along with their values.
@@ -194,18 +212,18 @@ List all variables set in config file, along with their values.
 --list
 ```
 
-Show origin of config values.
-
-```bash
---show-origin
-```
-
 ### Removing Configs
 
 Remove repository options.
 
 ```bash
---unset <name>
+git config [<file-option>] --unset name
+```
+
+Remove the line matching the key from config file.
+
+```bash
+--unset name
 ```
 
 ## Setting Up Repository
