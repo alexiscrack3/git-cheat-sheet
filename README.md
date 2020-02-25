@@ -363,12 +363,15 @@ git add $(git ls-files --modified)
 
 Staging only untracked files.
 
+List of available subcommands.
+
+* Type a (for "add untracked")
+* Then * (for "all")
+* Then q (to quit)
+
 ```bash
-git add -i
-        --interactive
-#   Type a (for "add untracked")
-#   Then * (for "all")
-#   Then q (to quit)
+-i
+--interactive
 ```
 
 ### Removing Files
