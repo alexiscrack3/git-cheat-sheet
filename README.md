@@ -958,7 +958,7 @@ git diff > <file>
 Show what revision and author last modified each line of a file.
 
 ```bash
-git blame [flags] <file>
+git blame [<options>] <file>
 ```
 
 Show the author email instead of author name (Default: off).
@@ -1010,7 +1010,7 @@ Restrict the output to the requested line range.
 Show information about files in the index and the working directory.
 
 ```bash
-git ls-files [flags]
+git ls-files [<options>]
 ```
 
 Show cached files.
