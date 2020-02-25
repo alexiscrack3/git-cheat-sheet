@@ -1027,41 +1027,55 @@ Restrict the output to the requested line range.
 Show information about files in the index and the working directory.
 
 ```bash
-git ls-files
+git ls-files [flags]
 ```
 
 Show cached files.
 
 ```bash
-git ls-files -c
-             --cached
-```
-
-Show staged contents (mode bits, object name and stage number).
-
-```bash
-git ls-files -s
-             --stage
-```
-
-Show modified files.
-
-```bash
-git ls-files -m
-             --modified
+-c
+--cached
 ```
 
 Show deleted files.
 
 ```bash
-git ls-files -d
-             --deleted
+-d
+--deleted
+```
+
+Show modified files.
+
+```bash
+-m
+--modified
+```
+
+Show all untracked or ignored files.
+
+```bash
+-o
+--others
+```
+
+Show only ignored files in the output. When showing files in the index, print only those matched by an exclude pattern. When showing "other" files, show only those matched by an exclude pattern.
+
+```bash
+-i
+--ignored
+```
+
+Show staged contents (mode bits, object name and stage number).
+
+```bash
+-s
+--stage
 ```
 
 This option identifies the file status with the following tags.
 
 ```bash
-git ls-files -t
+-t
 # H - cached
 # S - skip-worktree
 # M - unmerged
@@ -1074,33 +1088,19 @@ git ls-files -t
 Similar to -t, but use lowercase letters for files that are marked as assume unchanged.
 
 ```bash
-git ls-files -v
-```
-
-Show only ignored files in the output. When showing files in the index, print only those matched by an exclude pattern. When showing "other" files, show only those matched by an exclude pattern.
-
-```bash
-git ls-files -i
-             --ignored
-```
-
-Show all untracked or ignored files.
-
-```bash
-git ls-files -o
-             --others
+-v
 ```
 
 Show all untracked files.
 
 ```bash
-git ls-files --others --exclude-standard
+--others --exclude-standard
 ```
 
 Show all ignored files.
 
 ```bash
-git ls-files --others --ignored --exclude-standard
+--others --ignored --exclude-standard
 ```
 
 ## Undoing Changes
