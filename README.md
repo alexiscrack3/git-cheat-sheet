@@ -1268,44 +1268,49 @@ git reset --hard master@{"300 minutes ago"}
 
 ### Removing Untracked Files
 
-Remove untracked files from working directory.
+Remove untracked files from working tree.
 
 ```bash
-git clean
+git clean [<options>] <path>…
 ```
 
-Required when clean.requireForce is true (default).
-
-```bash
-git clean -f
-          --force
-```
-
-Only show what would and what would not be removed.
-
-```bash
-git clean -n
-          --dry-run
-```
-
-Remove untracked directories.
+Normally, when no <path> is specified, git clean will not recurse into untracked directories to avoid removing too much. Specify -d to have it recurse into such directories as well. If any paths are specified, -d is irrelevant.
 
 ```bash
 git clean -d
 ```
 
-Remove only ignored files.
+Required when clean.requireForce is true (default).
 
 ```bash
-git clean -x
-          -X
+-f
+--force
+```
+
+Only show what would and what would not be removed.
+
+```bash
+-n
+--dry-run
+```
+
+Don’t use the standard ignore rules, but still use the ignore rules given with -e options from the command line.
+
+```bash
+-x
+```
+
+Remove only files ignored by Git. This may be useful to rebuild everything from scratch, but keep manually created files.
+
+```bash
+-X
 ```
 
 Show what would be done and clean files interactively.
 
 ```bash
-git clean -i
-          --interactive
+-i
+--interactive
 ```
 
 ## Rewriting History
