@@ -979,6 +979,13 @@ Show the author email instead of author name (Default: off).
 --show-email
 ```
 
+Show the line number in the original commit (Default: off).
+
+```bash
+-n
+--show-number
+```
+
 Ignore whitespace when comparing the parent’s version and the child’s to find where the lines came from.
 
 ```bash
