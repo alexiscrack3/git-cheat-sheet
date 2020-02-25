@@ -421,7 +421,7 @@ Move or rename a file, a directory, or a symlink.
 git mv <source> <destination>
 ```
 
-Alternate way way to move or rename a file, directory or symlink.
+Alternate way to move or rename a file, directory or symlink.
 
 ```bash
 mv <old-name> <new-name>
