@@ -992,6 +992,12 @@ Ignore whitespace when comparing the parent’s version and the child’s to fin
 -w
 ```
 
+Suppress the author name and timestamp from the output.
+
+```bash
+-s
+```
+
 Detect moved or copied lines within in the same file. This will report the original author of the lines instead of the last author that moved or copied the lines.
 
 ```bash
