@@ -969,37 +969,7 @@ git diff > <file>
 Show what revision and author last modified each line of a file.
 
 ```bash
-git blame <file>
-```
-
-Show the authors email address instead of username.
-
-```bash
-git blame -e <file>
-```
-
-Ignore whitespace changes. If a previous author has modified the spacing of a file by switching from tabs to spaces or adding new lines this, unfortunately, obscures the output of git blame by showing these changes.
-
-```bash
-git blame -w <file>
-```
-
-Detect moved or copied lines within in the same file. This will report the original author of the lines instead of the last author that moved or copied the lines.
-
-```bash
-git blame -M <file>
-```
-
-Detect lines that were moved or copied from other files. This will report the original author of the lines instead of the last author that moved or copied the lines.
-
-```bash
-git blame -C <file>
-```
-
-Restrict the output to the requested line range.
-
-```bash
-git blame -L <starting-line>,<ending-line> <file>
+git blame [flags] <file>
 ```
 
 Show the author email instead of author name (Default: off).
@@ -1007,6 +977,30 @@ Show the author email instead of author name (Default: off).
 ```bash
 -e
 --show-email
+```
+
+Ignore whitespace when comparing the parent’s version and the child’s to find where the lines came from.
+
+```bash
+-w
+```
+
+Detect moved or copied lines within in the same file. This will report the original author of the lines instead of the last author that moved or copied the lines.
+
+```bash
+-M
+```
+
+Detect lines that were moved or copied from other files. This will report the original author of the lines instead of the last author that moved or copied the lines.
+
+```bash
+-C
+```
+
+Restrict the output to the requested line range.
+
+```bash
+-L <starting-line>,<ending-line>
 ```
 
 ## Listing Files
