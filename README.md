@@ -681,12 +681,6 @@ Export file to path.
 git show <branch>:<file> > <path>
 ```
 
-Show branches and their commits.
-
-```bash
-git show-branch
-```
-
 ### Logging
 
 Show all commits.
@@ -1665,6 +1659,12 @@ Create new branch from commit and no tracking and no tracking any remote branch.
 
 ```bash
 git branch --no-track <branch> <commit>
+```
+
+Show branches and their commits.
+
+```bash
+git show-branch
 ```
 
 Create new branch and switch to it from a remote branch.
