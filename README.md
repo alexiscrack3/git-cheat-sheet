@@ -794,6 +794,13 @@ Search for commits with a commit message. The argument can be a plain string or 
 git log --grep="<pattern>"
 ```
 
+Match regexps ignoring case.
+
+```bash
+git log -i
+        --regexp-ignore-case
+```
+
 Display commits without merge commits.
 
 ```bash
