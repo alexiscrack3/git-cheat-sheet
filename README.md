@@ -431,15 +431,11 @@ git add <new-name>
 
 ### Committing Files
 
-Use the given message as the commit message.
+Record changes to the repository.
 
 ```bash
-git commit
-```
-
-```bash
--m <msg>
---message
+git commit [-a | --all] [-m <msg> | --message <msg>]
+           [--allow-empty] [--author=<author>]
 ```
 
 Stage all modified and deleted paths, but new files you have not told git about are not affected.
@@ -447,6 +443,13 @@ Stage all modified and deleted paths, but new files you have not told git about 
 ```bash
 -a
 --all
+```
+
+Use the given message as the commit message.
+
+```bash
+-m <msg>
+--message <msg>
 ```
 
 Use the given message as the commit message and override the author name used in the commit.
