@@ -235,21 +235,25 @@ Create a bare repository.
 Clone a repository into a current directory if not specified.
 
 ```bash
-git clone [<options>] <repository> [<directory>]
+git clone [-o <name>] [-b <name>]
+          [--depth <depth>] [--single-branch]
+          [--recursive]
+          [--template=<template_directory>]
+          <repository> [<directory>]
 ```
 
 Instead if using the remote name **origin** to keep track of the upstream repository, use **<name>**.
 
 ```bash
 -o <name>
---origin
+--origin <name>
 ```
 
 Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository’s HEAD, point to <name> branch instead.
 
 ```bash
 -b <name>
---branch
+--branch <name>
 ```
 
 Clone only history leading up to the main branch or the one specified by -b option.
@@ -273,7 +277,7 @@ Clone the repository and apply template.
 Clone the repository and only clone the history of commits specified by the option depth. If depth is equal to one, only the most recent commit is included.
 
 ```bash
--depth=<depth>
+--depth=<depth>
 ```
 
 ## Saving Changes
