@@ -442,7 +442,7 @@ Use the given message as the commit message.
 
 ```bash
 git commit -m "<message>"
-            --message
+           --message
 ```
 
 Use the given message as the commit message and override the author name used in the commit.
