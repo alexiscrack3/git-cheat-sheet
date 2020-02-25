@@ -683,54 +683,67 @@ git show <branch>:<file> > <path>
 
 ### Logging
 
-Show all commits.
+Show commit logs.
 
 ```bash
-git log
-```
-
-Show changes over time for a specific file.
-
-```bash
-git log <file>
+git log [-p | --patch] [--follow] [--oneline]
+        [--stat] [--shortstat] [--summary] [<pathspec>…]
+        [--[no-]merges]
 ```
 
 Generate diff in patch format for a specific file.
 
 ```bash
-git log -p <file>
-        --patch
+-p
+--patch
 ```
 
 Show changes over time for a specific file even if the file was renamed.
 
 ```bash
-git log --follow <file>
-```
-
-Exports git log to text file.
-
-```bash
-git log > <file>
-```
-
-Show only commits that occur in the range.
-
-```bash
-git log <since>..<until>
-```
-
-Maximum number of commits to display.
-
-```bash
-git log -n
-        --max-count
+--follow
 ```
 
 Condense each commit to a single line.
 
 ```bash
-git log --oneline
+--oneline
+```
+
+Show statistics for files modified in each commit.
+
+```bash
+--stat
+```
+
+Display only the changed/insertions/deletions line from the --stat command.
+
+```bash
+--shortstat
+```
+
+Generate condensed summary of extended header information.
+
+```bash
+--summary
+```
+
+Match regexps ignoring case.
+
+```bash
+git log [-i <regex> | --regexp-ignore-case <regex>]
+```
+
+Dsplay only merge commits.
+
+```bash
+--merges
+```
+
+Display commits without merge commits.
+
+```bash
+--no-merges
 ```
 
 Get a list of commits made in the last two weeks.
@@ -739,22 +752,16 @@ Get a list of commits made in the last two weeks.
 git log --since='2 weeks'
 ```
 
-Show statistics for files modified in each commit.
+Maximum number of commits to display.
 
 ```bash
-git log --stat
+git log [-n <number> | --max-count <number>]
 ```
 
-Display only the changed/insertions/deletions line from the --stat command.
+Show only commits that occur in the range.
 
 ```bash
-git log --shortstat
-```
-
-Generate condensed summary of extended header information.
-
-```bash
-git log --summary
+git log <since>..<until>
 ```
 
 Search for commits by a particular author. The argument can be a plain string or a regular expression.
@@ -767,25 +774,6 @@ Search for commits with a commit message. The argument can be a plain string or 
 
 ```bash
 git log --grep="<pattern>"
-```
-
-Match regexps ignoring case.
-
-```bash
-git log -i
-        --regexp-ignore-case
-```
-
-Display commits without merge commits.
-
-```bash
-git log --no-merges
-```
-
-Dsplay only merge commits.
-
-```bash
-git log --merges
 ```
 
 Show what every contributor has been getting up to across all branches.
@@ -822,6 +810,12 @@ View complex logs.
 
 ```bash
 git log --graph --all --decorate --stat --date=iso
+```
+
+Exports git log to text file.
+
+```bash
+git log > <file>
 ```
 
 Summarize commits of current branch.
