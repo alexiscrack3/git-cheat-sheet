@@ -1557,28 +1557,17 @@ git remote update
 
 ### Pulling
 
-Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
+Fetch from and integrate with another repository or a local branch.
 
 ```bash
-git pull
+git pull [<options>] [<repository> [<refspec>…]]
 ```
 
-Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
+Rebase the current branch on top of the upstream branch after fetching.
 
 ```bash
-git pull <remote>
-```
-
-Fetch the specified remote’s copy of the branch and merge it into the local copy.
-
-```bash
-git pull <remote> <branch>
-```
-
-Instead of using git merge to integrate the remote branch with the local one, use git rebase.
-
-```bash
-git pull --rebase <remote>
+-r
+--rebase
 ```
 
 ### Pushing
