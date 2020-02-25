@@ -592,31 +592,35 @@ git stash clear
 Show working directory status.
 
 ```bash
-git status
+git status [<options>]
 ```
 
-Output in short format.
+Give the output in short format.
 
 ```bash
-git status -s
-           --short
+-s
+--short
 ```
 
-Show untracked files. The mode parameter is used to specify the handling of untracked files. It is optional: it defaults to all. The possible options are:
+Show untracked files.
+
+The mode parameter is used to specify the handling of untracked files. It is optional: it defaults to **all**.
+
+The possible options are:
 
 * no - Show no untracked files.
 * normal - Shows untracked files and directories.
 * all - Also shows individual files in untracked directories.
 
 ```bash
-git status -u [=<mode>]
-           --untracked-files
+-u [<mode>]
+--untracked-files
 ```
 
 Status of ignored files.
 
 ```bash
-git status --ignored
+--ignored
 ```
 
 ### Display Objects
