@@ -247,53 +247,48 @@ git init --bare
 
 ### Cloning Repository
 
-Clone repository in the current directory.
+Clone a repository into a current directory if not specified.
 
 ```bash
-git clone <repository>
+git clone [<options>] <repository> [<directory>]
 ```
 
-Clone repository into directory.
+Instead if using the remote name **origin** to keep track of the upstream repository, use **<name>**.
 
 ```bash
-git clone <repository> <directory>
+-o <name>
+--origin
 ```
 
-Clone repository and set remote name.
+Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository’s HEAD, point to <name> branch instead.
 
 ```bash
-git clone --origin <new-remote-name> <repository>
+-b <name>
+--branch
 ```
 
-Clone repository and point HEAD to the given branch.
+Clone only history leading up to the main branch or the one specified by -b option.
 
 ```bash
-git clone -b <branch> <repository>
-          --branch
-```
-
-Clone only history leading up to the main branch or the one specified by -b
-
-```bash
-git clone -b <branch> --single-branch <repository>
+--single-branch
 ```
 
 Clone repository and all its submodules recursively.
 
 ```bash
-git clone --recursive <repository>
+--recursive
 ```
 
 Clone the repository and apply template.
 
 ```bash
-git clone --template=<template-path> <repository>
+--template=<template_directory>
 ```
 
-Clone the repository and only clone the history of commits specified by the option depth. In this example a clone of the repository is made and only the most recent commit is included.
+Clone the repository and only clone the history of commits specified by the option depth. If depth is equal to one, only the most recent commit is included.
 
 ```bash
-git clone -depth=1 <repository>
+-depth=<depth>
 ```
 
 ## Saving Changes
