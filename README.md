@@ -392,38 +392,38 @@ git add -i
 Remove file from the working directory.
 
 ```bash
-git rm <file>
+git rm [<options>] <file>…
+```
+
+Do not actually remove the files, just show if they exist in the index.
+
+```bash
+-n
+--dry-run
 ```
 
 Remove recursively directory from the working directory.
 
 ```bash
-git rm -r <directory>
+-r
+```
+
+This option can be used to separate command-line options from the list of files, (useful when filenames might be mistaken for command-line options).
+
+```bash
+--
 ```
 
 Remove a file from index but not from disk.
 
 ```bash
-git rm --cached <file>
-```
-
-Remove recursively a directory from index but not from disk.
-
-```bash
-git rm --cached -r <directory>
+--cached
 ```
 
 Remove files from the working directory.
 
 ```bash
 git rm $(git ls-files --deleted)
-```
-
-Do not actually remove the files, just show if they exist in the index.
-
-```bash
-git rm -n
-       --dry-run
 ```
 
 ### Renaming Files
