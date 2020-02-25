@@ -86,6 +86,12 @@ Set email.
 git config [<config-level>] user.email "<email>"
 ```
 
+A boolean to make git-blame show email in output.
+
+```bash
+git config [<config-level>] blame.showEmail <value>
+```
+
 A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
 
 ```bash
