@@ -583,7 +583,7 @@ git stash clear
 Show working directory status.
 
 ```bash
-git status [<options>]
+git status [-s | --short] [-u [<mode>] | --untracked-files [<mode>]] [--ignored] [--] [<pathspec>…]
 ```
 
 Give the output in short format.
@@ -612,6 +612,12 @@ Status of ignored files.
 
 ```bash
 --ignored
+```
+
+This option can be used to separate command-line options from the list of files, (useful when filenames might be mistaken for command-line options).
+
+```bash
+--
 ```
 
 ### Display Objects
