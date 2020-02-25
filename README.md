@@ -15,8 +15,6 @@ A collection of some of the most useful Git commands
     * [Cloning Repository](#cloning-repository)
 4. [Saving Changes](#saving-changes)
     * [Adding Files](#adding-files)
-        * [Tracking New or Modified Files](#tracking-new-or-modified-files)
-        * [Interactive Staging](#interactive-staging)
     * [Removing Files](#removing-files)
     * [Renaming Files](#renaming-files)
     * [Committing Files](#committing-files)
@@ -295,8 +293,6 @@ Clone the repository and only clone the history of commits specified by the opti
 
 ### Adding Files
 
-#### Tracking New or Modified Files
-
 Add file contents to the index.
 
 ```bash
@@ -315,6 +311,13 @@ Allow adding otherwise ignored files.
 ```bash
 -f
 --force
+```
+
+Add to index modified and deleted tracked files but it will never stage new files.
+
+```bash
+-u
+--update
 ```
 
 Begin an interactive staging session that lets you choose portions of a file to add to the next commit.
@@ -341,21 +344,6 @@ You can select one of the following options and type return:
 --patch
 ```
 
-Add to index modified and deleted tracked files but it will never stage new files.
-
-```bash
--u
---update
-```
-
-Add modified files to index.
-
-```bash
-git add $(git ls-files --modified)
-```
-
-#### Interactive Staging
-
 Staging only untracked files.
 
 List of available subcommands.
@@ -367,6 +355,12 @@ List of available subcommands.
 ```bash
 -i
 --interactive
+```
+
+Add modified files to index.
+
+```bash
+git add $(git ls-files --modified)
 ```
 
 ### Removing Files
