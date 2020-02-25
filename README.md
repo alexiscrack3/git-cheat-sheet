@@ -435,6 +435,7 @@ Record changes to the repository.
 
 ```bash
 git commit [-a | --all] [-m <msg> | --message <msg>]
+           [-v | --verbose] [-n | --dry-run] [-o | --only]
            [--allow-empty] [--author=<author>]
 ```
 
@@ -474,6 +475,7 @@ Show unified diff of all file changes.
 Do not create a commit, but show a list of paths that are to be committed.
 
 ```bash
+-n
 --dry-run
 ```
 
