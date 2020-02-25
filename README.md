@@ -302,71 +302,55 @@ git clone -depth=1 <repository>
 
 #### Tracking New or Modified Files
 
-Add all files.
+Add file contents to the index.
 
 ```bash
-git add .
-```
-
-Add a specific file.
-
-```bash
-git add <file>
-
-```
-
-Add a specific directory.
-
-```bash
-git add <directory>
-```
-
-Add files with an extension file.
-
-```bash
-git add *.<extension>
-```
-
-Allow adding otherwise ignored files.
-
-```bash
-git add -f <file>
-        --force
+git add [<pathspec>…]
 ```
 
 Do not actually add files; only show which ones would be added.
 
 ```bash
-git add -n
-        --dry-run
+-n
+--dry-run
+```
+
+Allow adding otherwise ignored files.
+
+```bash
+-f
+--force
+```
+
+Begin an interactive staging session that lets you choose portions of a file to add to the next commit.
+
+You can select one of the following options and type return:
+
+* y - stage this hunk
+* n - do not stage this hunk
+* q - quit; do not stage this hunk nor any of the remaining ones
+* a - stage this hunk and all later hunks in the file
+* d - do not stage this hunk nor any of the later hunks in the file
+* g - select a hunk to go to
+* / - search for a hunk matching the given regex
+* j - leave this hunk undecided, see next undecided hunk
+* J - leave this hunk undecided, see next hunk
+* k - leave this hunk undecided, see previous undecided hunk
+* K - leave this hunk undecided, see previous hunk
+* s - split the current hunk into smaller hunks
+* e - manually edit the current hunk
+* ? - print help
+
+```bash
+-p
+--patch
 ```
 
 Add to index modified and deleted tracked files but it will never stage new files.
 
 ```bash
-git add -u
-        --update
-```
-
-Begin an interactive staging session that lets you choose portions of a file to add to the next commit.
-
-```bash
-git add -p
-        --patch
-# y - stage this hunk
-# n - do not stage this hunk
-# q - quit; do not stage this hunk nor any of the remaining ones
-# a - stage this hunk and all later hunks in the file
-# d - do not stage this hunk nor any of the later hunks in the file
-# g - select a hunk to go to
-# / - search for a hunk matching the given regex
-# j - leave this hunk undecided, see next undecided hunk
-# J - leave this hunk undecided, see next hunk
-# k - leave this hunk undecided, see previous undecided hunk
-# K - leave this hunk undecided, see previous hunk
-# s - split the current hunk into smaller hunks
-# e - manually edit the current hunk
-# ? - print help
+-u
+--update
 ```
 
 Add modified files to index.
