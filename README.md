@@ -491,10 +491,10 @@ Skip staging area and commit files, this only works with tracked files.
 Stash away changes to dirty working directory.
 
 ```bash
-git stash
+git stash [-p | --patch] [-k | --[no-]keep-index] [-u | --include-untracked]
 ```
 
-Interactively select hunks from diff between HEAD and working directory to stash.
+Interactively select hunks from diff between HEAD and the working tree to stashed.
 
 ```bash
 -p
@@ -530,7 +530,7 @@ git stash list
 Show the changes recorded in the stash as a diff. Latest stash is used if stash is not provided.
 
 ```bash
-git stash show [<options>] [<stash>]
+git stash show [-p | --patch] [<stash>]
 ```
 
 Show the changes recorded in the stash as a diff in patch format.
@@ -543,7 +543,7 @@ Show the changes recorded in the stash as a diff in patch format.
 Save local changes to a new stash with message.
 
 ```bash
-git stash save ["<message>"]
+git stash save [<message>]
 ```
 
 Apply the changes recorded in the stash.
