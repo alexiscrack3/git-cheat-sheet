@@ -8,40 +8,39 @@ A collection of some of the most useful Git commands
     * [Setting Configs](#setting-configs)
     * [Getting Configs](#getting-configs)
     * [Removing Configs](#removing-configs)
-2. [Aliases](#aliases)
-3. [Setting Up Repository](#setting-up-repository)
+2. [Setting Up Repository](#setting-up-repository)
     * [Initializing Repository](#initializing-repository)
     * [Initializing Shared Repository](#initializing-shared-repository)
     * [Cloning Repository](#cloning-repository)
-4. [Saving Changes](#saving-changes)
+3. [Saving Changes](#saving-changes)
     * [Adding Files](#adding-files)
     * [Removing Files](#removing-files)
     * [Renaming Files](#renaming-files)
     * [Committing Files](#committing-files)
     * [Stashing Files](#stashing-files)
-5. [Inspecting Changes](#inspecting-changes)
+4. [Inspecting Changes](#inspecting-changes)
     * [Display State](#display-state)
     * [Display Objects](#display-objects)
     * [Logging](#logging)
     * [Display Differences](#display-differences)
     * [Blaming](#blaming)
-6. [Listing Files](#listing-files)
-7. [Undoing Changes](#undoing-changes)
+5. [Listing Files](#listing-files)
+6. [Undoing Changes](#undoing-changes)
     * [Reverting Files](#reverting-files)
     * [Reverting Commit](#reverting-commit)
     * [Unstaging Staged File](#unstaging-staged-file)
     * [Resetting Current Commit](#resetting-current-commit)
     * [Removing Untracked Files](#removing-untracked-files)
-8. [Rewriting History](#rewriting-history)
+7. [Rewriting History](#rewriting-history)
     * [Fix Up Commit](#fix-up-commit)
     * [Rebase Commits](#rebase-commits)
     * [Copy Commits](#copy-commits)
-9. [Synchronize](#synchronize)
+8. [Synchronize](#synchronize)
     * [Remotes](#remotes)
     * [Fetching](#fetching)
     * [Pulling](#pulling)
     * [Pushing](#pushing)
-10. [Branches](#branches)
+9. [Branches](#branches)
     * [Create Branches](#create-branches)
     * [Rename Branches](#rename-branches)
     * [Delete Branches](#delete-branches)
@@ -49,18 +48,18 @@ A collection of some of the most useful Git commands
     * [Merge Branches](#merge-branches)
     * [Track Branches](#track-branches)
     * [Switch to Branch](#switch-to-branch)
-11. [Debugging](#debugging)
+10. [Debugging](#debugging)
     * [Binary Search](#binary-search)
-12. [Tagging](#tagging)
-13. [Submodules](#submodules)
-14. [Refs and the Reflog](#refs-and-the-reflog)
+11. [Tagging](#tagging)
+12. [Submodules](#submodules)
+13. [Refs and the Reflog](#refs-and-the-reflog)
     * [Hashes](#hashes)
     * [Refs](#refs)
     * [Special Refs](#special-refs)
     * [Relative Refs](#relative-refs)
     * [Reflog](#reflog)
-15. [Others](#others)
-16. [Getting Help](#getting-help)
+14. [Others](#others)
+15. [Getting Help](#getting-help)
 
 ## Settings
 
@@ -72,145 +71,142 @@ There are 3 configuration levels:
 
 ### Setting Configs
 
-Set username.
+Set repository option.
 
 ```bash
-git config [<config-level>] user.name "<name>"
+git config [<config-level>] <name> <value>
 ```
 
-Set email.
+Create an alias for git commands.
 
 ```bash
-git config [<config-level>] user.email "<email>"
+alias.<alias> '<command>'
 ```
 
 A boolean to make git-blame show email in output.
 
 ```bash
-git config [<config-level>] blame.showEmail <value>
+blame.showEmail <value>
 ```
 
 A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
 
 ```bash
-git config [<config-level>] clean.requireForce <value>
+clean.requireForce <value>
 ```
 
 Turn on/off all Git’s colored terminal output. Possible values: true, false, auto.
 
 ```bash
-git config [<config-level>] color.ui <value>
+color.ui <value>
 ```
 
 Set up default text editor.
 
 ```bash
-git config [<config-level>] core.editor <editor>
+core.editor <value>
 ```
 
 Makes git case sensitive. Possible values: true, false.
 
 ```bash
-git config [<config-level>] core.ignorecase <value>
+core.ignorecase <value>
 ```
 
 Sets a diff algorithm. Possible values: default, histogram, minimal, myers, patience.
 
 ```bash
-git config [<config-level>] diff.algorithm <value>
+diff.algorithm <value>
 ```
 
 Specify the style in which conflicted hunks are written out to working tree files upon merge. The default is "merge", which shows a <<<<<<< conflict marker, changes made by one side, a ======= marker, changes made by the other side, and then a >>>>>>> marker. An alternate style, "diff3", adds a ||||||| marker and the original text before the ======= marker.
 
 ```bash
-git config [<config-level>] merge.conflictstyle <style>
+merge.conflictstyle <value>
 ```
 
 Set up your custom merge resolution and diff tools.
 
 ```bash
-git config [<config-level>] merge.tool <editor>
+merge.tool <value>
 ```
 
 Defines the action git push should take. Possible values: nothing, matching, upstream, current, simple (safest option and is well-suited for beginners).
 
 ```bash
-git config [<config-level>] push.default <value>
+push.default <value>
 ```
 
 When set to true, automatically create a temporary stash entry before the operation begins, and apply it after the operation ends. Possible values: true, false.
 
 ```bash
-git config [<config-level>] rebase.autostash <value>
+rebase.autostash <value>
 ```
 
 Show full by default diff when using git stash show. Possible values: true, false.
 
 ```bash
-git config [<config-level>] stash.showPatch <value>
+stash.showPatch <value>
 ```
 
 Show files which are not currently tracked by Git. Directories which contain only untracked files, are shown with the directory name only. Showing untracked files means that Git needs to lstat() all the files in the whole repository, which might be slow on some systems. So, this variable controls how the commands displays the untracked files.
 
 ```bash
-git config [<config-level>] status.showUntrackedFiles <value>
+status.showUntrackedFiles <value>
+```
+
+Set username.
+
+```bash
+user.name <value>
+```
+
+Set email.
+
+```bash
+user.email <value>
 ```
 
 Open the configuration file in a text editor for manual editing.
 
 ```bash
-git config [<config-level> -e
-                           --edit
+-e
+--edit
 ```
 
 ### Getting Configs
 
+Get repository option.
+
+```bash
+git config [<config-level>] [--get] <name>
+```
+
+Get repository options.
+
+```bash
+git config [<config-level>] [<options>]
+```
+
 List all variables set in config file, along with their values.
 
 ```bash
-git config [<config-level>] -l
-                            --list
+-l
+--list
 ```
 
 Show origin of config values.
 
 ```bash
-git config [<config-level>] -l --show-origin
-                            --list
-```
-
-Get username.
-
-```bash
-git config [<config-level>] [--get] user.name
-```
-
-Get email.
-
-```bash
-git config [<config-level>] [--get] user.email
+--show-origin
 ```
 
 ### Removing Configs
 
-Remove username.
+Remove repository options.
 
 ```bash
-git config [<config-level>] --unset user.name
-```
-
-Remove email.
-
-```bash
-git config [<config-level>] --unset user.email
-```
-
-## Aliases
-
-Create an alias for git commands.
-
-```bash
-git config [<config-level>] alias.<alias> '<command>'
+--unset <name>
 ```
 
 ## Setting Up Repository
