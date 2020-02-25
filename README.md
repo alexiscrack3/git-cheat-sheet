@@ -415,18 +415,18 @@ git rm $(git ls-files --deleted)
 
 ### Renaming Files
 
-First way.
+Move or rename a file, a directory, or a symlink.
+
+```bash
+git mv <source> <destination>
+```
+
+Alternate way way to move or rename a file, directory or symlink.
 
 ```bash
 mv <old-name> <new-name>
 git rm <old-name>
 git add <new-name>
-```
-
-Second way.
-
-```bash
-git mv <file-from> <file-to>
 ```
 
 ### Committing Files
