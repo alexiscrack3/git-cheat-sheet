@@ -1394,34 +1394,46 @@ git rebase -i --root
 
 ### Copy Commits
 
-Jump into the branch that you want to insert the commit into.
+Apply the changes introduced by some existing commits.
 
 ```bash
-git cherry-pick <commit>
+git cherry-pick <sequencer>
+```
+
+Continue the operation in progress using the information in .git/sequencer. Can be used to continue after resolving conflicts in a failed cherry-pick or revert.
+
+```bash
+--continue
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--skip
+```
+
+End revert or cherry-pick sequence.
+
+```bash
+--quit
+```
+
+Cancel revert or cherry-pick sequence.
+
+```bash
+--abort
+```
+
+Commits to cherry-pick.
+
+```bash
+git cherry-pick <commit>…
 ```
 
 Introduce particular commits from one branch onto a different branch.
 
 ```bash
 git cherry-pick <branch>
-```
-
-Cancel revert or cherry-pick sequence.
-
-```bash
-git cherry-pick --abort
-```
-
-Resume revert or cherry-pick sequence.
-
-```bash
-git cherry-pick --continue
-```
-
-End revert or cherry-pick sequence.
-
-```bash
-git cherry-pick --quit
 ```
 
 ## Synchronize
