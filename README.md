@@ -1002,6 +1002,13 @@ Restrict the output to the requested line range.
 git blame -L <starting-line>,<ending-line> <file>
 ```
 
+Show the author email instead of author name (Default: off).
+
+```bash
+-e
+--show-email
+```
+
 ## Listing Files
 
 Show information about files in the index and the working directory.
