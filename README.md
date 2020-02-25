@@ -305,7 +305,7 @@ git clone -depth=1 <repository>
 Add file contents to the index.
 
 ```bash
-git add [<pathspec>…]
+git add [<options>] [<pathspec>…]
 ```
 
 Do not actually add files; only show which ones would be added.
@@ -434,52 +434,51 @@ git mv <file-from> <file-to>
 Use the given message as the commit message.
 
 ```bash
-git commit -m "<message>"
-           --message
+git commit
 ```
 
-Use the given message as the commit message and override the author name used in the commit.
-
 ```bash
-git commit -m "<message>" --author="Name <your_email@youremail.com>"
+-m <msg>
+--message
 ```
 
 Stage all modified and deleted paths, but new files you have not told git about are not affected.
 
 ```bash
-git commit -a
-           --all
+-a
+--all
 ```
 
-Stage all modified and deleted path using the given message, but new files you have not told git about are not affected.
+Use the given message as the commit message and override the author name used in the commit.
 
 ```bash
-git commit -am "<message>"
+--author=<author>
 ```
 
 Allow recording an empty commit with no file changes.
 
 ```bash
-git commit --allow-empty -m "<message>"
+--allow-empty
 ```
 
 Show unified diff of all file changes.
 
 ```bash
-git commit -v
-           --verbose
+-v
+--verbose
 ```
 
-Show list of paths that are to be commited or not, and any untracked.
+Do not create a commit, but show a list of paths that are to be committed.
 
 ```bash
-git commit --dry-run --short
+--dry-run
 ```
 
 Skip staging area and commit files, this only works with tracked files.
 
 ```bash
-git commit --only <file>
+-o
+--only
 ```
 
 ### Stashing Files
