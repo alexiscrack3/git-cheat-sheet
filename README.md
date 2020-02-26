@@ -853,73 +853,54 @@ git shortlog --all --no-merges -sn
 
 ### Display Differences
 
-What's different from our most recent commit (staged and unstaged changes).
+Show changes between commits, commit and working tree, etc.
 
 ```bash
-git diff
+git diff [<options>] [<object>]
+```
+
+Show changes between two arbitrary commits.
+
+```bash
+git diff [<options>] <commit> <commit> [--] [<path>…]
+```
+
+This is synonymous to the previous form. If <commit> on one side is omitted, it will have the same effect as using HEAD instead.
+
+```bash
+git diff [<options>] <commit>..<commit> [--] [<path>…]
+```
+
+This form is to view the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>. You can omit any one of <commit>, which has the same effect as using HEAD instead.
+
+```bash
+git diff [<options>] <commit>..<commit> [--] [<path>…]
 ```
 
 Ignore white space when comparing lines.
 
 ```bash
-git diff -w
-         --ignore-all-space
-```
-
-What's different from our most recent commit (staged and unstaged changes).
-
-```bash
-git diff HEAD
-```
-
-What's different from our previous commit.
-
-```bash
-git diff HEAD~
-         HEAD~1
-```
-
-What's different from two previous commits.
-
-```bash
-git diff HEAD~2
+-w
+--ignore-all-space
 ```
 
 Show staged changes against your HEAD.
 
 ```bash
-git diff --cached
-         --staged
-```
-
-Show changes between commits.
-
-```bash
-git diff <commit> <commit>
-```
-
-Show changes in file between commits.
-
-```bash
-git diff <commit> <commit> <file>
+--cached
+--staged
 ```
 
 Show inline word diff.
 
 ```bash
-git diff --word-diff
+--word-diff
 ```
 
 Look for differences whose added or removed line matches the given pattern.
 
 ```bash
-git diff -G <pattern>
-```
-
-Print out changes.
-
-```bash
-git diff > <file>
+-G <pattern>
 ```
 
 ### Blaming
