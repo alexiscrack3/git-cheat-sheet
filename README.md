@@ -687,8 +687,9 @@ Show commit logs.
 
 ```bash
 git log [-p | --patch] [--follow] [--oneline]
-        [--stat] [--shortstat] [--summary] [<pathspec>…]
-        [--[no-]merges]
+        [--stat] [--shortstat] [--summary]
+        [--[no-]merges] [--author=<pattern>] [--grep=<pattern>]
+        [<pathspec>…]
 ```
 
 Generate diff in patch format for a specific file.
@@ -728,13 +729,7 @@ Generate condensed summary of extended header information.
 --summary
 ```
 
-Match regexps ignoring case.
-
-```bash
-git log [-i <regex> | --regexp-ignore-case <regex>]
-```
-
-Dsplay only merge commits.
+Display only merge commits.
 
 ```bash
 --merges
@@ -746,16 +741,22 @@ Display commits without merge commits.
 --no-merges
 ```
 
+Search for commits by a particular author. The argument can be a plain string or a regular expression.
+
+```bash
+--author=<pattern>
+```
+
+Search for commits with a commit message. The argument can be a plain string or a regular expression.
+
+```bash
+--grep=<pattern>
+```
+
 Get a list of commits made in the last two weeks.
 
 ```bash
 git log --since='2 weeks'
-```
-
-Maximum number of commits to display.
-
-```bash
-git log [-n <number> | --max-count <number>]
 ```
 
 Show only commits that occur in the range.
@@ -764,16 +765,16 @@ Show only commits that occur in the range.
 git log <since>..<until>
 ```
 
-Search for commits by a particular author. The argument can be a plain string or a regular expression.
+Match regexps ignoring case.
 
 ```bash
-git log --author="<pattern>"
+git log [-i <regex> | --regexp-ignore-case <regex>]
 ```
 
-Search for commits with a commit message. The argument can be a plain string or a regular expression.
+Maximum number of commits to display.
 
 ```bash
-git log --grep="<pattern>"
+git log [-n <number> | --max-count <number>]
 ```
 
 Show what every contributor has been getting up to across all branches.
@@ -788,7 +789,7 @@ Show changes since two weeks.
 git log --no-merges --raw --since='2 weeks ago'
 ```
 
-Generate a Changelog.
+Generate a changelog.
 
 ```bash
 git log --oneline --no-merges <last tag>..HEAD
@@ -812,54 +813,42 @@ View complex logs.
 git log --graph --all --decorate --stat --date=iso
 ```
 
-Exports git log to text file.
-
-```bash
-git log > <file>
-```
-
 Summarize commits of current branch.
 
 ```bash
-git shortlog
+git shortlog [--all] [--no-merges] [-s] [-n]
 ```
 
 Summarize commits of all refs.
 
 ```bash
-git shortlog --all
+--all
 ```
 
 Summarize commits and supress the ones with more than one parent (merge commits).
 
 ```bash
-git shortlog --no-merges
+--no-merges
 ```
 
 Summarize commits and suppress commit message.
 
 ```bash
-git shortlog -s
-             --summary
+-s
+--summary
 ```
 
 Sort according to number of commits.
 
 ```bash
-git shortlog -n
-             --numbered
-```
-
-Number of commits of each contributor.
-
-```bash
-git shortlog -sn
+-n
+--numbered
 ```
 
 Number of commits of each contributor and ensures that merge commits aren’t being counted.
 
 ```bash
-git shortlog -sn --all --no-merges
+git shortlog --all --no-merges -sn 
 ```
 
 ### Display Differences
