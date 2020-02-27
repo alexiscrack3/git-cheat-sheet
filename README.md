@@ -908,14 +908,10 @@ Look for differences whose added or removed line matches the given pattern.
 Show what revision and author last modified each line of a file.
 
 ```bash
-git blame [<options>] <file>
-```
-
-Show the author email instead of author name (Default: off).
-
-```bash
--e
---show-email
+git blame [-n | --show-number] [-s]
+          [-e | --show-email] [-w]
+          [-L <range>] [-M] [-C]
+          <file>
 ```
 
 Show the line number in the original commit (Default: off).
@@ -925,16 +921,29 @@ Show the line number in the original commit (Default: off).
 --show-number
 ```
 
+Suppress the author name and timestamp from the output.
+
+```bash
+-s
+```
+
+Show the author email instead of author name (Default: off).
+
+```bash
+-e
+--show-email
+```
+
 Ignore whitespace when comparing the parent’s version and the child’s to find where the lines came from.
 
 ```bash
 -w
 ```
 
-Suppress the author name and timestamp from the output.
+Restrict the output to the requested line range.
 
 ```bash
--s
+-L <starting-line>,<ending-line>
 ```
 
 Detect moved or copied lines within in the same file. This will report the original author of the lines instead of the last author that moved or copied the lines.
@@ -947,12 +956,6 @@ Detect lines that were moved or copied from other files. This will report the or
 
 ```bash
 -C
-```
-
-Restrict the output to the requested line range.
-
-```bash
--L <starting-line>,<ending-line>
 ```
 
 ## Listing Files
