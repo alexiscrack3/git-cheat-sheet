@@ -963,7 +963,10 @@ Detect lines that were moved or copied from other files. This will report the or
 Show information about files in the index and the working directory.
 
 ```bash
-git ls-files [<options>]
+git ls-files [-t] [-v]
+             (--[cached|deleted|others|ignored|stage|modified])*
+		     (-[c|d|o|i|s|m])*
+             [--exclude-standard]
 ```
 
 Show cached files.
@@ -978,13 +981,6 @@ Show deleted files.
 ```bash
 -d
 --deleted
-```
-
-Show modified files.
-
-```bash
--m
---modified
 ```
 
 Show all untracked or ignored files.
@@ -1008,10 +1004,17 @@ Show staged contents (mode bits, object name and stage number).
 --stage
 ```
 
-This option identifies the file status with the following tags.
+Show modified files.
 
 ```bash
--t
+-m
+--modified
+```
+
+This option identifies the file status with the following tags.
+
+You can select one of the following options and type return:
+
 # H - cached
 # S - skip-worktree
 # M - unmerged
@@ -1019,12 +1022,21 @@ This option identifies the file status with the following tags.
 # C - modified/changed
 # K - to be killed
 # ? - other
+
+```bash
+-t
 ```
 
 Similar to -t, but use lowercase letters for files that are marked as assume unchanged.
 
 ```bash
 -v
+```
+
+Add the standard Git exclusions: .git/info/exclude, .gitignore in each directory, and the user’s global exclusion file.
+
+```bash
+--exclude-standard
 ```
 
 Show all untracked files.
