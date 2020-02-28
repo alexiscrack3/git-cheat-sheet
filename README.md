@@ -305,8 +305,8 @@ Clone the repository and only clone the history of commits specified by the opti
 Add file contents to the index.
 
 ```bash
-git add [-n|--dry-run] [-f|--force] [-u|--update]
-        [-i|--interactive] [-p|--patch]
+git add [-n | --dry-run] [-f | --force] [-u | --update]
+        [-i | --interactive] [-p | --patch]
         [<pathspec>…]
 ```
 
@@ -379,7 +379,7 @@ git add $(git ls-files --modified)
 Remove file from the working directory.
 
 ```bash
-git rm [-n|--dry-run] [-r] [--] <pathspec>…
+git rm [-n | --dry-run] [-r] [--] <pathspec>…
 ```
 
 Do not actually remove the files, just show if they exist in the index.
@@ -434,8 +434,8 @@ git add <new-name>
 Record changes to the repository.
 
 ```bash
-git commit [-a|--all] [-m <msg>|--message <msg>]
-           [-v|--verbose] [-n|--dry-run] [-o|--only]
+git commit [-a | --all] [-m <msg> | --message <msg>]
+           [-v | --verbose] [-n | --dry-run] [-o | --only]
            [--allow-empty] [--author=<author>]
 ```
 
@@ -491,7 +491,7 @@ Skip staging area and commit files, this only works with tracked files.
 Stash away changes to dirty working directory.
 
 ```bash
-git stash [-p|--patch] [-k|--[no-]keep-index] [-u|--include-untracked]
+git stash [-p | --patch] [-k | --[no-]keep-index] [-u | --include-untracked]
 ```
 
 Interactively select hunks from diff between HEAD and the working tree to stashed.
@@ -530,7 +530,7 @@ git stash list
 Show the changes recorded in the stash as a diff. Latest stash is used if stash is not provided.
 
 ```bash
-git stash show [-p|--patch] [<stash>]
+git stash show [-p | --patch] [<stash>]
 ```
 
 Show the changes recorded in the stash as a diff in patch format.
@@ -583,7 +583,7 @@ git stash clear
 Show working directory status.
 
 ```bash
-git status [-s|--short] [-u [<mode>]|--untracked-files [<mode>]] [--ignored] [--] [<pathspec>…]
+git status [-s | --short] [-u [<mode>] | --untracked-files [<mode>]] [--ignored] [--] [<pathspec>…]
 ```
 
 Give the output in short format.
@@ -625,9 +625,9 @@ This option can be used to separate command-line options from the list of files,
 Show details of the object (blobs, trees, tags and commits).
 
 ```bash
-git show [-w|--ignore-all-space]
+git show [-w | --ignore-all-space]
          [--name-only] [--name-status]
-         [--stat] [--pretty|--format=<format>]
+         [--stat] [--pretty | --format=<format>]
          [<object>…]
 ```
 
@@ -686,7 +686,7 @@ git show <branch>:<file> > <path>
 Show commit logs.
 
 ```bash
-git log [-p|--patch] [--follow] [--oneline]
+git log [-p | --patch] [--follow] [--oneline]
         [--stat] [--shortstat] [--summary]
         [--[no-]merges] [--author=<pattern>] [--grep=<pattern>]
         [<pathspec>…]
@@ -768,13 +768,13 @@ git log <since>..<until>
 Match regexps ignoring case.
 
 ```bash
-git log [-i <regex>|--regexp-ignore-case <regex>]
+git log [-i <regex> | --regexp-ignore-case <regex>]
 ```
 
 Maximum number of commits to display.
 
 ```bash
-git log [-n <number>|--max-count <number>]
+git log [-n <number> | --max-count <number>]
 ```
 
 Show what every contributor has been getting up to across all branches.
@@ -908,8 +908,8 @@ Look for differences whose added or removed line matches the given pattern.
 Show what revision and author last modified each line of a file.
 
 ```bash
-git blame [-n|--show-number] [-s]
-          [-e|--show-email] [-w]
+git blame [-n | --show-number] [-s]
+          [-e | --show-email] [-w]
           [-L <range>] [-M] [-C]
           <file>
 ```
