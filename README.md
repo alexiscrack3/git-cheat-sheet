@@ -964,8 +964,8 @@ Show information about files in the index and the working directory.
 
 ```bash
 git ls-files [-t] [-v]
-             (--[cached|deleted|others|ignored|stage|modified])*
-		     (-[c|d|o|i|s|m])*
+             (--[cached | deleted | others | ignored | stage | modified])*
+		     (-[c | d | o | i | s | m])*
              [--exclude-standard]
 ```
 
