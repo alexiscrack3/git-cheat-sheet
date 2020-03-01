@@ -1015,13 +1015,13 @@ This option identifies the file status with the following tags.
 
 You can select one of the following options and type return:
 
-# H - cached
-# S - skip-worktree
-# M - unmerged
-# R - removed/deleted
-# C - modified/changed
-# K - to be killed
-# ? - other
+* H - cached
+* S - skip-worktree
+* M - unmerged
+* R - removed/deleted
+* C - modified/changed
+* K - to be killed
+* ? - other
 
 ```bash
 -t
