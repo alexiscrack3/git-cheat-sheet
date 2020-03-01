@@ -1094,40 +1094,10 @@ git checkout stash@{n} <file>
 
 ### Reverting Commit
 
-Revert some existing commits.
-
-```bash
-git revert <sequencer>
-```
-
-Continue the operation in progress using the information in .git/sequencer. Can be used to continue after resolving conflicts in a failed cherry-pick or revert.
-
-```bash
---continue
-```
-
-Skip the current commit and continue with the rest of the sequence.
-
-```bash
---skip
-```
-
-Skip the current commit and continue with the rest of the sequence.
-
-```bash
---quit
-```
-
-Skip the current commit and continue with the rest of the sequence.
-
-```bash
---abort
-```
-
 Generate a new commit that undoes all of the changes introduced in the commit.
 
 ```bash
-git revert <commit>…
+git revert [-e | --edit] [--no-edit] [-n | --no-commit]  <commit>…
 ```
 
 This is a default option and doesn't need to be specified. This option will open the configured system editor and prompts you to edit the commit message prior to committing the revert.
@@ -1148,6 +1118,36 @@ Passing this option will prevent git revert from creating a new commit that inve
 ```bash
 -n
 --no-commit
+```
+
+Sequencer subcommands.
+
+```bash
+git revert (--continue | --skip | --abort | --quit)
+```
+
+Continue the operation in progress using the information in .git/sequencer. Can be used to continue after resolving conflicts in a failed cherry-pick or revert.
+
+```bash
+--continue
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--skip
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--abort
+```
+
+Skip the current commit and continue with the rest of the sequence.
+
+```bash
+--quit
 ```
 
 Revert initial commit.
