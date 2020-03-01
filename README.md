@@ -1055,46 +1055,29 @@ Show all ignored files.
 
 ### Reverting Files
 
-Return the state of your unstaged files as they were in your last commit.
+Return the state of your unstaged files as they were before.
 
 ```bash
-git checkout .
+git checkout (-p | --patch) [--] [<pathspec>…]
 ```
 
-Return the state of your unstaged files as they were in your HEAD (last commit).
+Interactively select hunks in diff.
 
 ```bash
-git checkout HEAD
+-p
+--patch
 ```
 
-Return the state of your unstaged files that match the regular expression as they were in your last commit.
+This option can be used to separate command-line options from the list of files, (useful when filenames might be mistaken for command-line options).
 
 ```bash
-git checkout \*.txt
-```
-
-Return the state of your file as it was in your last commit.
-
-```bash
-git checkout <file>
-```
-
-Return the state of your file as it was in your last commit. Use two consecutive hyphens if file and branch have the same name.
-
-```bash
-git checkout -- <file>
+--
 ```
 
 This turns the file that resides in the working directory into an exact copy of the one from object (commit, branch, etc).
 
 ```bash
-git checkout <object> <file>
-```
-
-This turns the file that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
-
-```bash
-git checkout stash@{n} <file>
+git checkout [<object>] [<pathspec>…]
 ```
 
 Update all files in the working directory to match the specified commit. This will put you in a detached HEAD state.
@@ -1103,24 +1086,10 @@ Update all files in the working directory to match the specified commit. This wi
 git checkout <commit> .
 ```
 
-Interactively select hunks in diff.
+This turns the file that resides in the working directory into an exact copy of the one from stash@{n} and adds it to the staging area.
 
 ```bash
-git checkout -p
-             --patch
-```
-
-Interactively select hunks in diff for a specific file.
-
-```bash
-git checkout -p <file>
-             --patch
-```
-
-Restore a deleted file.
-
-```bash
-git checkout <deleting-commit>^ -- <file>
+git checkout stash@{n} <file>
 ```
 
 ### Reverting Commit
