@@ -1174,26 +1174,20 @@ git revert -m 1 <commit>
 Unstage all files and leave the working directory unchanged.
 
 ```bash
-git reset
+git reset [-p | --patch] [<pathspec>]
+```
+
+Select diff hunks to remove from the index.
+
+```bash
+-p
+--patch
 ```
 
 Unstage all files and leave the working directory unchanged.
 
 ```bash
 git reset HEAD
-```
-
-Unstage a file.
-
-```bash
-git reset <file>
-```
-
-Select diff hunks to remove from the index.
-
-```bash
-git reset -p
-          --patch
 ```
 
 Restore specified path in the working tree.
@@ -1204,28 +1198,34 @@ git restore --staged <file>
 
 ### Resetting Current Commit
 
-Reset the index and working directory to the given commit.
+Reset current HEAD to the specified state.
 
 ```bash
-git reset --hard <commit>
-```
-
-Reset the index but not the working directory (default).
-
-```bash
-git reset --mixed <commit>
+git reset [--soft | --mixed | --hard | --keep] [<commit>]
 ```
 
 Do not reset the index file nor the working directory.
 
 ```bash
-git reset --soft <commit>
+--soft
+```
+
+Reset the index but not the working directory (default).
+
+```bash
+--mixed
+```
+
+Reset the index and working directory to the given commit.
+
+```bash
+--hard
 ```
 
 Like --hard, but keep local working directory changes.
 
 ```bash
-git reset --keep <commit>
+--keep
 ```
 
 Get back to where things were a period of time ago (e.g. when you screw up a merge).
