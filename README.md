@@ -1239,13 +1239,13 @@ git reset --hard master@{"300 minutes ago"}
 Remove untracked files from working tree.
 
 ```bash
-git clean [<options>] <path>…
+git clean [-d] [-f | --force] [-i | --interactive] [-n | --dry-run] [-x | -X] <path>…
 ```
 
 Normally, when no <path> is specified, git clean will not recurse into untracked directories to avoid removing too much. Specify -d to have it recurse into such directories as well. If any paths are specified, -d is irrelevant.
 
 ```bash
-git clean -d
+-d
 ```
 
 Required when clean.requireForce is true (default).
@@ -1262,6 +1262,13 @@ Only show what would and what would not be removed.
 --dry-run
 ```
 
+Show what would be done and clean files interactively.
+
+```bash
+-i
+--interactive
+```
+
 Don’t use the standard ignore rules, but still use the ignore rules given with -e options from the command line.
 
 ```bash
@@ -1272,13 +1279,6 @@ Remove only files ignored by Git. This may be useful to rebuild everything from 
 
 ```bash
 -X
-```
-
-Show what would be done and clean files interactively.
-
-```bash
--i
---interactive
 ```
 
 ## Rewriting History
