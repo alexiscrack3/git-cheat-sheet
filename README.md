@@ -1285,40 +1285,40 @@ Remove only files ignored by Git. This may be useful to rebuild everything from 
 
 ### Fix Up Commit
 
+Record changes.
+
+```bash
+git commit [--amend] [--no-edit] [--author=<author>] [--reset-author] [--reuse-message=<commit>]
+```
+
 Add forgotten files and edit the last commit's message.
 
 ```bash
-git commit --amend
+--amend
 ```
 
-Add forgotten files without changing commit's message.
+Use the selected commit message without launching an editor.
 
 ```bash
-git commit --amend --no-edit
-```
-
-Change commit's message. NEVER amend commits that have been pushed to a public repository.
-
-```bash
-git commit --amend -m "<message>"
+--no-edit
 ```
 
 Override the author name used in the commit.
 
 ```bash
-git commit --amend --author="Name <your_email@youremail.com>"
+--author="Name <your_email@youremail.com>"
 ```
 
 The author of the resulting commit now belongs to the committer.
 
 ```bash
-git commit --amend --reset-author
+--reset-author
 ```
 
 Take an existing commit object, and reuse the log message and the authorship information (including the timestamp) when creating the commit.
 
 ```bash
-git commit --reuse-message=<commit>
+--reuse-message=<commit>
 ```
 
 ### Rebase Commits
