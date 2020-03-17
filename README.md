@@ -1362,7 +1362,7 @@ After resolving the conflict manually and updating the index with the desired re
 --continue
 ```
 
-Abort current rebase.
+Abort the rebase operation and reset HEAD to the original branch. If <branch> was provided when the rebase operation was started, then HEAD will be reset to <branch>. Otherwise HEAD will be reset to where it was when the rebase operation was started.
 
 ```bash
 --abort
