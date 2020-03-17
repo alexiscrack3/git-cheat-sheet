@@ -1288,7 +1288,9 @@ Remove only files ignored by Git. This may be useful to rebuild everything from 
 Record changes.
 
 ```bash
-git commit [--amend] [--no-edit] [--author=<author>] [--reset-author] [--reuse-message=<commit>]
+git commit [--amend] [--no-edit]
+           [--author=<author>] [--reset-author]
+           [--reuse-message=<commit>]
 ```
 
 Add forgotten files and edit the last commit's message.
