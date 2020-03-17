@@ -1373,7 +1373,7 @@ Abort the rebase operation and reset HEAD to the original branch. If <branch> wa
 Apply the changes introduced by some existing commits.
 
 ```bash
-git cherry-pick <sequencer>
+git cherry-pick (--continue | --skip | --quit | --abort)
 ```
 
 Continue the operation in progress using the information in .git/sequencer. Can be used to continue after resolving conflicts in a failed cherry-pick or revert.
