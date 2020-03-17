@@ -1325,41 +1325,47 @@ Take an existing commit object, and reuse the log message and the authorship inf
 
 ### Rebase Commits
 
-Rebase your current HEAD onto branch. NEVER rebase published commits.
+Reapply commits on top of another base tip.
 
 ```bash
-git rebase <branch>
-```
-
- Automatically stashes any local changes made to your working copy before rebasing and reapplies them after the rebase is completed.
-
-```bash
-git rebase <branch> --autostash
-```
-
-Abort current rebase.
-
-```bash
-git rebase --abort
-```
-
-Continue after resolving merge conflict.
-
-```bash
-git rebase --continue
+git rebase [-i | --interactive] [--autostash] [--root] [<branch>]
 ```
 
 Rebase the current branch onto branch.
 
 ```bash
-git rebase -i <branch>
-           --interactive
+-i
+--interactive
+```
+
+Automatically stashes any local changes made to your working copy before rebasing and reapplies them after the rebase is completed.
+
+```bash
+--autostash
 ```
 
 Rebase to the root commit of your current branch.
 
 ```bash
-git rebase -i --root
+--root
+```
+
+It is possible that a merge failure will prevent this process from being completely automatic. You will have to resolve any such merge failure and run an option.
+
+```bash
+git rebase (--continue | --abort)
+```
+
+After resolving the conflict manually and updating the index with the desired resolution, you can continue the rebasing process.
+
+```bash
+--continue
+```
+
+Abort current rebase.
+
+```bash
+--abort
 ```
 
 ### Copy Commits
