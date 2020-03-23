@@ -1467,10 +1467,17 @@ git remote show <remote>
 
 ### Fetching
 
-Fetch objects and refs from repository to see what everybody else has been working on. It has absolutely no affect on local development work because it doesn’t force to merge changes. When no remote is specified, by default the origin remote will be used.
+Fetch objects and refs from repository. It has absolutely no affect on local development work because it doesn’t force to merge changes. When no remote is specified, by default the origin remote will be used.
 
 ```bash
-git fetch
+git fetch [-p | --prune] [<remote> [<refspec>…]]
+```
+
+Remove any remote-tracking references that no longer exist on the remote.
+
+```bash
+-p
+--prune
 ```
 
 Fetch objects and refs from all remotes.
@@ -1479,41 +1486,16 @@ Fetch objects and refs from all remotes.
 git fetch --all
 ```
 
-Fetch objects and refs from the specified remote.
-
-```bash
-git fetch <remote>
-```
-
-Fetch objects and refs from the specified remote. Dot means to use the local repository as the remote.
-
-```bash
-git fetch .
-```
-
-Fetch objects and refs from the specified remote and branch.
-
-```bash
-git fetch <remote> <local-branch>
-```
-
-Merge local branch into local branch master without having to checkout master first. Here `.` means to use the local repository as the remote.
-
-```bash
-git fetch . <local-branch>:master
-```
-
 Merge remote branch into local branch without having to checkout local branch first.
 
 ```bash
 git fetch origin <remote-branch>:<local-branch>
 ```
 
-Remove any remote-tracking references that no longer exist on the remote.
+Merge local branch into local branch master without having to checkout master first. Here `.` means to use the local repository as the remote.
 
 ```bash
-git fetch -p
-          --prune
+git fetch . <remote-branch>:<local-branch>
 ```
 
 Fetch from all remotes, not just one.
