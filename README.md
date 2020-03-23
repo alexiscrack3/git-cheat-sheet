@@ -1416,6 +1416,19 @@ git cherry-pick <branch>
 
 ### Remotes
 
+List remote names.
+
+```bash
+git remote [-v | --verbose]
+```
+
+Show remote url after name.
+
+```bash
+-v
+--verbose
+```
+
 Create a new connection to a remote repository. HTTP is an easy way to allow anonymous, read-only access to a repository. For read-write access, you should use SSH instead.
 
 ```bash
@@ -1444,19 +1457,6 @@ Rename a remote and update all associated tracking branches.
 
 ```bash
 git remote rename <old-remote> <new-remote>
-```
-
-List remote names.
-
-```bash
-git remote
-```
-
-Show remote url after name.
-
-```bash
-git remote -v
-           --verbose
 ```
 
 Show information about a given remote.
