@@ -1509,7 +1509,7 @@ git remote update
 Fetch from and integrate with another repository or a local branch.
 
 ```bash
-git pull [<options>] [<repository> [<refspec>…]]
+git pull [-r | --rebase] [<remote> [<refspec>…]]
 ```
 
 Rebase the current branch on top of the upstream branch after fetching.
