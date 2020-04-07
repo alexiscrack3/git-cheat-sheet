@@ -1521,29 +1521,58 @@ Rebase the current branch on top of the upstream branch after fetching.
 
 ### Pushing
 
-Push the current branch to remote, along with all of the necessary commits and internal object.
+Update remote refs along with associated objects.
 
 ```bash
-git push
+git push [--all | --mirror | --tags] [-n | --dry-run]
+         [-f | --force] [--force-with-lease[=<refname>[:<expect>]]]
+         [-u | --set-upstream]
+         [<remote> [<refspec>…]]
 ```
 
-Push the specified branch to remote, along with all of the necessary commits and internal object.
+Push all branches (i.e. refs under refs/heads/).
 
 ```bash
-git push <remote> <local-branch>
+--all
 ```
 
-Push to a remote branch with a different name than your local branch, along with all of the necessary commits and internal object.
+Push all refs under refs/heads/ refs/remotes, and refs/tags/ and delete non-existing refs.
 
 ```bash
-git push <remote> <local-branch> <remote-branch>
+--mirror
+```
+
+All refs under refs/tags are pushed, in addition to refspecs explicitly listed on the command line.
+
+```bash
+--tags
+```
+
+Do everything except actually send the updates.
+
+```bash
+-n
+--dry-run
+```
+
+Usually, the push command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
+
+```bash
+-f
+--force
+```
+
+Usually, the push command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. This option overrides this restriction if the current value of the remote ref is the expected value. "git push" fails otherwise.
+
+```bash
+--force-with-lease
 ```
 
 Push a local branch and set the remote as upstream.
 
 ```bash
-git push -u <remote> <local-branch>
-         --set-upstream <remote> <local-branch>
+-u
+--set-upstream
 ```
 
 Make the head of the branch point at your personal history, ignoring any changes that may have occurred in parallel with yours.
@@ -1551,24 +1580,6 @@ Make the head of the branch point at your personal history, ignoring any changes
 ```bash
 git push -f <remote> <commit>:<local-branch>
          --force
-```
-
-Push all refs under refs/heads/ path.
-
-```bash
-git push --all
-```
-
-It refuses to update a branch unless it is the state that we expect; i.e. nobody has updated the branch upstream.
-
-```bash
-git push --force-with-lease
-```
-
-Push all refs under refs/heads/ and refs/tags/ and delete non-existing refs.
-
-```bash
-git push --mirror
 ```
 
 ## Branches
