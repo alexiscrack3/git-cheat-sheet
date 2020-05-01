@@ -1589,61 +1589,32 @@ git push -f <remote> <commit>:<local-branch>
 Create new branch.
 
 ```bash
-git branch <branch>
+git branch [-t | --track | --no-track] <branch> [<start-point>]
 ```
 
-Create new branch and set up a remote branch to track.
+When creating a new branch, set up configuration entries to mark the start-point branch as "upstream" from the new the branch.
 
 ```bash
-git branch --track <branch> <remote>/<remote-branch>
+--track
 ```
 
-Create new branch from a remote branch and no tracking any remote branch.
+Do not set up "upstream" configuration.
 
 ```bash
-git branch --no-track <branch> <remote>/<remote-branch>
+--no-track
 ```
 
-Create new branch from commit and no tracking and no tracking any remote branch.
+Create new branch.
 
 ```bash
-git branch --no-track <branch> <commit>
+git checkout [[-b | -B] <new-branch> [-t | --track | --no-track] <start-point>]
 ```
 
-Show branches and their commits.
+Causes a new branch to be created as if git-branch were called and then checked out.
 
 ```bash
-git show-branch
-```
-
-Create new branch and switch to it from a remote branch.
-
-```bash
-git checkout <remote-branch>
-```
-
-Create new branch and switch to it.
-
-```bash
-git checkout -b <branch>
-```
-
-Create new branch and switch to it at given local branch.
-
-```bash
-git checkout -b <branch> <local-branch>
-```
-
-Create new branch and switch to it at given remote branch.
-
-```bash
-git checkout -b <branch> <remote>/<remote-branch>
-```
-
-Create new branch and switch to it at given remote branch and without tracking.
-
-```bash
-git checkout -b <branch> <remote>/<remote-branch> --no-track
+-b
+-B
 ```
 
 ### Rename Branches
@@ -1720,6 +1691,12 @@ Show SHA-1 and commit subject line for each head, along with relationship to ups
 
 ```bash
 git branch -vv
+```
+
+Show branches and their commits.
+
+```bash
+git show-branch
 ```
 
 List both remote and local branches.
