@@ -1830,6 +1830,12 @@ git checkout @{-1}
 
 ## Binary Search
 
+Use binary search to find the commit that introduced a bug.
+
+```bash
+git bisect (start | bad | good | reset | log | replay)
+```
+
 Reset bisection state and start a new bisection.
 
 ```bash
@@ -1839,37 +1845,31 @@ git bisect start
 Mark current or given revision as bad.
 
 ```bash
-git bisect bad
+bad
 ```
 
 Mark current or given revision as good.
 
 ```bash
-git bisect good
+good
 ```
 
 Finish bisection search and return to the given branch (or master).
 
 ```bash
-git bisect reset
+reset
 ```
 
 Show the log of the current bisection.
 
 ```bash
-git bisect log
+log
 ```
 
 Replay a bisection log.
 
 ```bash
-git bisect replay
-```
-
-Print out the log of the current bisection.
-
-```bash
-git bisect log > <name>.log
+replay
 ```
 
 ## Tagging
