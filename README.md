@@ -1874,28 +1874,66 @@ replay
 
 ## Tagging
 
+Create tag object signed with GPG.
+
+```bash
+git tag [-a] [(-m | --mesage) <msg>] <tagname> [<commit> | <object>]
+```
+
 Create annotated tag.
 
 ```bash
-git tag -a <tag-name> -m "<message>"
+-a
+```
+
+Use the given tag message.
+
+```bash
+-m
+--message
 ```
 
 Create lightweight tag.
 
 ```bash
-git tag <tag-name>
+git tag <tagname>
 ```
 
-Create tag for specific commit.
+List tags in alphabetical order.
 
 ```bash
-git tag <tag-name> <commit>
+git tag
+```
+
+List tags.
+
+```bash
+git tag [-n] [-l | --list] [<pattern>…​]
 ```
 
 Search for tags with a particular pattern.
 
 ```bash
-git tag -l "v1.8.5*"
+-l
+--list
+```
+
+Show tag message.
+
+```bash
+-n
+```
+
+Delete local tag.
+
+```bash
+git tag (-d | --delete) <tagname>…​
+```
+
+Delete remote tag.
+
+```bash
+git push <remote> :<tagname>
 ```
 
 By default, the git push command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them.
@@ -1916,41 +1954,10 @@ Push missing annotated tags reachable from the pushed refs.
 git push --follow-tags
 ```
 
-Delete local tag.
-
-```bash
-git tag -d <tag-name>
-        --delete
-```
-
-Delete remote tag.
-
-```bash
-git push <remote> :<tag-name>
-```
-
-Show tag data.
-
-```bash
-git show <tag-name>
-```
-
-Show tag message.
-
-```bash
-git tag -n
-```
-
 Show the most recent tag on the current branch.
 
 ```bash
 git describe --tags --abbrev=0
-```
-
-List the tags in alphabetical order.
-
-```bash
-git tag
 ```
 
 ## Submodules
