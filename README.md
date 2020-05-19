@@ -1622,35 +1622,36 @@ Causes a new branch to be created as if git-branch were called and then checked 
 Rename a branch and the corresponding reflog.
 
 ```bash
-git branch -m <old-local-branch-name> <new-local-branch-name>
-           --move
+git branch (-m | -M | --move) [<oldbranch>] <newbranch>
 ```
 
-Rename current branch and the corresponding reflog.
+Rename a branch and the corresponding reflog.
 
 ```bash
-git branch -m <new-local-branch-name>
+-m
+-M
+--move
 ```
 
 ### Delete Branches
 
-Delete the specified branch. This is a “safe” operation in that Git prevents you from deleting the branch if it has unmerged changes.
+Delete a branch.
 
 ```bash
-git branch -d <local-branch>
-           --delete
+git branch (-d | -D) [-r] <branchname>…​
+```
+
+Delete the specified branch if it doesn't have unmerged changes.
+
+```bash
+-d
+--delete
 ```
 
 Delete the specified branch even if it has unmerged changes.
 
 ```bash
-git branch -D <local-branch>
-```
-
-Delete local branches that have been merged into the current branch.
-
-```bash
-git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+-D
 ```
 
 Delete remote branch from repository.
@@ -1659,10 +1660,16 @@ Delete remote branch from repository.
 git push <remote> --delete <branch>
 ```
 
-Push a delete signal to the remote that triggers a delete of the remote branch.
+Delete remote branch from repository.
 
 ```bash
 git push <remote> :<branch>
+```
+
+Delete local branches that have been merged into the current branch.
+
+```bash
+git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 ```
 
 ### List Branches
@@ -1670,71 +1677,56 @@ git push <remote> :<branch>
 List local branches.
 
 ```bash
-git branch
-```
-
-List only remote branches.
-
-```bash
-git branch -r
-           --remotes
+git branch [-v | -vv | --verbose]
+           [--sort=<key>]
+           [(--merged | --no-merged) [<object>]]
+           [(-r | --remotes) | (-a | --all)]
 ```
 
 Show SHA-1 and commit subject line for each head.
 
 ```bash
-git branch -v
-           -vv--verbose
+-v
+-vv
+--verbose
 ```
 
-Show SHA-1 and commit subject line for each head, along with relationship to upstream branch (if any).
+List local branches, ordered by least recent commit.
 
 ```bash
-git branch -vv
+--sort=committerdate
 ```
 
-Show branches and their commits.
+List local branches, ordered by most recent commit.
 
 ```bash
-git show-branch
+--sort=-committerdate
+```
+
+Only list branches which are fully contained by object.
+
+```bash
+--merged
+```
+
+Do not list branches which are fully contained by object.
+
+```bash
+--no-merged
+```
+
+List only remote branches.
+
+```bash
+-r
+--remotes
 ```
 
 List both remote and local branches.
 
 ```bash
-git branch -a
-           --all
-```
-
-Only list branches which are fully contained by HEAD.
-
-```bash
-git branch --merged
-```
-
-Only list branches which are fully contained by branch.
-
-```bash
-git branch --merged <branch>
-```
-
-List all branches that are already merged into.
-
-```bash
-git branch --merged <local-branch> <local-branch>
-```
-
-List all remote branches that have already been merged into current branch.
-
-```bash
-git branch -r --merged
-           --remotes
-```
-
-Do not list branches which are fully contained by HEAD.
-
-```bash
-git branch --no-merged
+-a
+--all
 ```
 
 List local branches, ordered by most recent commit.
@@ -1743,16 +1735,10 @@ List local branches, ordered by most recent commit.
 git for-each-ref --sort=-committerdate refs/heads/
 ```
 
-List local branches, ordered by least recent commit (since version 2.7.0).
+Show branches and their commits.
 
 ```bash
-git branch --sort=committerdate  # ASC
-```
-
-List local branches, ordered by most recent commit (since version 2.7.0).
-
-```bash
-git branch --sort=-committerdate  # DESC
+git show-branch
 ```
 
 ### Merge Branches
