@@ -1965,91 +1965,74 @@ git describe --tags --abbrev=0
 Add given repository as a submodule.
 
 ```bash
-git submodule add <url>
-```
-
-Add given repository as a submodule to path.
-
-```bash
-git submodule add <url> <path>
+git submodule add <url> [<path>]
 ```
 
 Initialize submodules recorded in the index by setting the submodule name in .git/config.
 
 ```bash
-git submodule init
-```
-
-Initialize submodule at path.
-
-```bash
-git submodule init <path>
+git submodule init [<path>…​]
 ```
 
 Update the registered submodules to match what the superproject expects by cloning missing submodules and updating the working tree of the submodules.
 
 ```bash
-git submodule update
+git submodule update [--init] [--remote] [<path>…​]
 ```
 
-Initialize and update submodules.
+Initialize all submodules for which "git submodule init" has not been called so far before updating.
 
 ```bash
-git submodule update --init
-```
-
-Initialize and update submodule at path.
-
-```bash
-git submodule update --init <path>
+--init
 ```
 
 Instead of using the superproject’s recorded SHA-1 to update the submodule, use the status of the submodule’s remote-tracking branch.
 
 ```bash
-git submodule update --remote
+--remote
 ```
 
 Deinitialize submodule from repository.
 
 ```bash
-git submodule deinit <path>
+git submodule deinit [-f | --force] (--all | <path>…​)
+```
+
+The submodule’s working tree will be removed even if it contains local modifications.
+
+```bash
+-f
+--force
 ```
 
 Unregister all submodules.
 
 ```bash
-git submodule deinit --all
-```
-
-Unregister all submodules with local changes.
-
-```bash
-git submodule deinit -f --all
-```
-
-Copy the new configuration from .gitmodules to .git/config
-
-```bash
-git submodule sync
+--all
 ```
 
 Show the status of the submodules.
 
 ```bash
-git submodule status
+git submodule status [<path>…​]
 ```
 
 Prints out a summary of the difference between the submodule's HEAD and the one recorded in main repository.
 
 ```bash
-git submodule summary <path>
+git submodule summary [<path>…​]
+```
+
+Copy the new configuration from .gitmodules to .git/config
+
+```bash
+git submodule sync [<path>…​]
 ```
 
 Evaluate shell command in each checked-out submodule.
 
 ```bash
-git submodule foreach '<command>'
+git submodule foreach <command>
 ```
 
 ## Refs and the Reflog
