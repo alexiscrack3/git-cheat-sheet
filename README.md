@@ -1743,34 +1743,41 @@ git show-branch
 
 ### Merge Branches
 
-Merge remote branch into current branch.
+Join two or more development histories together
 
 ```bash
-git merge <remote>/<remote-branch>
-```
-
-Merge local branch into current branch.
-
-```bash
-git merge <local-branch>
+git merge [--no-ff]
+          [<commit>…​]
 ```
 
 Generate a merge commit (3-way merge) even if the merge resolved as a fast-forward.
 
 ```bash
-git merge --no-ff <local-branch>
+--no-ff
+```
+
+Sequencer subcommands.
+
+```bash
+git merge (--continue | --abort | --quit)
+```
+
+Continue merge operation after a git merge stops due to conflicts.
+
+```bash
+--continue
 ```
 
 Restore the original branch and abort the merge operation.
 
 ```bash
-git merge --abort
+--abort
 ```
 
-Merge the last checked out branch.
+Forget about the current merge in progress.
 
 ```bash
-git merge -
+--quit
 ```
 
 ### Track Branches
