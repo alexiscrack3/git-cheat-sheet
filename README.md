@@ -1092,6 +1092,24 @@ This turns the file that resides in the working directory into an exact copy of 
 git checkout stash@{n} <file>
 ```
 
+The contents from a specific side of the merge can be checked out of the index.
+
+```bash
+git checkout [--ours | --theirs] [<tree-ish>]
+```
+
+Gives the version from the branch that holds your work that is being rebased.
+
+```bash
+--theirs
+```
+
+Gives the version from the branch the changes are rebased onto.
+
+```bash
+--ours
+```
+
 ### Reverting Commit
 
 Generate a new commit that undoes all of the changes introduced in the commit.
@@ -2276,22 +2294,6 @@ Track changes again.
 
 ```bash
 git update-index --no-assume-unchanged <file>
-```
-
-Files that should never be tracked are listed in your .gitignore file.
-What about if you want to ignore some local changes to a tracked file?
-
-RESOLVING CONFLICTS
-Finish with git add file and git commit.
-
-```bash
-git checkout --theirs <file>
-```
-
-Finish with git add file and git commit.
-
-```bash
-git checkout --ours <file>
 ```
 
 SHOWING ALL COMMITS TO BE MERGED
