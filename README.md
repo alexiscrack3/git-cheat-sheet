@@ -1638,7 +1638,7 @@ Rename a branch and the corresponding reflog.
 Delete a branch.
 
 ```bash
-git branch (-d | -D) [-r] <branchname>…​
+git branch (-d | -D) [-r] <branch>…​
 ```
 
 Delete the specified branch if it doesn't have unmerged changes.
@@ -1782,29 +1782,23 @@ Forget about the current merge in progress.
 
 ### Track Branches
 
-Branch will start tracking remote branch.
+Make local branches to track branches.
 
 ```bash
-git branch -u <remote>/<remote-branch>
-           --set-upstream-to
+git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branch>]
 ```
 
 Branch will start tracking remote branch.
 
 ```bash
-git branch <local-branch> -u <remote>/<remote-branch>
+-u
+--set-upstream-to
 ```
 
-Branch will start tracking remote branch.
+Remove the upstream information. If no branch is specified it defaults to the current branch.
 
 ```bash
-git branch --set-upstream-to=<remote>/<remote-branch> <local-branch>
-```
-
-Branch will stop tracking remote branch.
-
-```bash
-git branch --unset-upstream
+git branch --unset-upstream [<branch>]
 ```
 
 ### Switch to Branch
