@@ -1746,14 +1746,19 @@ git show-branch
 Join two or more development histories together
 
 ```bash
-git merge [--no-ff]
-          [<commit>…​]
+git merge [--no-ff] [<commit>…​]
 ```
 
 Generate a merge commit (3-way merge) even if the merge resolved as a fast-forward.
 
 ```bash
 --no-ff
+```
+
+Merge the last checked out branch.
+
+```bash
+git merge -
 ```
 
 Sequencer subcommands.
