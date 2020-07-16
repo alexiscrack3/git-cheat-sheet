@@ -1772,13 +1772,25 @@ git show-branch
 Join two or more development histories together
 
 ```bash
-git merge [--no-ff] [<commit>…​]
+git merge [--ff | --no-ff] [--squash] [<commit>…]
+```
+
+Specifies how a merge is handled when the merged-in history is already a descendant of the current history.
+
+```bash
+--ff
 ```
 
 Generate a merge commit (3-way merge) even if the merge resolved as a fast-forward.
 
 ```bash
 --no-ff
+```
+
+Takes all the commits from a branch, squash them into 1 commit, and merge it with another branch.
+
+```bash
+--squash
 ```
 
 Merge the last checked out branch.
