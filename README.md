@@ -687,6 +687,7 @@ Show commit logs.
 
 ```bash
 git log [-p | --patch] [--follow] [--oneline]
+        [[-n | --max-count] <number>]
         [--stat] [--shortstat] [--summary]
         [--[no-]merges] [--author=<pattern>] [--grep=<pattern>]
         [<pathspec>…]
@@ -709,6 +710,13 @@ Condense each commit to a single line.
 
 ```bash
 --oneline
+```
+
+Limit the number of commits to output.
+
+```bash
+-n
+--max-count
 ```
 
 Show statistics for files modified in each commit.
