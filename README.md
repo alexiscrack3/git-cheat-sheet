@@ -1713,6 +1713,7 @@ List local branches.
 git branch [-v | -vv | --verbose]
            [--sort=<key>]
            [(--merged | --no-merged) [<object>]]
+           [--contains [<commit]] [--no-contains [<commit>]]
            [(-r | --remotes) | (-a | --all)]
 ```
 
@@ -1746,6 +1747,18 @@ Do not list branches which are fully contained by object.
 
 ```bash
 --no-merged
+```
+
+Only list branches which contain the specified commit (HEAD if not specified).
+
+```bash
+--contains
+```
+
+Only list branches which don’t contain the specified commit (HEAD if not specified).
+
+```bash
+--no-contains
 ```
 
 List only remote branches.
