@@ -686,8 +686,9 @@ git show <branch>:<file> > <path>
 Show commit logs.
 
 ```bash
-git log [-p | --patch] [--follow] [--oneline]
-        [[-n | --max-count] <number>]
+git log [-p | --patch] [[-n | --max-count] <number>]
+        [--follow] [--first-parent]
+        [--oneline]
         [--stat] [--shortstat] [--summary]
         [--[no-]merges] [--author=<pattern>] [--grep=<pattern>]
         [<pathspec>…]
@@ -700,23 +701,29 @@ Generate diff in patch format for a specific file.
 --patch
 ```
 
+Limit the number of commits to output.
+
+```bash
+-n
+--max-count
+```
+
 Show changes over time for a specific file even if the file was renamed.
 
 ```bash
 --follow
 ```
 
+Follow only the first parent commit upon seeing a merge commit. This option can give a better overview when viewing the evolution of a particular topic branch, because merges into a topic branch tend to be only about adjusting to updated upstream from time to time, and this option allows you to ignore the individual commits brought in to your history by such a merge.
+
+```bash
+--first-parent
+```
+
 Condense each commit to a single line.
 
 ```bash
 --oneline
-```
-
-Limit the number of commits to output.
-
-```bash
--n
---max-count
 ```
 
 Show statistics for files modified in each commit.
