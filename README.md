@@ -124,6 +124,12 @@ Sets a diff algorithm. Possible values: default, histogram, minimal, myers, pati
 diff.algorithm value
 ```
 
+Use the specified name for the initial branch in the newly created repository. If not specified, fall back to the default name (currently master, but this is subject to change in the future; the name can be customized via the init.defaultBranch configuration variable).
+
+```bash
+init.defaultBranch value
+```
+
 Specify the style in which conflicted hunks are written out to working tree files upon merge. The default is "merge", which shows a <<<<<<< conflict marker, changes made by one side, a ======= marker, changes made by the other side, and then a >>>>>>> marker. An alternate style, "diff3", adds a ||||||| marker and the original text before the ======= marker.
 
 ```bash
