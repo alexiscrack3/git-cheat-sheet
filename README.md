@@ -94,6 +94,12 @@ A boolean to make git-blame show email in output.
 blame.showEmail value
 ```
 
+Set up default git branch sorting criteria. Possible values: authordate, numparent, refname, upstream
+
+```bash
+branch.sort value
+```
+
 A boolean to make git-clean do nothing unless given -f, -i or -n. Possible values: true, false
 
 ```bash
