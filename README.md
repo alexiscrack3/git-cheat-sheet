@@ -1903,13 +1903,25 @@ git checkout @{-1}
 Use binary search to find the commit that introduced a bug.
 
 ```bash
-git bisect (start | bad | good | reset | log | replay)
+git bisect (start | bad | good | reset | log | replay | terms)
 ```
 
 Reset bisection state and start a new bisection.
 
 ```bash
-git bisect start
+git bisect start [--term-{new,bad}=<term> --term-{old,good}=<term>]
+```
+
+If you would like to use your own terms instead of "bad"/"good", you can choose any names you like (except existing bisect subcommands like reset, start, …​) by starting the bisection using.
+
+```bash
+--term-{new,bad}=<term>
+```
+
+If you would like to use your own terms instead of "new"/"old", you can choose any names you like (except existing bisect subcommands like reset, start, …​) by starting the bisection using.
+
+```bash
+--term-{old,good}=<term>
 ```
 
 Mark current or given revision as bad.
@@ -1940,6 +1952,24 @@ Replay a bisection log.
 
 ```bash
 replay <logfile>
+```
+
+Get a reminder of the currently used terms.
+
+```bash
+terms [--term-good | --term-bad]
+```
+
+Get a reminder of the good term.
+
+```bash
+--term-good
+```
+
+Get a reminder of the bad term.
+
+```bash
+--term-bad
 ```
 
 ## Tagging
