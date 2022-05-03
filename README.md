@@ -1930,7 +1930,7 @@ Finish bisection search and return to the given branch (or master).
 reset
 ```
 
-Show the log of the current bisection.
+Show the log of the current bisection. If you discover that you made a mistake in specifying the status of a revision, you can save the output of this command to a file, edit it to remove the incorrect entries, and then issue a reset followed by a replay command to return to a corrected state.
 
 ```bash
 log
@@ -1939,7 +1939,7 @@ log
 Replay a bisection log.
 
 ```bash
-replay
+replay <logfile>
 ```
 
 ## Tagging
