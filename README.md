@@ -1903,7 +1903,7 @@ git checkout @{-1}
 Use binary search to find the commit that introduced a bug.
 
 ```bash
-git bisect (start | bad | good | skip | reset | visualize | log | replay | terms)
+git bisect (start | bad | good | run | skip | reset | visualize | log | replay | terms)
 ```
 
 Reset bisection state and start a new bisection.
@@ -1934,6 +1934,12 @@ Mark current or given revision as good.
 
 ```bash
 good
+```
+
+If you have a script that can tell if the current source code is good or bad. Note that the script should exit with code 0 if the current source code is good/old, and exit with a code between 1 and 127 (inclusive), except 125, if the current source code is bad/new.
+
+```bash
+run <cmd>...
 ```
 
 If the code doesn’t run or the feature isn’t reachable.
