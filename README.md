@@ -1903,7 +1903,7 @@ git checkout @{-1}
 Use binary search to find the commit that introduced a bug.
 
 ```bash
-git bisect (start | bad | good | skip | reset | log | replay | terms)
+git bisect (start | bad | good | skip | reset | visualize | log | replay | terms)
 ```
 
 Reset bisection state and start a new bisection.
@@ -1946,6 +1946,13 @@ Finish bisection search and return to the given branch (or master).
 
 ```bash
 reset
+```
+
+See the currently remaining suspects in gitk, issue the following command during the bisection process (the subcommand view can be used as an alternative to visualize).
+
+```bash
+
+visualize
 ```
 
 Show the log of the current bisection. If you discover that you made a mistake in specifying the status of a revision, you can save the output of this command to a file, edit it to remove the incorrect entries, and then issue a reset followed by a replay command to return to a corrected state.
