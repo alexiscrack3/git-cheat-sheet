@@ -64,9 +64,9 @@ A collection of some of the most useful Git commands
 
 There are 3 configuration levels:
 
-* User-specific settings. Options set with the --global flag are stored in ~/.gitconfig
-* Repository-specific settings. Options set with or without the --local flag are stored in \<repo\>/.git/config
-* System-wide settings. Options set with the --system flag are stored in $(prefix)/etc/gitconfig
+- User-specific settings. Options set with the --global flag are stored in ~/.gitconfig
+- Repository-specific settings. Options set with or without the --local flag are stored in \<repo\>/.git/config
+- System-wide settings. Options set with the --system flag are stored in $(prefix)/etc/gitconfig
 
 ### Setting Configs
 
@@ -347,20 +347,20 @@ Begin an interactive staging session that lets you choose portions of a file to 
 
 You can select one of the following options and type return:
 
-* y - stage this hunk
-* n - do not stage this hunk
-* q - quit; do not stage this hunk nor any of the remaining ones
-* a - stage this hunk and all later hunks in the file
-* d - do not stage this hunk nor any of the later hunks in the file
-* g - select a hunk to go to
-* / - search for a hunk matching the given regex
-* j - leave this hunk undecided, see next undecided hunk
-* J - leave this hunk undecided, see next hunk
-* k - leave this hunk undecided, see previous undecided hunk
-* K - leave this hunk undecided, see previous hunk
-* s - split the current hunk into smaller hunks
-* e - manually edit the current hunk
-* ? - print help
+- y - stage this hunk
+- n - do not stage this hunk
+- q - quit; do not stage this hunk nor any of the remaining ones
+- a - stage this hunk and all later hunks in the file
+- d - do not stage this hunk nor any of the later hunks in the file
+- g - select a hunk to go to
+- / - search for a hunk matching the given regex
+- j - leave this hunk undecided, see next undecided hunk
+- J - leave this hunk undecided, see next hunk
+- k - leave this hunk undecided, see previous undecided hunk
+- K - leave this hunk undecided, see previous hunk
+- s - split the current hunk into smaller hunks
+- e - manually edit the current hunk
+- ? - print help
 
 ```bash
 -p
@@ -371,9 +371,9 @@ Staging only untracked files.
 
 List of available subcommands.
 
-* Type a (for "add untracked")
-* Then * (for "all")
-* Then q (to quit)
+- Type a (for "add untracked")
+- Then * (for "all")
+- Then q (to quit)
 
 ```bash
 -i
@@ -611,9 +611,9 @@ The mode parameter is used to specify the handling of untracked files. It is opt
 
 The possible options are:
 
-* no - Show no untracked files.
-* normal - Shows untracked files and directories.
-* all - Also shows individual files in untracked directories.
+- no - Show no untracked files.
+- normal - Shows untracked files and directories.
+- all - Also shows individual files in untracked directories.
 
 ```bash
 -u [<mode>]
@@ -1042,13 +1042,13 @@ This option identifies the file status with the following tags.
 
 You can select one of the following options and type return:
 
-* H - cached
-* S - skip-worktree
-* M - unmerged
-* R - removed/deleted
-* C - modified/changed
-* K - to be killed
-* ? - other
+- H - cached
+- S - skip-worktree
+- M - unmerged
+- R - removed/deleted
+- C - modified/changed
+- K - to be killed
+- ? - other
 
 ```bash
 -t
@@ -2234,11 +2234,11 @@ git show-ref --tags
 
 In addition to the refs directory, there are a few special refs that reside in the top-level .git directory. These refs are created and updated by Git when necessary. They are listed below:
 
-* HEAD – The currently checked-out commit/branch.
-* FETCH_HEAD – The most recently fetched branch from a remote repo.
-* ORIG_HEAD – A backup reference to HEAD before drastic changes to it.
-* MERGE_HEAD – The commit(s) that you’re merging into the current branch with git merge.
-* CHERRY_PICK_HEAD – The commit that you’re cherry-picking.
+- HEAD – The currently checked-out commit/branch.
+- FETCH_HEAD – The most recently fetched branch from a remote repo.
+- ORIG_HEAD – A backup reference to HEAD before drastic changes to it.
+- MERGE_HEAD – The commit(s) that you’re merging into the current branch with git merge.
+- CHERRY_PICK_HEAD – The commit that you’re cherry-picking.
 
 ### Relative Refs
 
