@@ -1903,7 +1903,7 @@ git checkout @{-1}
 Use binary search to find the commit that introduced a bug.
 
 ```bash
-git bisect (start | bad | good | reset | log | replay | terms)
+git bisect (start | bad | good | skip | reset | log | replay | terms)
 ```
 
 Reset bisection state and start a new bisection.
@@ -1934,6 +1934,12 @@ Mark current or given revision as good.
 
 ```bash
 good
+```
+
+If the code doesn’t run or the feature isn’t reachable.
+
+```bash
+skip
 ```
 
 Finish bisection search and return to the given branch (or master).
